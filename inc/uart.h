@@ -9,27 +9,16 @@
 #define _SERIAL_H_
 
 #include <msp430x14x.h>
+#include "include.h"
+#include "buffer.h"
 
 #define UART0 0
 #define UART1 1
-#define BUFF_SIZE 32
-
-struct RBuffer {
-  unsigned char pBuffer[BUFF_SIZE];
-  int head;
-  int end;
-};
-
-struct WBuffer {
-  unsigned char pBuffer[BUFF_SIZE];
-  int head;
-  int end;
-};
 
 struct Uart {
   int index;
-  struct RBuffer rBuffer;
-  struct WBuffer wBuffer;
+  struct Buffer rBuffer;
+  struct Buffer wBuffer;
 };
 
 //struct Uart pUart[2];

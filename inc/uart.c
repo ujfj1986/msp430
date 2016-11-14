@@ -7,22 +7,18 @@
 
 #include "uart.h"
 
-#define NULL ((void *)0)
+//#define NULL ((void *)0)
 
-struct Uart pUart[2];
+struct Uart gUart[2];
 
 int initUart() {
-  pUart[UART0].index = UART0;
-  pUart[UART0].rBuffer.head = 0;
-  pUart[UART0].rBuffer.end = 0;
-  pUart[UART0].wBuffer.head = 0;
-  pUart[UART0].wBuffer.end = 0;
-  pUart[UART1].index = UART1;
-  pUart[UART1].rBuffer.head = 0;
-  pUart[UART1].rBuffer.end = 0;
-  pUart[UART1].wBuffer.head = 0;
-  pUart[UART1].wBuffer.end = 0;
-
+  gUart[UART0].index = UART0;
+  initBuffer(&(gUart[UART0].rBuffer));
+  initBuffer(&(gUart[UART0].wBuffer));
+  gUart[UART1].index = UART1;
+  initBuffer(&(gUart[UART1].rBuffer));
+  initBuffer(&(gUart[UART1].wBuffer));
+  return 0;
 }
 
 #if 0
@@ -80,39 +76,28 @@ int openUart(int num) {
 
 #pragma vector = UART1RX_VECTOR
 __interrupt void Uart1_Rx(void) {
+  struct Buffer *pBuffer = &(gUart[UART1].rBuffer);
+  unsigned char tmp = U1RXBUF;
+  writeBuffer(pBuffer, tmp);
   LPM4_EXIT;
-  pUart[UART1].
+  //trigger uart1 rx event
+}
 
 #pragma vector = UART0RX_VECTOR
-__interrupt void Usart0_RX(void)
-{
+__interrupt void Uart0_Rx(void) {
+  struct Buffer *pBuffer = &(gUart[UART0].rBuffer);
+  unsigned char tmp = U0RXBUF;
+  writeBuffer(pBuffer, tmp);
   LPM4_EXIT;
-  g_BluereturnDat[g_cmdindex++] = (unsigned char)UCA0RXBUF;
-  
-  if(g_BluePowerOn == 0 && g_cmdindex>=2)
-  {
-    if(g_BluereturnDat[g_cmdindex-1] == 'R' )
-    {
-        if(g_BluereturnDat[g_cmdindex-2] == '+')
-          g_BluePowerOn = 1; 
-        else
-          g_cmdindex-=2;
-    }
-    else
-      g_cmdindex-=2; 
-  }
-  if(g_cmdindex == CMD_SIZE)
-    g_cmdindex = 0;
+  //trigger uart0 rx event
 }
-unsigned char readFrom(int num) {
-  unsigned char tmp;
+
+int readFrom(int num, unsigned char* pVal, int size) {
+  struct Buffer *pBuffer = NULL;
   if (num != 0 && num != 1) return -1;
-  while((num == 0) ? (!IFG1 & URXIFG0) : (!IFG2 & URXIFG1)) ;
   
-  if (num == 0) tmp = U0RXBUF;
-  else tmp = U1RXBUF;
-  
-  return tmp;
+  pBuffer = &(gUart[num].rBuffer);
+  return readBuffer(pBuffer, pVal, size);
 }
 
 int writeTo(int num, unsigned char val) {

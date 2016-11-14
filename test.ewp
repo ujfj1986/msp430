@@ -1870,6 +1870,9 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\inc\buffer.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\inc\keypad.c</name>
   </file>
   <file>

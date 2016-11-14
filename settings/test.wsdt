@@ -23,6 +23,10 @@
         <ColumnWidth3>61</ColumnWidth3>
       </Build>
       <TerminalIO/>
+      <Debug-Log>
+        <ColumnWidth0>20</ColumnWidth0>
+        <ColumnWidth1>1221</ColumnWidth1>
+      </Debug-Log>
     </Static>
     <Windows>
       <Wnd0>
@@ -48,8 +52,14 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
+          <Tab>
+            <Identity>TabID-16975-23499</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
+        <SelectedTab>1</SelectedTab>
       </Wnd1>
     </Windows>
     <Editor>
@@ -59,26 +69,26 @@
           <Filename>$WS_DIR$\main.c</Filename>
           <XPos>0</XPos>
           <YPos>81</YPos>
-          <SelStart>2625</SelStart>
-          <SelEnd>2625</SelEnd>
+          <SelStart>2997</SelStart>
+          <SelEnd>2997</SelEnd>
         </Tab>
-        <ActiveTab>0</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\uart.c</Filename>
           <XPos>0</XPos>
-          <YPos>161</YPos>
-          <SelStart>3302</SelStart>
-          <SelEnd>3302</SelEnd>
+          <YPos>146</YPos>
+          <SelStart>3375</SelStart>
+          <SelEnd>3375</SelEnd>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\uart.h</Filename>
           <XPos>0</XPos>
-          <YPos>21</YPos>
-          <SelStart>459</SelStart>
-          <SelEnd>459</SelEnd>
+          <YPos>12</YPos>
+          <SelStart>534</SelStart>
+          <SelEnd>534</SelEnd>
         </Tab>
+        <ActiveTab>2</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\KEY&#x6309;&#x952e;&#x7A0B;&#x5e8F;\KEY&#x6309;&#x952e;&#x7A0B;&#x5e8F;\KEY&#x6309;&#x952e;&#x7A0B;&#x5e8F;\4X1 KEYS\4K3\main.c</Filename>
@@ -86,6 +96,38 @@
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\include.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>209</SelStart>
+          <SelEnd>209</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\buffer.h</Filename>
+          <XPos>0</XPos>
+          <YPos>23</YPos>
+          <SelStart>490</SelStart>
+          <SelEnd>490</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Evaluation\430\inc\dlib\c\stdio.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\buffer.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>120</SelStart>
+          <SelEnd>120</SelEnd>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
@@ -184,6 +226,9 @@
         <Row26>
           <Sizes/>
         </Row26>
+        <Row27>
+          <Sizes/>
+        </Row27>
       </Top>
       <Left>
         <Row0>
