@@ -2,48 +2,82 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2444615388</fileChecksum>
+  <fileChecksum>2586616306</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\inc\buffer.c</file>
-      <file>$PROJ_DIR$\inc\keypad.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\test.pbd</file>
-      <file>$PROJ_DIR$\inc\uart.c</file>
-      <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\inc\uart.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Debug\Exe\test.txt</file>
-      <file>$PROJ_DIR$\Debug\Obj\keypad.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\test.d43</file>
-      <file>$PROJ_DIR$\Debug\Obj\keypad.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-      <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-      <file>$PROJ_DIR$\inc\keypad.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
-      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
       <file>$TOOLKIT_DIR$\config\lnk430F149.xcl</file>
-      <file>$PROJ_DIR$\Debug\Obj\buffer.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\buffer.pbi</file>
       <file>$PROJ_DIR$\inc\include.h</file>
       <file>$PROJ_DIR$\inc\buffer.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\buffer.r43</file>
+      <file>$PROJ_DIR$\inc\keypad.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.r43</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\test.d43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\keypad.pbi</file>
+      <file>$PROJ_DIR$\inc\uart.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\keypad.r43</file>
+      <file>$PROJ_DIR$\inc\buffer.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\test.pbd</file>
+      <file>$PROJ_DIR$\inc\uart.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\buffer.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_uart01_09600.c</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_uart03_09600.c</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_uart01_19200.c</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_uart02_09600.c</file>
     </outputs>
     <file>
-      <name>$PROJ_DIR$\inc\buffer.c</name>
+      <name>$PROJ_DIR$\inc\keypad.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 10 23 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10 23 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\test.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 0 3 5 21 7 12</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
       <outputs>
         <tool>
           <name>ICC430</name>
@@ -57,34 +91,34 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 26 27 32 28 25 29 30 34 31 33 24</file>
+          <file> 10 23 24 30 27 16 31 25 29 28 33 9 8 1 15 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 26 27 32 28 29 30 34 31 33 24</file>
+          <file> 10 23 24 30 27 16 31 29 28 33 9 8 1 15 2</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\inc\keypad.c</name>
+      <name>$PROJ_DIR$\inc\buffer.c</name>
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 8</file>
+          <file> 5</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 10</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 12 13 14</file>
+          <file> 30 27 16 31 25 29 28 33 9 8 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 12 13 14</file>
+          <file> 30 27 16 31 29 28 33 9 8 2</file>
         </tool>
       </inputs>
     </file>
@@ -93,7 +127,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 22 10 6 18</file>
+          <file> 26 22 4</file>
         </tool>
       </inputs>
     </file>
@@ -102,62 +136,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 17</file>
+          <file> 7</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 18</file>
+          <file> 4</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 5 12 13 14 23 26 27 32 28 25 29 30 34 31 33 24</file>
+          <file> 10 23 24 15 1 30 27 16 31 25 29 28 33 9 8 2</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 5 12 13 14 23 26 27 32 28 29 30 34 31 33 24</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.c</name>
-      <outputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 11</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 12 13 14 26 27 32 28 25 29 30 34 31 33 23 5 24 16</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 12 13 14 26 27 32 28 29 30 34 31 33 23 5 24 16</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\test.txt</name>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 20 19 8 11 17 15</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\test.d43</name>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 20 19 21 8 11 17 15</file>
+          <file> 10 23 24 15 1 30 27 16 31 29 28 33 9 8 2</file>
         </tool>
       </inputs>
     </file>
@@ -166,7 +159,7 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 9</file>
+          <file> 11</file>
         </tool>
       </outputs>
     </file>

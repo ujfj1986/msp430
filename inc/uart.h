@@ -26,8 +26,8 @@ struct Uart {
 int initUart();
 int openUart(int num);
 int readFrom(int num, unsigned char *pbuffer, int size);
-int writeTo(int num, unsigned char);
-int writeTo0Str(unsigned char*, int);
+int writeByteTo(int num, unsigned char);
+int writeStrTo(int num, unsigned char*, int);
 int closeUart(int num);
 
 #endif //_SERIAL_H_

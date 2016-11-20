@@ -42,16 +42,20 @@ Control Register=0
 NextState0=0
 NextState1=0
 [Action Register]
-Break=4
-State Storage=4
+Break=2
+State Storage=2
 [DebugChecksum]
-Checksum=-270623249
+Checksum=1732172140
 [CallStack]
 ShowArgs=0
 [Disassembly]
 MixedMode=1
 [watch_formats]
 Fmt0={W}0:UTXIFG0	4	0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -62,10 +66,6 @@ Enabled=0
 Mode=0
 Graph=0
 Symbiont=0
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
 [Breakpoints]
 Count=0
 [FET]

@@ -799,7 +799,7 @@
         </option>
         <option>
           <name>DebugInformation</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>RuntimeControl</name>
@@ -1871,9 +1871,6 @@
   </configuration>
   <file>
     <name>$PROJ_DIR$\inc\buffer.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\keypad.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
