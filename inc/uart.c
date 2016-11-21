@@ -7,23 +7,34 @@
 
 #include <msp430x14x.h>
 #include "uart.h"
+#include "include.h"
+#include "buffer.h"
+
+struct Uart {
+  int index;
+  struct Buffer rBuffer;
+  int status;
+};
 
 //#define NULL ((void *)0)
 
 struct Uart gUart[2];
+#define CLOSED 0
+#define OPENED 1
 
 int initUart() {
   gUart[UART0].index = UART0;
   initBuffer(&(gUart[UART0].rBuffer));
-  initBuffer(&(gUart[UART0].wBuffer));
+  gUart[UART0].status = CLOSED;
   gUart[UART1].index = UART1;
   initBuffer(&(gUart[UART1].rBuffer));
-  initBuffer(&(gUart[UART1].wBuffer));
+  gUart[UART1].status = CLOSED;
   return 0;
 }
 
 int openUart(int num) {
   if (num != 0 && num != 1) return -1;
+  if (OPENED == gUart[num].status) return 0;
   if (num == 0) { 
     P3SEL |= 0x30;
     ME1 |= URXE0 + UTXE0;
@@ -34,6 +45,7 @@ int openUart(int num) {
     UMCTL0 = 0x4A; 
     UCTL0 &= ~SWRST;
     IE1 |= URXIE0;
+    gUart[UART0].status = OPENED;
   } else { 
     P3SEL |= 0xC0; 
     UCTL1 |= SWRST;
@@ -44,6 +56,7 @@ int openUart(int num) {
     UCTL1 &= ~SWRST;
     ME2 |= URXE1 + UTXE1; 
     IE2 |= URXIE1;
+    gUart[UART1].status = OPENED;
   } 
 
   return 0;
@@ -54,30 +67,34 @@ __interrupt void Uart1_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART1].rBuffer);
   unsigned char tmp = U1RXBUF;
   writeBuffer(pBuffer, tmp);
-  LPM4_EXIT;
+  _BIC_SR_IRQ(LPM3_bits);
   //trigger uart1 rx event
 }
 
-extern volatile  uchar CpuStatus;
-extern volatile uchar tmp;
-
-
-
-/*
-  #if 0
-  while ((IFG1 & URXIFG0) == 0);
-
+unsigned char buf =0;
+#pragma vector = UART0RX_VECTOR
+__interrupt void Uart0_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART0].rBuffer);
   unsigned char tmp = U0RXBUF;
+  buf = RXBUF0;
+  writeStrTo(0, "receive 1.", 10);
   writeBuffer(pBuffer, tmp);
-#endif
-  //LPM4_EXIT;
+ _BIC_SR_IRQ(LPM3_bits);
   //trigger uart0 rx event
-}*/
+}
 
-int readFrom(int num, unsigned char* pVal, int size) {
+int readByteFrom(int num, unsigned char* pVal) {
+  *pVal = buf;
+  return 1;
+  if (num != 0 && num != 1) return -1;
+  if (CLOSED == gUart[num].status) return -2;
+  return readStrFrom(num, pVal, 1);
+}
+
+int readStrFrom(int num, unsigned char* pVal, int size) {
   struct Buffer *pBuffer = NULL;
   if (num != 0 && num != 1) return -1;
+  if (CLOSED == gUart[num].status) return -2;
   
   pBuffer = &(gUart[num].rBuffer);
   return readBuffer(pBuffer, pVal, size);
@@ -85,6 +102,7 @@ int readFrom(int num, unsigned char* pVal, int size) {
 
 int writeByteTo(int num, unsigned char val) {
   if (num != 0 && num != 1) return -1;
+  if (CLOSED == gUart[num].status) return -2;
   
   if (num == 0) {
     U0TXBUF = val;
@@ -104,6 +122,7 @@ int writeByteTo(int num, unsigned char val) {
 int writeStrTo(int num, unsigned char* p, int len) {
   int i = 0;
   if (NULL == p || len <= 0) return -1;
+  if (CLOSED == gUart[num].status) return -2;
 
   for (i = 0; p[i] != '\0'; i++)
     writeByteTo(num, p[i]);
@@ -114,13 +133,16 @@ int writeStrTo(int num, unsigned char* p, int len) {
 
 int closeUart(int num) {
   if (num != 0 && num != 1) return -1;
+  if (CLOSED == gUart[num].status) return 0;
   
   if (num == 0) {
     P3SEL &= 0xCF;
     P3DIR |= 0x30;
+    gUart[UART0].status = CLOSED;
   } else {
     P3SEL &= 0x3F;
     P3DIR |= 0xC0;
+    gUart[UART1].status = CLOSED;
   }
 
   return 0;

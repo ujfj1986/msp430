@@ -6,8 +6,8 @@
 ***************************************************/
 #include  <msp430x14x.h>
 #include <stdio.h>
-#include "./inc/include.h"
-#include "./inc/uart.h"
+#include "include.h"
+#include "uart.h"
     
 void InitMsp430() {
   /*下面六行程序关闭所有的IO口*/
@@ -26,24 +26,31 @@ void InitMsp430() {
     TACTL = TASSEL_1 + ID_3 + MC_1; //定时器A的时钟源选择ACLK，增计数模式
 #endif*/
 }
-    
-volatile uchar CpuStatus = 1;
-volatile uchar tmp = 0xff;
+
 /****************主函数****************/
 void main(void)
 {
+    unsigned char buf[10] = "\0";
+    unsigned char count = 0;
     InitMsp430();
     
     //init uart0&uart1
     initUart();
-    openUart(0);
+    openUart(UART0);
     //openUart(1);
  
     _EINT();                        //使能全局中断
     //LPM3;                           //CPU进入LPM3模式
     /* read from uart1 and write to uart0*/
-
+    while (1) {
         _BIS_SR(LPM3_bits + GIE);
+        readByteFrom(UART0, buf);
+        count ++;
+        P2OUT = ~count;
+        writeByteTo(UART0, buf[0]);
+    }
+        
+        
 
 }
 
@@ -59,13 +66,3 @@ __interrupt void Timer_A (void)
     //P2OUT ^= 0xff;                  //P2口输出取反
     //LPM3_EXIT;
 }*/
-uchar rcount = 0;
-#pragma vector = UART0RX_VECTOR
-__interrupt void Uart0_Rx(void) {
-
-  while (!(IFG1 & UTXIFG0));                // USART0 TX buffer ready?
-  TXBUF0 = RXBUF0;                          // RXBUF0 to TXBUF0
-  //writeTo(0, RXBUF0);
-  rcount ++;
-  P2OUT = ~rcount;
-}
