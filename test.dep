@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>243436950</fileChecksum>
+  <fileChecksum>3529270021</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -15,7 +15,6 @@
       <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
       <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$PROJ_DIR$\uart.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\Debug\Obj\test.pbd</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
@@ -23,7 +22,6 @@
       <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
       <file>$PROJ_DIR$\Debug\Obj\buffer.pbi</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-      <file>$PROJ_DIR$\buffer.c</file>
       <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
       <file>$TOOLKIT_DIR$\config\lnk430F149.xcl</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
@@ -31,21 +29,27 @@
       <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
       <file>$PROJ_DIR$\Debug\Obj\buffer.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\uart.r43</file>
-      <file>$PROJ_DIR$\uart.c</file>
       <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
       <file>$PROJ_DIR$\Debug\Exe\test.d43</file>
-      <file>$PROJ_DIR$\include.h</file>
-      <file>$PROJ_DIR$\buffer.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\test.txt</file>
+      <file>$PROJ_DIR$\inc\timer.h</file>
+      <file>$PROJ_DIR$\inc\buffer.h</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_ta_01.c</file>
+      <file>$PROJ_DIR$\inc\timer.c</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_ta_02.c</file>
+      <file>E:\DOCUMENTS\&#x84DD;&#x7259;&#x95e8;&#x9501;\MSP430F149\&#x5F00;&#x53D1;&#x677F;&#x4F8B;&#x7A0B;\TI&#x63D0;&#x4F9B;&#x7684;&#x4F8B;&#x7A0B;\fet140_ta_17.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\timer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\timer.r43</file>
       <file>$PROJ_DIR$\inc\buffer.c</file>
+      <file>$PROJ_DIR$\inc\include.h</file>
       <file>$PROJ_DIR$\inc\uart.c</file>
+      <file>$PROJ_DIR$\inc\uart.h</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\main.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 13</file>
+          <file> 12</file>
         </tool>
         <tool>
           <name>ICC430</name>
@@ -55,11 +59,11 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 18 8 5 1 12 16 2 4 10 7 22 21 28 9</file>
+          <file> 16 8 5 1 11 15 2 4 9 7 20 19 34 36 25</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 18 8 5 1 12 16 2 14 4 10 7 22 21 28 9</file>
+          <file> 16 8 5 1 11 15 2 13 4 9 7 20 19 34 36 25</file>
         </tool>
       </inputs>
     </file>
@@ -68,53 +72,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 15 13 26</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\buffer.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 23</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 1 12 16 2 4 10 7 22 21 29</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 1 12 16 2 14 4 10 7 22 21 29</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uart.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 26</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 24</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 18 8 5 9 28 1 12 16 2 4 10 7 22 21 29</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 18 8 5 9 28 1 12 16 2 14 4 10 7 22 21 29</file>
+          <file> 14 12 31 23</file>
         </tool>
       </inputs>
     </file>
@@ -123,7 +81,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 19 3 23 6 24 20</file>
+          <file> 17 3 21 6 32 22 18</file>
         </tool>
       </inputs>
     </file>
@@ -132,16 +90,30 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 30</file>
+          <file> 24</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Debug\Exe\test.txt</name>
+      <name>$PROJ_DIR$\inc\timer.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
       <inputs>
         <tool>
-          <name>XLINK</name>
-          <file> 19 3 23 6 24 20</file>
+          <name>BICOMP</name>
+          <file> 16 8 5 25</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 16 8 5 25</file>
         </tool>
       </inputs>
     </file>
@@ -150,31 +122,47 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 15</file>
+          <file> 14</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 23</file>
+          <file> 21</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 11 15 2 4 9 7 20 19 26</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 1 11 15 2 13 4 9 7 20 19 26</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\inc\uart.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 26</file>
+          <file> 23</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 24</file>
+          <file> 22</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16 8 5 36 34 1 11 15 2 4 9 7 20 19 26 25</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 16 8 5 36 34 1 11 15 2 13 4 9 7 20 19 26 25</file>
+        </tool>
+      </inputs>
     </file>
-    <forcedrebuild>
-      <name>[MULTI_TOOL]</name>
-      <tool>XLINK</tool>
-    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>

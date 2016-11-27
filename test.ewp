@@ -640,7 +640,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>test.txt</state>
+          <state>test.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -799,7 +799,7 @@
         </option>
         <option>
           <name>DebugInformation</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>RuntimeControl</name>
@@ -1874,6 +1874,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\timer.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\inc\uart.c</name>

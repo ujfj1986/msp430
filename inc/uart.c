@@ -9,6 +9,7 @@
 #include "uart.h"
 #include "include.h"
 #include "buffer.h"
+#include "timer.h"
 
 struct Uart {
   int index;
@@ -71,21 +72,16 @@ __interrupt void Uart1_Rx(void) {
   //trigger uart1 rx event
 }
 
-unsigned char buf =0;
 #pragma vector = UART0RX_VECTOR
 __interrupt void Uart0_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART0].rBuffer);
   unsigned char tmp = U0RXBUF;
-  buf = RXBUF0;
-  writeStrTo(0, "receive 1.", 10);
   writeBuffer(pBuffer, tmp);
  _BIC_SR_IRQ(LPM3_bits);
   //trigger uart0 rx event
 }
 
 int readByteFrom(int num, unsigned char* pVal) {
-  *pVal = buf;
-  return 1;
   if (num != 0 && num != 1) return -1;
   if (CLOSED == gUart[num].status) return -2;
   return readStrFrom(num, pVal, 1);
@@ -96,6 +92,8 @@ int readStrFrom(int num, unsigned char* pVal, int size) {
   if (num != 0 && num != 1) return -1;
   if (CLOSED == gUart[num].status) return -2;
   
+  //-TODO: sleep 500ms, and then return buffer.
+  delay_ms(500);
   pBuffer = &(gUart[num].rBuffer);
   return readBuffer(pBuffer, pVal, size);
 }

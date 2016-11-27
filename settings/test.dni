@@ -45,27 +45,13 @@ NextState1=0
 Break=2
 State Storage=2
 [DebugChecksum]
-Checksum=1732172140
+Checksum=1905314679
 [CallStack]
 ShowArgs=0
 [Disassembly]
 MixedMode=1
 [watch_formats]
 Fmt0={W}0:UTXIFG0	4	0
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
-[CallStackLog]
-Enabled=0
-[DriverProfiling]
-Enabled=0
-Mode=0
-Graph=0
-Symbiont=0
 [Breakpoints]
 Count=0
 [FET]
@@ -87,6 +73,22 @@ SP=0
 SR=0
 all registers=0
 File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
-Count=0
+A0=_ "F:\workspace\test_for_msp430\buffer.c" ""
+A1=_ "F:\workspace\test_for_msp430\uart.c" "F:\workspace\test_for_msp430\inc\uart.c"
+Count=2
 SuppressDialog=0
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
