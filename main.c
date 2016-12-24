@@ -9,6 +9,7 @@
 #include "./inc/include.h"
 #include "./inc/uart.h"
 #include "./inc/timer.h"
+#include "./inc/event.h"
     
 void InitMsp430() {
   /*下面六行程序关闭所有的IO口*/
@@ -26,17 +27,27 @@ void InitMsp430() {
 #endif*/
 }
 
+void readuart0(void* context) {
+  unsigned char count = 0;
+  unsigned char buf[10] = "\0";
+  readByteFrom(UART0, buf);
+  count ++;
+  P2OUT = ~count;
+  writeByteTo(UART0, buf[0]);
+}
 /****************主函数****************/
 void main(void)
 {
-    unsigned char buf[10] = "\0";
-    unsigned char count = 0;
+    //unsigned char buf[10] = "\0";
+    //unsigned char count = 0;
     InitMsp430();
     initTimer();
     
     //init uart0&uart1
     initUart();
+    initEvent();
 
+    registerEventProcess(UART0READ, readuart0, NULL);
     openUart(UART0);
     //openUart(1);
  
@@ -44,12 +55,14 @@ void main(void)
     //LPM3;                           //CPU进入LPM3模式
     /* read from uart1 and write to uart0*/
     while (1) {
-        _BIS_SR(LPM3_bits + GIE);
+        //_BIS_SR(LPM3_bits + GIE);
+        /*SUSPEND();
 
         readByteFrom(UART0, buf);
         count ++;
         P2OUT = ~count;
-        writeByteTo(UART0, buf[0]);
+        writeByteTo(UART0, buf[0]);*/
+      processEvents();
     }
         
         

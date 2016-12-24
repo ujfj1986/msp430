@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2226526414</fileChecksum>
+  <fileChecksum>366577303</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -38,16 +38,22 @@
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
       <file>$PROJ_DIR$\Debug\Obj\timer.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
       <file>$PROJ_DIR$\Debug\Exe\test.ulp</file>
       <file>$PROJ_DIR$\inc\include.h</file>
+      <file>$PROJ_DIR$\inc\pm.h</file>
+      <file>$PROJ_DIR$\inc\event.h</file>
       <file>$PROJ_DIR$\inc\uart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\event.r43</file>
+      <file>$PROJ_DIR$\inc\event.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\event.pbi</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\test.d43</name>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 21 25 1 26 10 9 5</file>
+          <file> 21 25 1 38 26 10 9 5</file>
         </tool>
       </inputs>
     </file>
@@ -89,11 +95,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 0 28 29 34 33 22 30 11 18 4 24 27 23 14 13 15 12</file>
+          <file> 0 28 29 37 34 22 30 11 18 4 24 27 23 14 13 15 12 35</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0 28 29 34 33 22 30 11 18 4 24 27 23 14 13 15 12</file>
+          <file> 0 28 29 37 34 22 30 11 18 4 24 27 23 14 13 15 12 35</file>
         </tool>
       </inputs>
     </file>
@@ -135,11 +141,34 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 0 28 29 22 30 11 18 4 24 27 23 14 13 33 34 12</file>
+          <file> 0 28 29 22 30 11 18 4 24 27 23 14 13 34 37 12 36</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0 28 29 22 30 11 18 4 24 27 23 14 13 33 34 12</file>
+          <file> 0 28 29 22 30 11 18 4 24 27 23 14 13 34 37 12 36</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\event.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 36 35 0 28 29 32 30 11 18 4 24 27 23 14 22 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36 35 0 28 29 32 30 11 18 4 24 27 23 14 22 13</file>
         </tool>
       </inputs>
     </file>
@@ -152,10 +181,14 @@
         </tool>
         <tool>
           <name>ULP430</name>
-          <file> 32</file>
+          <file> 33</file>
         </tool>
       </outputs>
     </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>

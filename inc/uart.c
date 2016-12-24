@@ -10,6 +10,7 @@
 #include "include.h"
 #include "buffer.h"
 #include "timer.h"
+#include "pm.h"
 
 struct Uart {
   int index;
@@ -68,7 +69,8 @@ __interrupt void Uart1_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART1].rBuffer);
   unsigned char tmp = U1RXBUF;
   writeBuffer(pBuffer, tmp);
-  _BIC_SR_IRQ(LPM3_bits);
+  //_BIC_SR_IRQ(LPM3_bits);
+  RESUME();
   //trigger uart1 rx event
 }
 
@@ -77,7 +79,8 @@ __interrupt void Uart0_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART0].rBuffer);
   unsigned char tmp = U0RXBUF;
   writeBuffer(pBuffer, tmp);
- _BIC_SR_IRQ(LPM3_bits);
+ //_BIC_SR_IRQ(LPM3_bits);
+  RESUME();
   //trigger uart0 rx event
 }
 
