@@ -14,6 +14,7 @@
 #include "timer.h"
 
 #define PERIOD  408 //define the timer period, 0.1s
+#define TIME_TICK 100 //define the time tick as 100ms
 volatile unsigned long long tick = 0;
 
 int initTimer() {
@@ -28,7 +29,7 @@ unsigned long long getCurrentTime() {
 void delay_ms(unsigned int ms) {
   unsigned long long tmp = getCurrentTime();
   
-  while((ms / PERIOD) < (tick - tmp));
+  while((ms / TIME_TICK) < (tick - tmp));
 }
 
 /*******************************************
