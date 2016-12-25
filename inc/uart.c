@@ -85,9 +85,11 @@ __interrupt void Uart0_Rx(void) {
 }
 
 int readByteFrom(int num, unsigned char* pVal) {
+  struct Buffer *pBuffer = NULL;
   if (num != 0 && num != 1) return -1;
   if (CLOSED == gUart[num].status) return -2;
-  return readStrFrom(num, pVal, 1);
+  pBuffer = &(gUart[num].rBuffer);
+  return readBuffer(pBuffer, pVal, 1);
 }
 
 int readStrFrom(int num, unsigned char* pVal, int size) {

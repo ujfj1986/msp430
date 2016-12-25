@@ -640,7 +640,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>test.d43</state>
+          <state>Backup of test.d43</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -1871,6 +1871,9 @@
   </configuration>
   <file>
     <name>$PROJ_DIR$\inc\buffer.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\event.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
