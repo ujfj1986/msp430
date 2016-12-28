@@ -13,10 +13,18 @@ struct ListNode {
   struct ListNode* next;
 }
 
-typedef int (*compareNode)(ListNode* , ListNode*);
-int insert(ListNode* node, compareNode comp);
+struct List {
+  struct ListNode* head;
+  struct ListNode* end;
+  int len;
+}
+int initList(List* list);
+int deleteList(List* list);
 
-int add(ListNode* node);
-ListNode* del();
+typedef int (*compareNode)(ListNode* , ListNode*);
+int insert(List* list, ListNode* node, compareNode comp);
+
+int add(List* list, ListNode* node);
+ListNode* del(List* list, ListNode* node);
 
 #endif //_LIST_H_

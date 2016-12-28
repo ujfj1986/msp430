@@ -323,7 +323,7 @@
 <L><invalid loc>:327:9: macro definition=_DLIB_CONFIG_FILE_HEADER_NAME <US>c:macro@_DLIB_CONFIG_FILE_HEADER_NAME<UE> <DS>_DLIB_CONFIG_FILE_HEADER_NAME<DE> Extent=<ES>327:9 - 327:132<EE>
 <L><invalid loc>:328:9: macro definition=_DLIB_CONFIG_FILE_STRING <US>c:macro@_DLIB_CONFIG_FILE_STRING<UE> <DS>_DLIB_CONFIG_FILE_STRING<DE> Extent=<ES>328:9 - 328:134<EE>
 <L><invalid loc>:329:9: macro definition=__VERSION__ <US>c:macro@__VERSION__<UE> <DS>__VERSION__<DE> Extent=<ES>329:9 - 329:90<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:7:1: inclusion directive=stdio.h <US><UE> <DS><DE> <IS>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h<IE>  Extent=<ES>7:1 - 7:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:7:1: inclusion directive=stdio.h <US><UE> <DS><DE> <IS>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h<IE>  Extent=<ES>7:1 - 7:11<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:4:9: macro definition=_STDIO <US>c:macro@_STDIO<UE> <DS>_STDIO<DE> Extent=<ES>4:9 - 4:15<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:10:1: inclusion directive=ycheck.h <US><UE> <DS><DE> <IS>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\ycheck.h<IE>  Extent=<ES>10:1 - 10:11<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\ycheck.h:21:11: macro definition=__INTRINSIC <US>c:macro@__INTRINSIC<UE> <DS>__INTRINSIC<DE> Extent=<ES>21:11 - 21:34<EE>
@@ -711,20 +711,11 @@
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:206:1: macro expansion=_END_C_LIB_DECL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:305:11 <US>c:macro@_END_C_LIB_DECL<UE> <DS>_END_C_LIB_DECL<DE> Extent=<ES>206:1 - 206:16<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:211:7: macro expansion=_DLIB_FILE_DESCRIPTOR|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\DLib_Defaults.h:103:9 <US>c:macro@_DLIB_FILE_DESCRIPTOR<UE> <DS>_DLIB_FILE_DESCRIPTOR<DE> Extent=<ES>211:7 - 211:28<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:228:1: macro expansion=_C_STD_END|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:297:11 <US>c:macro@_C_STD_END<UE> <DS>_C_STD_END<DE> Extent=<ES>228:1 - 228:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:8:1: inclusion directive=buffer.h <US><UE> <DS><DE> <IS>E:\workspace\msp430\autolife\inc\buffer.h<IE>  [multi-include guarded] Extent=<ES>8:1 - 8:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:11:9: macro definition=_BUFFER_H_ <US>c:macro@_BUFFER_H_<UE> <DS>_BUFFER_H_<DE> Extent=<ES>11:9 - 11:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:13:9: macro definition=BUFF_SIZE <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>13:9 - 13:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:16:25: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>16:25 - 16:34<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:18: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>11:18 - 11:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:18: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>18:18 - 18:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:19: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>20:19 - 20:28<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:22: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>23:22 - 23:31<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:19: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>32:19 - 32:23<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:37: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>32:37 - 32:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:34:11: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>34:11 - 34:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:61: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>38:61 - 38:70<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:55: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>44:55 - 44:64<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:43: macro expansion=BUFF_SIZE|E:\workspace\msp430\autolife\inc\buffer.h:13:9 <US>c:macro@BUFF_SIZE<UE> <DS>BUFF_SIZE<DE> Extent=<ES>46:43 - 46:52<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:8:1: inclusion directive=list.h <US><UE> <DS><DE> <IS>E:\workspace\msp430\autolife\inc\list.h<IE>  [multi-include guarded] Extent=<ES>8:1 - 8:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:10:9: macro definition=_LIST_H_ <US>c:macro@_LIST_H_<UE> <DS>_LIST_H_<DE> Extent=<ES>10:9 - 10:17<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:7: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>11:7 - 11:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:28: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>12:28 - 12:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:17:7: macro expansion=NULL|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:22:11 <US>c:macro@NULL<UE> <DS>NULL<DE> Extent=<ES>17:7 - 17:11<EE>
 <L><invalid loc>:2:15: TypedefDecl=__builtin_va_list|<invalid loc>:2:15 (Definition) <US><UE> <DS>char *<DE> Extent=<ES>2:1 - 2:32<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:399:21: TypedefDecl=_Longlong|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:399:21 (Definition) <US>c:yvals.h@11030@T@_Longlong<UE> <DS>long long<DE> Extent=<ES>399:3 - 399:30<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:400:22: TypedefDecl=_ULonglong|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\yvals.h:400:22 (Definition) <US>c:yvals.h@11062@T@_ULonglong<UE> <DS>unsigned long long<DE> Extent=<ES>400:3 - 400:32<EE>
@@ -833,294 +824,75 @@
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:203:32: FunctionDecl=getchar|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:203:32 (Declaration) <US>c:@F@getchar<UE> <DS>int getchar(void)<DE> Extent=<ES>203:28 - 203:45<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:204:32: FunctionDecl=putchar|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:204:32 (Declaration) <US>c:@F@putchar<UE> <DS>int putchar(int)<DE> Extent=<ES>204:28 - 204:44<EE>
 <L>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:204:43: ParmDecl=|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\dlib\c\stdio.h:204:43 (Definition) <US><UE> <DS>int<DE> Extent=<ES>204:40 - 204:44<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:15:8: StructDecl=Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Definition) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>15:1 - 20:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:16:17: FieldDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:16:17 (Definition) <US>c:@S@Buffer@FI@pBuffer<UE> <DS>pBuffer<DE> Extent=<ES>16:3 - 16:35<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:16:25: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>16:25 - 16:34<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:17:17: FieldDecl=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Definition) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>17:3 - 17:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:18:17: FieldDecl=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Definition) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>18:3 - 18:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:19:17: FieldDecl=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Definition) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>19:3 - 19:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:22:5: FunctionDecl=initBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:5 (Declaration) <US>c:@F@initBuffer<UE> <DS>int initBuffer(struct Buffer *)<DE> Extent=<ES>22:1 - 22:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:22:31: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:22:31 (Definition) <US>c:buffer.h@355@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>22:16 - 22:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:22:23: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>22:23 - 22:29<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:23:5: FunctionDecl=writeBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:5 (Declaration) <US>c:@F@writeBuffer<UE> <DS>int writeBuffer(struct Buffer *, unsigned char)<DE> Extent=<ES>23:1 - 23:59<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:23:32: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:23:32 (Definition) <US>c:buffer.h@397@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>23:17 - 23:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:23:24: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>23:24 - 23:30<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:23:55: ParmDecl=val|E:\workspace\msp430\autolife\inc\buffer.h:23:55 (Definition) <US>c:buffer.h@421@F@writeBuffer@val<UE> <DS>unsigned char<DE> Extent=<ES>23:41 - 23:58<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:24:5: FunctionDecl=readBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:5 (Declaration) <US>c:@F@readBuffer<UE> <DS>int readBuffer(struct Buffer *, unsigned char *, int)<DE> Extent=<ES>24:1 - 24:70<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:24:31: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:24:31 (Definition) <US>c:buffer.h@457@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>24:16 - 24:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:24:23: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>24:23 - 24:29<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:24:55: ParmDecl=pVal|E:\workspace\msp430\autolife\inc\buffer.h:24:55 (Definition) <US>c:buffer.h@481@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>24:40 - 24:59<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.h:24:65: ParmDecl=size|E:\workspace\msp430\autolife\inc\buffer.h:24:65 (Definition) <US>c:buffer.h@502@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>24:61 - 24:69<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:10:5: FunctionDecl=initBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:5 (Definition) <US>c:@F@initBuffer<UE> <DS>int initBuffer(struct Buffer *)<DE> Extent=<ES>10:1 - 16:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:10:31: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 (Definition) <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>10:16 - 10:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:10:23: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>10:23 - 10:29<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:10:40: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>10:40 - 16:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>11:3 - 11:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>11:7 - 11:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:7: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>11:7 - 11:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:7: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 (Reference) <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>11:7 - 11:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:18: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>11:18 - 11:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:18: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>11:18 - 11:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:24: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>11:24 - 11:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:31: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>11:31 - 11:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:11:32: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>11:32 - 11:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>12:3 - 12:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:12: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>12:3 - 12:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>12:3 - 12:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 (Reference) <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>12:3 - 12:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:19: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>12:19 - 12:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:12:19: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>12:19 - 12:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>13:3 - 13:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:12: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>13:3 - 13:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>13:3 - 13:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 (Reference) <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>13:3 - 13:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:18: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>13:18 - 13:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:13:18: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>13:18 - 13:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>14:3 - 14:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:12: MemberRefExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Reference) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>14:3 - 14:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>14:3 - 14:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:10:31 (Reference) <US>c:buffer.c@166@F@initBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>14:3 - 14:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:19: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>14:19 - 14:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:14:19: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>14:19 - 14:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:15:3: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>15:3 - 15:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:15:10: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>15:10 - 15:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:17:5: FunctionDecl=writeBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:5 (Definition) <US>c:@F@writeBuffer<UE> <DS>int writeBuffer(struct Buffer *, unsigned char)<DE> Extent=<ES>17:1 - 28:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:17:32: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Definition) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>17:17 - 17:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:17:24: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>17:24 - 17:30<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:17:55: ParmDecl=val|E:\workspace\msp430\autolife\inc\buffer.c:17:55 (Definition) <US>c:buffer.c@349@F@writeBuffer@val<UE> <DS>unsigned char<DE> Extent=<ES>17:41 - 17:58<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:17:60: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>17:60 - 28:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>18:3 - 18:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>18:7 - 18:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:7: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>18:7 - 18:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:7: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>18:7 - 18:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:18: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>18:18 - 18:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:18: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>18:18 - 18:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:24: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>18:24 - 18:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:31: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>18:31 - 18:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:18:32: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>18:32 - 18:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>19:3 - 19:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:3: ArraySubscriptExpr= <US><UE> <DS><DE> Extent=<ES>19:3 - 19:35<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:12: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:16:17 <US>c:@S@Buffer@FI@pBuffer<UE> <DS>pBuffer<DE> Extent=<ES>19:3 - 19:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:12: MemberRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:16:17 (Reference) <US>c:@S@Buffer@FI@pBuffer<UE> <DS>pBuffer<DE> Extent=<ES>19:3 - 19:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>19:3 - 19:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>19:3 - 19:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:20: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>19:20 - 19:34<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:29: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>19:20 - 19:32<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:20: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>19:20 - 19:27<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:20: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>19:20 - 19:27<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:38: UnexposedExpr=val|E:\workspace\msp430\autolife\inc\buffer.c:17:55 <US>c:buffer.c@349@F@writeBuffer@val<UE> <DS>unsigned char<DE> Extent=<ES>19:38 - 19:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:19:38: DeclRefExpr=val|E:\workspace\msp430\autolife\inc\buffer.c:17:55 (Reference) <US>c:buffer.c@349@F@writeBuffer@val<UE> <DS>unsigned char<DE> Extent=<ES>19:38 - 19:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:3: CompoundAssignOperator= <US><UE> <DS><DE> Extent=<ES>20:3 - 20:28<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:12: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>20:3 - 20:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>20:3 - 20:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>20:3 - 20:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:20:19: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>20:19 - 20:28<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>21:3 - 26:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:16: UnexposedExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>21:7 - 21:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:16: MemberRefExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Reference) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>21:7 - 21:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:7: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>21:7 - 21:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:7: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>21:7 - 21:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:21:22: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>21:22 - 24:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:22:5: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>22:5 - 22:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:22:14: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>22:5 - 22:18<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:22:5: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>22:5 - 22:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:22:5: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>22:5 - 22:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:5: CompoundAssignOperator= <US><UE> <DS><DE> Extent=<ES>23:5 - 23:31<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:14: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>23:5 - 23:18<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:5: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>23:5 - 23:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:5: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>23:5 - 23:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:23:22: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>23:22 - 23:31<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:10: IfStmt= <US><UE> <DS><DE> Extent=<ES>24:10 - 26:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:14: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>24:14 - 24:43<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:23: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>24:14 - 24:26<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:23: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>24:14 - 24:26<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:23: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>24:14 - 24:26<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:14: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>24:14 - 24:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:14: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>24:14 - 24:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:39: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>24:30 - 24:43<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:39: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>24:30 - 24:43<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:39: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>24:30 - 24:43<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:30: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>24:30 - 24:37<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:30: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>24:30 - 24:37<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:24:45: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>24:45 - 26:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:5: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>25:5 - 25:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:14: MemberRefExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Reference) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>25:5 - 25:18<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:5: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>25:5 - 25:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:5: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:17:32 (Reference) <US>c:buffer.c@325@F@writeBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>25:5 - 25:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:21: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>25:21 - 25:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:25:21: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>25:21 - 25:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:27:3: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>27:3 - 27:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:27:10: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>27:10 - 27:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:5: FunctionDecl=readBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:5 (Definition) <US>c:@F@readBuffer<UE> <DS>int readBuffer(struct Buffer *, unsigned char *, int)<DE> Extent=<ES>29:1 - 49:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:31: ParmDecl=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Definition) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>29:16 - 29:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:23: TypeRef=struct Buffer|E:\workspace\msp430\autolife\inc\buffer.h:15:8 (Reference) <US>c:@S@Buffer<UE> <DS>Buffer<DE> Extent=<ES>29:23 - 29:29<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:55: ParmDecl=pVal|E:\workspace\msp430\autolife\inc\buffer.c:29:55 (Definition) <US>c:buffer.c@689@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>29:40 - 29:59<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:65: ParmDecl=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 (Definition) <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>29:61 - 29:69<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:29:71: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>29:71 - 49:2<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:30:3: DeclStmt= <US><UE> <DS><DE> Extent=<ES>30:3 - 30:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:30:7: VarDecl=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Definition) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>30:3 - 30:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:30:13: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>30:13 - 30:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:31:3: DeclStmt= <US><UE> <DS><DE> Extent=<ES>31:3 - 31:13<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:31:7: VarDecl=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Definition) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>31:3 - 31:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:31:11: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>31:11 - 31:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>32:3 - 32:68<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>32:7 - 32:57<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>32:7 - 32:42<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:7: ParenExpr= <US><UE> <DS><DE> Extent=<ES>32:7 - 32:24<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:8: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>32:8 - 32:23<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:8: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>32:8 - 32:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:8: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>32:8 - 32:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:19: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>32:19 - 32:23<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:19: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>32:19 - 32:23<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:28: ParenExpr= <US><UE> <DS><DE> Extent=<ES>32:28 - 32:42<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:29: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>32:29 - 32:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:29: UnexposedExpr=pVal|E:\workspace\msp430\autolife\inc\buffer.c:29:55 <US>c:buffer.c@689@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>32:29 - 32:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:29: DeclRefExpr=pVal|E:\workspace\msp430\autolife\inc\buffer.c:29:55 (Reference) <US>c:buffer.c@689@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>32:29 - 32:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:37: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>32:37 - 32:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:37: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>32:37 - 32:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:46: ParenExpr= <US><UE> <DS><DE> Extent=<ES>32:46 - 32:57<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:47: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>32:47 - 32:56<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:47: UnexposedExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>32:47 - 32:51<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:47: DeclRefExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 (Reference) <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>32:47 - 32:51<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:55: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>32:55 - 32:56<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:59: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>32:59 - 32:68<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:66: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>32:66 - 32:68<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:32:67: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>32:67 - 32:68<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>33:3 - 39:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:16: UnexposedExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>33:7 - 33:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:16: MemberRefExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Reference) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>33:7 - 33:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:7: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>33:7 - 33:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:7: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>33:7 - 33:14<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:33:22: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>33:22 - 35:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:34:5: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>34:5 - 34:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:34:5: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>34:5 - 34:8<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:34:11: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>34:11 - 34:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:35:10: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>35:10 - 39:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:5: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>36:5 - 38:88<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:5: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>36:5 - 36:8<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:11: ConditionalOperator= <US><UE> <DS><DE> Extent=<ES>36:11 - 38:88<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:11: ParenExpr= <US><UE> <DS><DE> Extent=<ES>36:11 - 36:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:12: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>36:12 - 36:40<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:21: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>36:12 - 36:24<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:21: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>36:12 - 36:24<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:21: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>36:12 - 36:24<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:12: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>36:12 - 36:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:12: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>36:12 - 36:19<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:36: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>36:27 - 36:40<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:36: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>36:27 - 36:40<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:36: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>36:27 - 36:40<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:27: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>36:27 - 36:34<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:36:27: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>36:27 - 36:34<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:7: ParenExpr= <US><UE> <DS><DE> Extent=<ES>37:7 - 37:37<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:8: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>37:8 - 37:36<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:17: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>37:8 - 37:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:17: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>37:8 - 37:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:17: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>37:8 - 37:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:8: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>37:8 - 37:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:8: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>37:8 - 37:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:32: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>37:23 - 37:36<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:32: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>37:23 - 37:36<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:32: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>37:23 - 37:36<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:23: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>37:23 - 37:30<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:37:23: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>37:23 - 37:30<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:7: ParenExpr= <US><UE> <DS><DE> Extent=<ES>38:7 - 38:88<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:8: ConditionalOperator= <US><UE> <DS><DE> Extent=<ES>38:8 - 38:87<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:8: ParenExpr= <US><UE> <DS><DE> Extent=<ES>38:8 - 38:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:9: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>38:9 - 38:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:18: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:9 - 38:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:18: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:9 - 38:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:18: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:9 - 38:21<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:9: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:9 - 38:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:9: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:9 - 38:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:34: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:25 - 38:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:34: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:25 - 38:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:34: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:25 - 38:38<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:25: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:25 - 38:32<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:25: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:25 - 38:32<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:41: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>38:41 - 38:42<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:45: ParenExpr= <US><UE> <DS><DE> Extent=<ES>38:45 - 38:87<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:46: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>38:46 - 38:86<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:46: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>38:46 - 38:70<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:55: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:46 - 38:58<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:55: UnexposedExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:46 - 38:58<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:55: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\buffer.h:18:17 (Reference) <US>c:@S@Buffer@FI@end<UE> <DS>end<DE> Extent=<ES>38:46 - 38:58<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:46: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:46 - 38:53<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:46: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:46 - 38:53<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:61: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>38:61 - 38:70<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:82: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:73 - 38:86<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:82: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:73 - 38:86<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:82: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>38:73 - 38:86<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:73: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:73 - 38:80<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:38:73: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>38:73 - 38:80<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>40:3 - 42:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>40:7 - 40:17<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:7: UnexposedExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>40:7 - 40:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:7: DeclRefExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 (Reference) <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>40:7 - 40:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:14: UnexposedExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>40:14 - 40:17<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:14: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>40:14 - 40:17<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:40:19: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>40:19 - 42:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:41:5: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>41:5 - 41:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:41:5: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>41:5 - 41:8<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:41:11: UnexposedExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>41:11 - 41:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:41:11: DeclRefExpr=size|E:\workspace\msp430\autolife\inc\buffer.c:29:65 (Reference) <US>c:buffer.c@710@F@readBuffer@size<UE> <DS>int<DE> Extent=<ES>41:11 - 41:15<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:3: ForStmt= <US><UE> <DS><DE> Extent=<ES>43:3 - 45:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:8: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>43:8 - 43:13<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:8: DeclRefExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Reference) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>43:8 - 43:9<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:12: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>43:12 - 43:13<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:15: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>43:15 - 43:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:15: UnexposedExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>43:15 - 43:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:15: DeclRefExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Reference) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>43:15 - 43:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:19: UnexposedExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>43:19 - 43:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:19: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>43:19 - 43:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:24: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>43:24 - 43:27<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:24: DeclRefExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Reference) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>43:24 - 43:25<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:43:29: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>43:29 - 45:4<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:5: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>44:5 - 44:66<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:5: ArraySubscriptExpr= <US><UE> <DS><DE> Extent=<ES>44:5 - 44:12<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:5: UnexposedExpr=pVal|E:\workspace\msp430\autolife\inc\buffer.c:29:55 <US>c:buffer.c@689@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>44:5 - 44:9<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:5: DeclRefExpr=pVal|E:\workspace\msp430\autolife\inc\buffer.c:29:55 (Reference) <US>c:buffer.c@689@F@readBuffer@pVal<UE> <DS>unsigned char *<DE> Extent=<ES>44:5 - 44:9<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:10: UnexposedExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>44:10 - 44:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:10: DeclRefExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Reference) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>44:10 - 44:11<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:15: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>44:15 - 44:66<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:15: ArraySubscriptExpr= <US><UE> <DS><DE> Extent=<ES>44:15 - 44:66<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:24: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:16:17 <US>c:@S@Buffer@FI@pBuffer<UE> <DS>pBuffer<DE> Extent=<ES>44:15 - 44:31<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:24: MemberRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.h:16:17 (Reference) <US>c:@S@Buffer@FI@pBuffer<UE> <DS>pBuffer<DE> Extent=<ES>44:15 - 44:31<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:15: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>44:15 - 44:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:15: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>44:15 - 44:22<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:32: ParenExpr= <US><UE> <DS><DE> Extent=<ES>44:32 - 44:65<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:33: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>44:33 - 44:64<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:33: ParenExpr= <US><UE> <DS><DE> Extent=<ES>44:33 - 44:52<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:34: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>44:34 - 44:51<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:43: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>44:34 - 44:47<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:43: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>44:34 - 44:47<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:43: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>44:34 - 44:47<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:34: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>44:34 - 44:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:34: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>44:34 - 44:41<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:50: UnexposedExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>44:50 - 44:51<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:50: DeclRefExpr=i|E:\workspace\msp430\autolife\inc\buffer.c:31:7 (Reference) <US>c:buffer.c@741@F@readBuffer@i<UE> <DS>i<DE> Extent=<ES>44:50 - 44:51<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:44:55: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>44:55 - 44:64<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>46:3 - 46:52<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:12: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>46:3 - 46:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>46:3 - 46:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>46:3 - 46:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:19: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>46:19 - 46:52<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:19: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>46:19 - 46:52<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:19: ParenExpr= <US><UE> <DS><DE> Extent=<ES>46:19 - 46:40<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:20: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>46:20 - 46:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:29: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>46:20 - 46:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:29: UnexposedExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>46:20 - 46:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:29: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\buffer.h:17:17 (Reference) <US>c:@S@Buffer@FI@head<UE> <DS>head<DE> Extent=<ES>46:20 - 46:33<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:20: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>46:20 - 46:27<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:20: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>46:20 - 46:27<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:36: UnexposedExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>46:36 - 46:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:36: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>46:36 - 46:39<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:46:43: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>46:43 - 46:52<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>47:3 - 47:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:12: MemberRefExpr=full|E:\workspace\msp430\autolife\inc\buffer.h:19:17 (Reference) <US>c:@S@Buffer@FI@full<UE> <DS>full<DE> Extent=<ES>47:3 - 47:16<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:3: UnexposedExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>47:3 - 47:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:3: DeclRefExpr=pBuffer|E:\workspace\msp430\autolife\inc\buffer.c:29:31 (Reference) <US>c:buffer.c@665@F@readBuffer@pBuffer<UE> <DS>struct Buffer *<DE> Extent=<ES>47:3 - 47:10<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:19: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>47:19 - 47:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:47:19: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>47:19 - 47:20<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:48:3: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>48:3 - 48:13<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:48:10: UnexposedExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>48:10 - 48:13<EE>
-<L>E:\workspace\msp430\autolife\inc\buffer.c:48:10: DeclRefExpr=len|E:\workspace\msp430\autolife\inc\buffer.c:30:7 (Reference) <US>c:buffer.c@725@F@readBuffer@len<UE> <DS>len<DE> Extent=<ES>48:10 - 48:13<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:12:8: StructDecl=ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Definition) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>12:1 - 14:2<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:13:20: FieldDecl=next|E:\workspace\msp430\autolife\inc\list.h:13:20 (Definition) <US>c:@S@ListNode@FI@next<UE> <DS>next<DE> Extent=<ES>13:3 - 13:24<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:13:10: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>13:10 - 13:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:16:8: StructDecl=List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Definition) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>16:1 - 20:2<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:17:20: FieldDecl=head|E:\workspace\msp430\autolife\inc\list.h:17:20 (Definition) <US>c:@S@List@FI@head<UE> <DS>head<DE> Extent=<ES>17:3 - 17:24<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:17:10: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>17:10 - 17:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:18:20: FieldDecl=end|E:\workspace\msp430\autolife\inc\list.h:18:20 (Definition) <US>c:@S@List@FI@end<UE> <DS>end<DE> Extent=<ES>18:3 - 18:23<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:18:10: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>18:10 - 18:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:19:7: FieldDecl=len|E:\workspace\msp430\autolife\inc\list.h:19:7 (Definition) <US>c:@S@List@FI@len<UE> <DS>len<DE> Extent=<ES>19:3 - 19:10<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:21:5: FunctionDecl=initList|E:\workspace\msp430\autolife\inc\list.c:10:5 (Declaration) <US>c:@F@initList<UE> <DS>int initList(struct List *)<DE> Extent=<ES>21:1 - 21:25<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:21:20: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.h:21:20 (Definition) <US>c:list.h@316@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>21:14 - 21:24<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:21:14: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>21:14 - 21:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:22:5: FunctionDecl=deleteList|E:\workspace\msp430\autolife\inc\list.c:16:5 (Declaration) <US>c:@F@deleteList<UE> <DS>int deleteList(struct List *)<DE> Extent=<ES>22:1 - 22:27<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:22:22: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.h:22:22 (Definition) <US>c:list.h@345@F@deleteList@list<UE> <DS>struct List *<DE> Extent=<ES>22:16 - 22:26<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:22:16: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>22:16 - 22:20<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:24:15: TypedefDecl=compareNode|E:\workspace\msp430\autolife\inc\list.h:24:15 (Definition) <US>c:list.h@361@T@compareNode<UE> <DS>int (*)(struct ListNode *, struct ListNode *)<DE> Extent=<ES>24:1 - 24:50<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:24:38: ParmDecl=|E:\workspace\msp430\autolife\inc\list.h:24:38 (Definition) <US><UE> <DS>struct ListNode *<DE> Extent=<ES>24:28 - 24:39<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:24:28: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>24:28 - 24:36<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:24:49: ParmDecl=|E:\workspace\msp430\autolife\inc\list.h:24:49 (Definition) <US><UE> <DS>struct ListNode *<DE> Extent=<ES>24:40 - 24:50<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:24:40: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>24:40 - 24:48<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:5: FunctionDecl=insert|E:\workspace\msp430\autolife\inc\list.h:25:5 (Declaration) <US>c:@F@insert<UE> <DS>int insert(struct List *, struct ListNode *, compareNode)<DE> Extent=<ES>25:1 - 25:57<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:18: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.h:25:18 (Definition) <US>c:list.h@424@F@insert@list<UE> <DS>struct List *<DE> Extent=<ES>25:12 - 25:22<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:12: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>25:12 - 25:16<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:34: ParmDecl=node|E:\workspace\msp430\autolife\inc\list.h:25:34 (Definition) <US>c:list.h@436@F@insert@node<UE> <DS>struct ListNode *<DE> Extent=<ES>25:24 - 25:38<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:24: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>25:24 - 25:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:52: ParmDecl=comp|E:\workspace\msp430\autolife\inc\list.h:25:52 (Definition) <US>c:list.h@452@F@insert@comp<UE> <DS>compareNode<DE> Extent=<ES>25:40 - 25:56<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:25:40: TypeRef=compareNode|E:\workspace\msp430\autolife\inc\list.h:24:15 (Reference) <US>c:list.h@361@T@compareNode<UE> <DS>int (*)(struct ListNode *, struct ListNode *)<DE> Extent=<ES>25:40 - 25:51<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:27:5: FunctionDecl=add|E:\workspace\msp430\autolife\inc\list.h:27:5 (Declaration) <US>c:@F@add<UE> <DS>int add(struct List *, struct ListNode *)<DE> Extent=<ES>27:1 - 27:36<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:27:15: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.h:27:15 (Definition) <US>c:list.h@482@F@add@list<UE> <DS>struct List *<DE> Extent=<ES>27:9 - 27:19<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:27:9: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>27:9 - 27:13<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:27:31: ParmDecl=node|E:\workspace\msp430\autolife\inc\list.h:27:31 (Definition) <US>c:list.h@494@F@add@node<UE> <DS>struct ListNode *<DE> Extent=<ES>27:21 - 27:35<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:27:21: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>27:21 - 27:29<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:11: FunctionDecl=del|E:\workspace\msp430\autolife\inc\list.h:28:11 (Declaration) <US>c:@F@del<UE> <DS>struct ListNode * del(struct List *, struct ListNode *)<DE> Extent=<ES>28:1 - 28:42<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:1: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>28:1 - 28:9<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:21: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.h:28:21 (Definition) <US>c:list.h@526@F@del@list<UE> <DS>struct List *<DE> Extent=<ES>28:15 - 28:25<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:15: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>28:15 - 28:19<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:37: ParmDecl=node|E:\workspace\msp430\autolife\inc\list.h:28:37 (Definition) <US>c:list.h@538@F@del@node<UE> <DS>struct ListNode *<DE> Extent=<ES>28:27 - 28:41<EE>
+<L>E:\workspace\msp430\autolife\inc\list.h:28:27: TypeRef=struct ListNode|E:\workspace\msp430\autolife\inc\list.h:12:8 (Reference) <US>c:@S@ListNode<UE> <DS>ListNode<DE> Extent=<ES>28:27 - 28:35<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:10:5: FunctionDecl=initList|E:\workspace\msp430\autolife\inc\list.c:10:5 (Definition) <US>c:@F@initList<UE> <DS>int initList(struct List *)<DE> Extent=<ES>10:1 - 15:2<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:10:20: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.c:10:20 (Definition) <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>10:14 - 10:24<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:10:14: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>10:14 - 10:18<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:10:26: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>10:26 - 15:2<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:3: IfStmt= <US><UE> <DS><DE> Extent=<ES>11:3 - 11:30<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:7: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>11:7 - 11:19<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:7: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>11:7 - 11:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:7: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>11:7 - 11:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:15: UnexposedExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>11:15 - 11:19<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:15: DeclRefExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 (Reference) <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>11:15 - 11:19<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:21: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>11:21 - 11:30<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:28: UnaryOperator= <US><UE> <DS><DE> Extent=<ES>11:28 - 11:30<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:11:29: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>11:29 - 11:30<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>12:3 - 12:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:9: MemberRefExpr=head|E:\workspace\msp430\autolife\inc\list.h:17:20 (Reference) <US>c:@S@List@FI@head<UE> <DS>head<DE> Extent=<ES>12:3 - 12:13<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:3: UnexposedExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>12:3 - 12:7<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:3: DeclRefExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 (Reference) <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>12:3 - 12:7<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:16: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>12:16 - 12:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:22: MemberRefExpr=end|E:\workspace\msp430\autolife\inc\list.h:18:20 (Reference) <US>c:@S@List@FI@end<UE> <DS>end<DE> Extent=<ES>12:16 - 12:25<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:16: UnexposedExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>12:16 - 12:20<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:16: DeclRefExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 (Reference) <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>12:16 - 12:20<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:28: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>12:28 - 12:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:12:28: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>12:28 - 12:32<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:13:3: BinaryOperator= <US><UE> <DS><DE> Extent=<ES>13:3 - 13:16<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:13:9: MemberRefExpr=len|E:\workspace\msp430\autolife\inc\list.h:19:7 (Reference) <US>c:@S@List@FI@len<UE> <DS>len<DE> Extent=<ES>13:3 - 13:12<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:13:3: UnexposedExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>13:3 - 13:7<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:13:3: DeclRefExpr=list|E:\workspace\msp430\autolife\inc\list.c:10:20 (Reference) <US>c:list.c@151@F@initList@list<UE> <DS>struct List *<DE> Extent=<ES>13:3 - 13:7<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:13:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>13:15 - 13:16<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:14:3: ReturnStmt= <US><UE> <DS><DE> Extent=<ES>14:3 - 14:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:14:10: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>14:10 - 14:11<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:16:5: FunctionDecl=deleteList|E:\workspace\msp430\autolife\inc\list.c:16:5 (Definition) <US>c:@F@deleteList<UE> <DS>int deleteList(struct List *)<DE> Extent=<ES>16:1 - 16:29<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:16:22: ParmDecl=list|E:\workspace\msp430\autolife\inc\list.c:16:22 (Definition) <US>c:list.c@281@F@deleteList@list<UE> <DS>struct List *<DE> Extent=<ES>16:16 - 16:26<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:16:16: TypeRef=struct List|E:\workspace\msp430\autolife\inc\list.h:16:8 (Reference) <US>c:@S@List<UE> <DS>List<DE> Extent=<ES>16:16 - 16:20<EE>
+<L>E:\workspace\msp430\autolife\inc\list.c:16:28: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>16:28 - 16:29<EE>
