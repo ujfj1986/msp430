@@ -1958,6 +1958,9 @@
     <name>$PROJ_DIR$\inc\event.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\inc\list.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\main.c</name>
   </file>
   <file>

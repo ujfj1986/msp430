@@ -9,14 +9,22 @@
 #ifndef _LIST_H_
 #define _LIST_H_
 
-struct ListNode {
+typedef struct ListNode {
   struct ListNode* next;
-}
+} ListNode;
+
+typedef struct List {
+  struct ListNode* head;
+  struct ListNode* end;
+  int len;
+} List;
+int initList(List* list);
+int deleteList(List* list);
 
 typedef int (*compareNode)(ListNode* , ListNode*);
-int insert(ListNode* node, compareNode comp);
+int insert(List* list, ListNode* node, compareNode comp);
 
-int add(ListNode* node);
-ListNode* del();
+int add(List* list, ListNode* node);
+ListNode* del(List* list, ListNode* node);
 
 #endif //_LIST_H_
