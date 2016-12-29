@@ -194,10 +194,6 @@
       <name>$PROJ_DIR$\inc\list.c</name>
       <outputs>
         <tool>
-          <name>ICC430</name>
-          <file> 43</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
           <file> 44</file>
         </tool>
@@ -205,7 +201,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 31 16 21 13 25 28 24 19 18 41</file>
+          <file> 23 31 16 21 13 25 28 24 19 18 45 41</file>
         </tool>
         <tool>
           <name>BICOMP</name>
