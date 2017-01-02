@@ -87,7 +87,15 @@ int add(List* list, ListNode* node) {
   }
   return 0;
 }
-//del node in the list
-ListNode* del(List* list, ListNode* node) {
-  return NULL;
+//del node in the list front
+ListNode* del(List* list) {
+  if (NULL == list || 0 == list->len) return NULL;
+
+  ListNode* p = list->head;
+  list->head = list->head->next;
+  list->len --;
+  if (0 == list->len) {
+    list->head = list->end = NULL;
+  }
+  return p;
 }

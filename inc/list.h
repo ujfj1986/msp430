@@ -25,6 +25,6 @@ typedef int (*compareNode)(ListNode* , ListNode*);
 int insert(List* list, ListNode* node, compareNode comp);
 
 int add(List* list, ListNode* node);
-ListNode* del(List* list, ListNode* node);
+ListNode* del(List* list);
 
 #endif //_LIST_H_

@@ -835,7 +835,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>test.a43</state>
+          <state>Backup of test.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -1874,6 +1874,12 @@
   </file>
   <file>
     <name>$PROJ_DIR$\inc\event.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\list.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\log.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
