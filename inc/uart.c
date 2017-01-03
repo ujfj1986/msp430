@@ -11,6 +11,7 @@
 #include "buffer.h"
 #include "timer.h"
 #include "pm.h"
+#include "event.h"
 
 struct Uart {
   int index;
@@ -70,8 +71,9 @@ __interrupt void Uart1_Rx(void) {
   unsigned char tmp = U1RXBUF;
   writeBuffer(pBuffer, tmp);
   //_BIC_SR_IRQ(LPM3_bits);
-  RESUME();
+  //RESUME();
   //trigger uart1 rx event
+  raiseEvent(UART1READ);
 }
 
 #pragma vector = UART0RX_VECTOR
@@ -80,8 +82,9 @@ __interrupt void Uart0_Rx(void) {
   unsigned char tmp = U0RXBUF;
   writeBuffer(pBuffer, tmp);
  //_BIC_SR_IRQ(LPM3_bits);
-  RESUME();
+  //RESUME();
   //trigger uart0 rx event
+  raiseEvent(UART0READ);
 }
 
 int readByteFrom(int num, unsigned char* pVal) {
@@ -127,7 +130,7 @@ int writeStrTo(int num, unsigned char* p, int len) {
   if (NULL == p || len <= 0) return -1;
   if (CLOSED == gUart[num].status) return -2;
 
-  for (i = 0; p[i] != '\0'; i++)
+  for (i = 0; p[i] != '\0' && i < len; i++)
     writeByteTo(num, p[i]);
   
   return i;

@@ -1869,26 +1869,32 @@
       <data/>
     </settings>
   </configuration>
-  <file>
-    <name>$PROJ_DIR$\inc\buffer.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\event.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\list.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\log.c</name>
-  </file>
+  <group>
+    <name>inc</name>
+    <file>
+      <name>$PROJ_DIR$\inc\buffer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\event.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\keypad.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\list.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\log.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\timer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\uart.c</name>
+    </file>
+  </group>
   <file>
     <name>$PROJ_DIR$\main.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\timer.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\inc\uart.c</name>
   </file>
 </project>
 

@@ -17,6 +17,7 @@
 #include "timer.h"
 #include "list.h"
 #include "event.h"
+#include "log.h"
 
 #define PERIOD  408 //define the timer period, 0.1s
 #define TIME_TICK 100 //define the time tick as 100ms
@@ -56,7 +57,7 @@ void delay_ms(unsigned int ms) {
 __interrupt void Timer_A (void)
 {  
     tick ++;
-    //-TODO
+    log("%lld\n", tick);
     //wake the cpu
     //set the event flag
     if (AlarmList.len > 0) {

@@ -10,6 +10,7 @@
 #include "./inc/uart.h"
 #include "./inc/timer.h"
 #include "./inc/event.h"
+#include "./inc/log.h"
     
 void InitMsp430() {
   /*下面六行程序关闭所有的IO口*/
@@ -30,10 +31,11 @@ void InitMsp430() {
 void readuart0(void* context) {
   unsigned char count = 0;
   unsigned char buf[10] = "\0";
-  readByteFrom(UART0, buf);
+  readStrFrom(UART0, buf, 10);
   count ++;
   P2OUT = ~count;
-  writeByteTo(UART0, buf[0]);
+  //writeStrTo(UART0, buf, 10);
+  log("%s\n", buf);
 }
 /****************主函数****************/
 void main(void)
@@ -46,6 +48,7 @@ void main(void)
     //init uart0&uart1
     initUart();
     initEvent();
+    initLog(UART0);
 
     registerEventProcess(UART0READ, readuart0, NULL);
     openUart(UART0);
