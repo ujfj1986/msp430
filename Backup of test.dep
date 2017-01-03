@@ -142,7 +142,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 25 26 28 32</file>
+          <file> 25 26 28 32 41</file>
         </tool>
       </inputs>
     </file>

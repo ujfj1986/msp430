@@ -19,6 +19,7 @@ int initLog(int uartNum) {
   if ( -1 != logUartNum) return -1;
   if (0 != uartNum || 1 != uartNum) return -1;
   logUartNum = uartNum;
+  openUart(logUartNum);
   return 0;
 }
 
