@@ -1961,6 +1961,9 @@
     <name>$PROJ_DIR$\inc\list.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\inc\log.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\main.c</name>
   </file>
   <file>

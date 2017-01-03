@@ -65,7 +65,7 @@ int insert(List* list, ListNode* node, compareNode comp) {
         
     
 //add node to the list end.
-int add(List* list, ListNode* node) {
+int addNode(List* list, ListNode* node) {
   if (NULL == list || NULL == node) return -1;
   if (0 == list->len) {
     list->head = list->end = node;
@@ -88,7 +88,7 @@ int add(List* list, ListNode* node) {
   return 0;
 }
 //del node in the list front
-ListNode* del(List* list) {
+ListNode* delNode(List* list) {
   if (NULL == list || 0 == list->len) return NULL;
 
   ListNode* p = list->head;

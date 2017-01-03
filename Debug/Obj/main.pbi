@@ -1846,7 +1846,12 @@
 <L>E:\workspace\msp430\autolife\inc\timer.h:14:1: macro expansion=__interrupt|<invalid loc>:49:9 <US>c:macro@__interrupt<UE> <DS>__interrupt<DE> Extent=<ES>14:1 - 14:12<EE>
 <L>E:\workspace\msp430\autolife\main.c:12:1: inclusion directive=./inc/event.h <US><UE> <DS><DE> <IS>E:\workspace\msp430\autolife\inc\event.h<IE>  [multi-include guarded] Extent=<ES>12:1 - 12:25<EE>
 <L>E:\workspace\msp430\autolife\inc\event.h:11:9: macro definition=_EVENT_H_ <US>c:macro@_EVENT_H_<UE> <DS>_EVENT_H_<DE> Extent=<ES>11:9 - 11:18<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:30:9: macro definition=raiseEvent <US>c:macro@raiseEvent<UE> <DS>raiseEvent<DE> Extent=<ES>30:9 - 33:11<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:13:1: inclusion directive=pm.h <US><UE> <DS><DE> <IS>E:\workspace\msp430\autolife\inc\pm.h<IE>  [multi-include guarded] Extent=<ES>13:1 - 13:16<EE>
+<L>E:\workspace\msp430\autolife\inc\pm.h:9:9: macro definition=_PM_H_ <US>c:macro@_PM_H_<UE> <DS>_PM_H_<DE> Extent=<ES>9:9 - 9:15<EE>
+<L>E:\workspace\msp430\autolife\inc\pm.h:11:1: inclusion directive=msp430x14x.h <US><UE> <DS><DE> <IS>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\msp430x14x.h<IE>  [multi-include guarded] Extent=<ES>11:1 - 11:12<EE>
+<L>E:\workspace\msp430\autolife\inc\pm.h:13:9: macro definition=SUSPEND <US>c:macro@SUSPEND<UE> <DS>SUSPEND<DE> Extent=<ES>13:9 - 13:43<EE>
+<L>E:\workspace\msp430\autolife\inc\pm.h:14:9: macro definition=RESUME <US>c:macro@RESUME<UE> <DS>RESUME<DE> Extent=<ES>14:9 - 14:40<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:33:9: macro definition=raiseEvent <US>c:macro@raiseEvent<UE> <DS>raiseEvent<DE> Extent=<ES>33:9 - 36:11<EE>
 <L>E:\workspace\msp430\autolife\main.c:23:14: macro expansion=WDTPW|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\msp430x14x.h:209:9 <US>c:macro@WDTPW<UE> <DS>WDTPW<DE> Extent=<ES>23:14 - 23:19<EE>
 <L>E:\workspace\msp430\autolife\main.c:23:22: macro expansion=WDTHOLD|C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\msp430x14x.h:207:9 <US>c:macro@WDTHOLD<UE> <DS>WDTHOLD<DE> Extent=<ES>23:22 - 23:29<EE>
 <L>E:\workspace\msp430\autolife\main.c:33:16: macro expansion=UART0|E:\workspace\msp430\autolife\inc\uart.h:14:9 <US>c:macro@UART0<UE> <DS>UART0<DE> Extent=<ES>33:16 - 33:21<EE>
@@ -2070,31 +2075,39 @@
 <L>E:\workspace\msp430\autolife\inc\timer.h:12:6: FunctionDecl=delay_ms|E:\workspace\msp430\autolife\inc\timer.h:12:6 (Declaration) <US>c:@F@delay_ms<UE> <DS>void delay_ms(unsigned int)<DE> Extent=<ES>12:1 - 12:31<EE>
 <L>E:\workspace\msp430\autolife\inc\timer.h:12:28: ParmDecl=ms|E:\workspace\msp430\autolife\inc\timer.h:12:28 (Definition) <US>c:timer.h@201@F@delay_ms@ms<UE> <DS>unsigned int<DE> Extent=<ES>12:15 - 12:30<EE>
 <L>E:\workspace\msp430\autolife\inc\timer.h:14:18: FunctionDecl=Timer_A|E:\workspace\msp430\autolife\inc\timer.h:14:18 (Declaration) <US>c:@F@Timer_A<UE> <DS>void Timer_A(void)<DE> Extent=<ES>14:13 - 14:32<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:13:14: EnumDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:13:14 (Definition) <US>c:@E@EventType<UE> <DS>EventType<DE> Extent=<ES>13:9 - 17:2<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:14:3: EnumConstantDecl=UART0READ|E:\workspace\msp430\autolife\inc\event.h:14:3 (Definition) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>14:3 - 14:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:14:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>14:15 - 14:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:15:3: EnumConstantDecl=UART1READ|E:\workspace\msp430\autolife\inc\event.h:15:3 (Definition) <US>c:@E@EventType@UART1READ<UE> <DS>UART1READ<DE> Extent=<ES>15:3 - 15:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:15:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>15:15 - 15:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:16:3: EnumConstantDecl=ALARM|E:\workspace\msp430\autolife\inc\event.h:16:3 (Definition) <US>c:@E@EventType@ALARM<UE> <DS>ALARM<DE> Extent=<ES>16:3 - 16:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:16:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>16:15 - 16:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:17:3: TypedefDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:17:3 (Definition) <US>c:event.h@234@T@EventType<UE> <DS>enum EventType<DE> Extent=<ES>13:1 - 17:12<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:13:14: EnumDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:13:14 (Definition) <US>c:@E@EventType<UE> <DS>EventType<DE> Extent=<ES>13:9 - 17:2<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:14:3: EnumConstantDecl=UART0READ|E:\workspace\msp430\autolife\inc\event.h:14:3 (Definition) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>14:3 - 14:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:14:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>14:15 - 14:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:15:3: EnumConstantDecl=UART1READ|E:\workspace\msp430\autolife\inc\event.h:15:3 (Definition) <US>c:@E@EventType@UART1READ<UE> <DS>UART1READ<DE> Extent=<ES>15:3 - 15:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:15:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>15:15 - 15:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:16:3: EnumConstantDecl=ALARM|E:\workspace\msp430\autolife\inc\event.h:16:3 (Definition) <US>c:@E@EventType@ALARM<UE> <DS>ALARM<DE> Extent=<ES>16:3 - 16:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:16:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>16:15 - 16:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:19:5: FunctionDecl=initEvent|E:\workspace\msp430\autolife\inc\event.h:19:5 (Declaration) <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>19:1 - 19:16<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:22:16: TypedefDecl=EventProcess|E:\workspace\msp430\autolife\inc\event.h:22:16 (Definition) <US>c:event.h@389@T@EventProcess<UE> <DS>void (*)(void *)<DE> Extent=<ES>22:1 - 22:36<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:22:35: ParmDecl=|E:\workspace\msp430\autolife\inc\event.h:22:35 (Definition) <US><UE> <DS>void *<DE> Extent=<ES>22:30 - 22:36<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:5: FunctionDecl=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:23:5 (Declaration) <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>23:1 - 23:72<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:36: ParmDecl=e|E:\workspace\msp430\autolife\inc\event.h:23:36 (Definition) <US>c:event.h@452@F@registerEventProcess@e<UE> <DS>EventType<DE> Extent=<ES>23:26 - 23:37<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:26: TypeRef=EventType|E:\workspace\msp430\autolife\inc\event.h:17:3 (Reference) <US>c:event.h@234@T@EventType<UE> <DS>enum EventType<DE> Extent=<ES>23:26 - 23:35<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:52: ParmDecl=proc|E:\workspace\msp430\autolife\inc\event.h:23:52 (Definition) <US>c:event.h@465@F@registerEventProcess@proc<UE> <DS>EventProcess<DE> Extent=<ES>23:39 - 23:56<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:39: TypeRef=EventProcess|E:\workspace\msp430\autolife\inc\event.h:22:16 (Reference) <US>c:event.h@389@T@EventProcess<UE> <DS>void (*)(void *)<DE> Extent=<ES>23:39 - 23:51<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:23:64: ParmDecl=context|E:\workspace\msp430\autolife\inc\event.h:23:64 (Definition) <US>c:event.h@484@F@registerEventProcess@context<UE> <DS>void *<DE> Extent=<ES>23:58 - 23:71<EE>
-<L>E:\workspace\msp430\autolife\inc\event.h:28:6: FunctionDecl=processEvents|E:\workspace\msp430\autolife\inc\event.h:28:6 (Declaration) <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>28:1 - 28:21<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:16:16: TypedefDecl=alarmCallback|E:\workspace\msp430\autolife\inc\timer.h:16:16 (Definition) <US>c:timer.h@327@T@alarmCallback<UE> <DS>void (*)(void *)<DE> Extent=<ES>16:1 - 16:45<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:16:37: ParmDecl=context|E:\workspace\msp430\autolife\inc\timer.h:16:37 (Definition) <US>c:@context<UE> <DS>void *<DE> Extent=<ES>16:31 - 16:44<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:6: FunctionDecl=setAlarm|E:\workspace\msp430\autolife\inc\timer.h:17:6 (Declaration) <US>c:@F@setAlarm<UE> <DS>void setAlarm(unsigned int, alarmCallback, void *)<DE> Extent=<ES>17:1 - 17:70<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:28: ParmDecl=ms|E:\workspace\msp430\autolife\inc\timer.h:17:28 (Definition) <US>c:timer.h@388@F@setAlarm@ms<UE> <DS>unsigned int<DE> Extent=<ES>17:15 - 17:30<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:46: ParmDecl=callback|E:\workspace\msp430\autolife\inc\timer.h:17:46 (Definition) <US>c:timer.h@405@F@setAlarm@callback<UE> <DS>alarmCallback<DE> Extent=<ES>17:32 - 17:54<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:32: TypeRef=alarmCallback|E:\workspace\msp430\autolife\inc\timer.h:16:16 (Reference) <US>c:timer.h@327@T@alarmCallback<UE> <DS>void (*)(void *)<DE> Extent=<ES>17:32 - 17:45<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:62: ParmDecl=context|E:\workspace\msp430\autolife\inc\timer.h:17:62 (Definition) <US>c:timer.h@429@F@setAlarm@context<UE> <DS>void *<DE> Extent=<ES>17:56 - 17:69<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:15:21: VarDecl=EVENTSTATUS|E:\workspace\msp430\autolife\inc\event.h:15:21 (Declaration) <US>c:@EVENTSTATUS<UE> <DS>EVENTSTATUS<DE> Extent=<ES>15:1 - 15:32<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:16:14: EnumDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:16:14 (Definition) <US>c:@E@EventType<UE> <DS>EventType<DE> Extent=<ES>16:9 - 20:2<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:17:3: EnumConstantDecl=UART0READ|E:\workspace\msp430\autolife\inc\event.h:17:3 (Definition) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>17:3 - 17:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:17:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>17:15 - 17:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:18:3: EnumConstantDecl=UART1READ|E:\workspace\msp430\autolife\inc\event.h:18:3 (Definition) <US>c:@E@EventType@UART1READ<UE> <DS>UART1READ<DE> Extent=<ES>18:3 - 18:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:18:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>18:15 - 18:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:19:3: EnumConstantDecl=ALARM|E:\workspace\msp430\autolife\inc\event.h:19:3 (Definition) <US>c:@E@EventType@ALARM<UE> <DS>ALARM<DE> Extent=<ES>19:3 - 19:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:19:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>19:15 - 19:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:20:3: TypedefDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:20:3 (Definition) <US>c:event.h@287@T@EventType<UE> <DS>enum EventType<DE> Extent=<ES>16:1 - 20:12<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:16:14: EnumDecl=EventType|E:\workspace\msp430\autolife\inc\event.h:16:14 (Definition) <US>c:@E@EventType<UE> <DS>EventType<DE> Extent=<ES>16:9 - 20:2<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:17:3: EnumConstantDecl=UART0READ|E:\workspace\msp430\autolife\inc\event.h:17:3 (Definition) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>17:3 - 17:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:17:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>17:15 - 17:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:18:3: EnumConstantDecl=UART1READ|E:\workspace\msp430\autolife\inc\event.h:18:3 (Definition) <US>c:@E@EventType@UART1READ<UE> <DS>UART1READ<DE> Extent=<ES>18:3 - 18:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:18:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>18:15 - 18:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:19:3: EnumConstantDecl=ALARM|E:\workspace\msp430\autolife\inc\event.h:19:3 (Definition) <US>c:@E@EventType@ALARM<UE> <DS>ALARM<DE> Extent=<ES>19:3 - 19:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:19:15: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>19:15 - 19:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:22:5: FunctionDecl=initEvent|E:\workspace\msp430\autolife\inc\event.h:22:5 (Declaration) <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>22:1 - 22:16<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:25:16: TypedefDecl=EventProcess|E:\workspace\msp430\autolife\inc\event.h:25:16 (Definition) <US>c:event.h@442@T@EventProcess<UE> <DS>void (*)(void *)<DE> Extent=<ES>25:1 - 25:36<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:25:35: ParmDecl=|E:\workspace\msp430\autolife\inc\event.h:25:35 (Definition) <US><UE> <DS>void *<DE> Extent=<ES>25:30 - 25:36<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:5: FunctionDecl=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:26:5 (Declaration) <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>26:1 - 26:72<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:36: ParmDecl=e|E:\workspace\msp430\autolife\inc\event.h:26:36 (Definition) <US>c:event.h@505@F@registerEventProcess@e<UE> <DS>EventType<DE> Extent=<ES>26:26 - 26:37<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:26: TypeRef=EventType|E:\workspace\msp430\autolife\inc\event.h:20:3 (Reference) <US>c:event.h@287@T@EventType<UE> <DS>enum EventType<DE> Extent=<ES>26:26 - 26:35<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:52: ParmDecl=proc|E:\workspace\msp430\autolife\inc\event.h:26:52 (Definition) <US>c:event.h@518@F@registerEventProcess@proc<UE> <DS>EventProcess<DE> Extent=<ES>26:39 - 26:56<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:39: TypeRef=EventProcess|E:\workspace\msp430\autolife\inc\event.h:25:16 (Reference) <US>c:event.h@442@T@EventProcess<UE> <DS>void (*)(void *)<DE> Extent=<ES>26:39 - 26:51<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:26:64: ParmDecl=context|E:\workspace\msp430\autolife\inc\event.h:26:64 (Definition) <US>c:event.h@537@F@registerEventProcess@context<UE> <DS>void *<DE> Extent=<ES>26:58 - 26:71<EE>
+<L>E:\workspace\msp430\autolife\inc\event.h:31:6: FunctionDecl=processEvents|E:\workspace\msp430\autolife\inc\event.h:31:6 (Declaration) <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>31:1 - 31:21<EE>
 <L>E:\workspace\msp430\autolife\main.c:14:6: FunctionDecl=InitMsp430|E:\workspace\msp430\autolife\main.c:14:6 (Definition) <US>c:@F@InitMsp430<UE> <DS>void InitMsp430(void)<DE> Extent=<ES>14:1 - 28:2<EE>
 <L>E:\workspace\msp430\autolife\main.c:14:19: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>14:19 - 28:2<EE>
 <L>E:\workspace\msp430\autolife\main.c:30:6: FunctionDecl=readuart0|E:\workspace\msp430\autolife\main.c:30:6 (Definition) <US>c:@F@readuart0<UE> <DS>void readuart0(void *)<DE> Extent=<ES>30:1 - 37:2<EE>
@@ -2136,14 +2149,14 @@
 <L>E:\workspace\msp430\autolife\main.c:47:5: CallExpr=initUart|E:\workspace\msp430\autolife\inc\uart.h:18:5 <US>c:@F@initUart<UE> <DS>int initUart(void)<DE> Extent=<ES>47:5 - 47:15<EE>
 <L>E:\workspace\msp430\autolife\main.c:47:5: UnexposedExpr=initUart|E:\workspace\msp430\autolife\inc\uart.h:18:5 <US>c:@F@initUart<UE> <DS>int initUart(void)<DE> Extent=<ES>47:5 - 47:13<EE>
 <L>E:\workspace\msp430\autolife\main.c:47:5: DeclRefExpr=initUart|E:\workspace\msp430\autolife\inc\uart.h:18:5 (Reference) <US>c:@F@initUart<UE> <DS>int initUart(void)<DE> Extent=<ES>47:5 - 47:13<EE>
-<L>E:\workspace\msp430\autolife\main.c:48:5: CallExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:19:5 <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:16<EE>
-<L>E:\workspace\msp430\autolife\main.c:48:5: UnexposedExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:19:5 <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:14<EE>
-<L>E:\workspace\msp430\autolife\main.c:48:5: DeclRefExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:19:5 (Reference) <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:14<EE>
-<L>E:\workspace\msp430\autolife\main.c:50:5: CallExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:23:5 <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:53<EE>
-<L>E:\workspace\msp430\autolife\main.c:50:5: UnexposedExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:23:5 <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:25<EE>
-<L>E:\workspace\msp430\autolife\main.c:50:5: DeclRefExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:23:5 (Reference) <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:25<EE>
-<L>E:\workspace\msp430\autolife\main.c:50:26: UnexposedExpr=UART0READ|E:\workspace\msp430\autolife\inc\event.h:14:3 <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>50:26 - 50:35<EE>
-<L>E:\workspace\msp430\autolife\main.c:50:26: DeclRefExpr=UART0READ|E:\workspace\msp430\autolife\inc\event.h:14:3 (Reference) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>50:26 - 50:35<EE>
+<L>E:\workspace\msp430\autolife\main.c:48:5: CallExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:22:5 <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:16<EE>
+<L>E:\workspace\msp430\autolife\main.c:48:5: UnexposedExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:22:5 <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:14<EE>
+<L>E:\workspace\msp430\autolife\main.c:48:5: DeclRefExpr=initEvent|E:\workspace\msp430\autolife\inc\event.h:22:5 (Reference) <US>c:@F@initEvent<UE> <DS>int initEvent(void)<DE> Extent=<ES>48:5 - 48:14<EE>
+<L>E:\workspace\msp430\autolife\main.c:50:5: CallExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:26:5 <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:53<EE>
+<L>E:\workspace\msp430\autolife\main.c:50:5: UnexposedExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:26:5 <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:25<EE>
+<L>E:\workspace\msp430\autolife\main.c:50:5: DeclRefExpr=registerEventProcess|E:\workspace\msp430\autolife\inc\event.h:26:5 (Reference) <US>c:@F@registerEventProcess<UE> <DS>int registerEventProcess(EventType, EventProcess, void *)<DE> Extent=<ES>50:5 - 50:25<EE>
+<L>E:\workspace\msp430\autolife\main.c:50:26: UnexposedExpr=UART0READ|E:\workspace\msp430\autolife\inc\event.h:17:3 <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>50:26 - 50:35<EE>
+<L>E:\workspace\msp430\autolife\main.c:50:26: DeclRefExpr=UART0READ|E:\workspace\msp430\autolife\inc\event.h:17:3 (Reference) <US>c:@E@EventType@UART0READ<UE> <DS>UART0READ<DE> Extent=<ES>50:26 - 50:35<EE>
 <L>E:\workspace\msp430\autolife\main.c:50:37: UnexposedExpr=readuart0|E:\workspace\msp430\autolife\main.c:30:6 <US>c:@F@readuart0<UE> <DS>void readuart0(void *)<DE> Extent=<ES>50:37 - 50:46<EE>
 <L>E:\workspace\msp430\autolife\main.c:50:37: DeclRefExpr=readuart0|E:\workspace\msp430\autolife\main.c:30:6 (Reference) <US>c:@F@readuart0<UE> <DS>void readuart0(void *)<DE> Extent=<ES>50:37 - 50:46<EE>
 <L>E:\workspace\msp430\autolife\main.c:50:48: UnexposedExpr= <US><UE> <DS><DE> Extent=<ES>50:48 - 50:52<EE>
@@ -2158,6 +2171,6 @@
 <L>E:\workspace\msp430\autolife\main.c:57:5: WhileStmt= <US><UE> <DS><DE> Extent=<ES>57:5 - 66:6<EE>
 <L>E:\workspace\msp430\autolife\main.c:57:12: IntegerLiteral= <US><UE> <DS><DE> Extent=<ES>57:12 - 57:13<EE>
 <L>E:\workspace\msp430\autolife\main.c:57:15: CompoundStmt= <US><UE> <DS><DE> Extent=<ES>57:15 - 66:6<EE>
-<L>E:\workspace\msp430\autolife\main.c:65:7: CallExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:28:6 <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:22<EE>
-<L>E:\workspace\msp430\autolife\main.c:65:7: UnexposedExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:28:6 <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:20<EE>
-<L>E:\workspace\msp430\autolife\main.c:65:7: DeclRefExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:28:6 (Reference) <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:20<EE>
+<L>E:\workspace\msp430\autolife\main.c:65:7: CallExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:31:6 <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:22<EE>
+<L>E:\workspace\msp430\autolife\main.c:65:7: UnexposedExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:31:6 <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:20<EE>
+<L>E:\workspace\msp430\autolife\main.c:65:7: DeclRefExpr=processEvents|E:\workspace\msp430\autolife\inc\event.h:31:6 (Reference) <US>c:@F@processEvents<UE> <DS>void processEvents(void)<DE> Extent=<ES>65:7 - 65:20<EE>

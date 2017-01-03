@@ -10,6 +10,9 @@
 #ifndef _EVENT_H_
 #define _EVENT_H_
 
+#include "pm.h"
+
+extern volatile int EVENTSTATUS;
 typedef enum EventType {
   UART0READ = 0,
   UART1READ = 1,

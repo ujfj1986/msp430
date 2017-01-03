@@ -42,7 +42,7 @@
           
           
           
-        <item>IFG1</item><item>U0TXBUF</item><item>gUart[0]</item><item>IE1</item><item>ME1</item><item>CpuStatus</item><item>UART0RX_VECTOR</item><item>P2OUT</item><item></item></expressions>
+        <item>IFG1</item><item>U0TXBUF</item><item>gUart[0]</item><item>IE1</item><item>ME1</item><item>CpuStatus</item><item>UART0RX_VECTOR</item><item>P2OUT</item><item/></expressions>
         <col-names>
           
           

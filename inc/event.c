@@ -24,7 +24,7 @@ typedef struct Events {
 } Events;
 #define MAX_EVENT_TYPE 32
 static Events allEvents[MAX_EVENT_TYPE];
-static volatile int EVENTSTATUS = 0;
+extern volatile int EVENTSTATUS = 0;
 
 int initEvent() {
   memset(&allEvents, 0, sizeof(allEvents));

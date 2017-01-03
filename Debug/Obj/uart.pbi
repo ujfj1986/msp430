@@ -2149,6 +2149,13 @@
 <L>E:\workspace\msp430\autolife\inc\timer.h:12:6: FunctionDecl=delay_ms|E:\workspace\msp430\autolife\inc\timer.h:12:6 (Declaration) <US>c:@F@delay_ms<UE> <DS>void delay_ms(unsigned int)<DE> Extent=<ES>12:1 - 12:31<EE>
 <L>E:\workspace\msp430\autolife\inc\timer.h:12:28: ParmDecl=ms|E:\workspace\msp430\autolife\inc\timer.h:12:28 (Definition) <US>c:timer.h@201@F@delay_ms@ms<UE> <DS>unsigned int<DE> Extent=<ES>12:15 - 12:30<EE>
 <L>E:\workspace\msp430\autolife\inc\timer.h:14:18: FunctionDecl=Timer_A|E:\workspace\msp430\autolife\inc\timer.h:14:18 (Declaration) <US>c:@F@Timer_A<UE> <DS>void Timer_A(void)<DE> Extent=<ES>14:13 - 14:32<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:16:16: TypedefDecl=alarmCallback|E:\workspace\msp430\autolife\inc\timer.h:16:16 (Definition) <US>c:timer.h@327@T@alarmCallback<UE> <DS>void (*)(void *)<DE> Extent=<ES>16:1 - 16:45<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:16:37: ParmDecl=context|E:\workspace\msp430\autolife\inc\timer.h:16:37 (Definition) <US>c:@context<UE> <DS>void *<DE> Extent=<ES>16:31 - 16:44<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:6: FunctionDecl=setAlarm|E:\workspace\msp430\autolife\inc\timer.h:17:6 (Declaration) <US>c:@F@setAlarm<UE> <DS>void setAlarm(unsigned int, alarmCallback, void *)<DE> Extent=<ES>17:1 - 17:70<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:28: ParmDecl=ms|E:\workspace\msp430\autolife\inc\timer.h:17:28 (Definition) <US>c:timer.h@388@F@setAlarm@ms<UE> <DS>unsigned int<DE> Extent=<ES>17:15 - 17:30<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:46: ParmDecl=callback|E:\workspace\msp430\autolife\inc\timer.h:17:46 (Definition) <US>c:timer.h@405@F@setAlarm@callback<UE> <DS>alarmCallback<DE> Extent=<ES>17:32 - 17:54<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:32: TypeRef=alarmCallback|E:\workspace\msp430\autolife\inc\timer.h:16:16 (Reference) <US>c:timer.h@327@T@alarmCallback<UE> <DS>void (*)(void *)<DE> Extent=<ES>17:32 - 17:45<EE>
+<L>E:\workspace\msp430\autolife\inc\timer.h:17:62: ParmDecl=context|E:\workspace\msp430\autolife\inc\timer.h:17:62 (Definition) <US>c:timer.h@429@F@setAlarm@context<UE> <DS>void *<DE> Extent=<ES>17:56 - 17:69<EE>
 <L>E:\workspace\msp430\autolife\inc\uart.c:15:8: StructDecl=Uart|E:\workspace\msp430\autolife\inc\uart.c:15:8 (Definition) <US>c:@S@Uart<UE> <DS>Uart<DE> Extent=<ES>15:1 - 19:2<EE>
 <L>E:\workspace\msp430\autolife\inc\uart.c:16:7: FieldDecl=index|E:\workspace\msp430\autolife\inc\uart.c:16:7 (Definition) <US>c:@S@Uart@FI@index<UE> <DS>index<DE> Extent=<ES>16:3 - 16:12<EE>
 <L>E:\workspace\msp430\autolife\inc\uart.c:17:17: FieldDecl=rBuffer|E:\workspace\msp430\autolife\inc\uart.c:17:17 (Definition) <US>c:@S@Uart@FI@rBuffer<UE> <DS>rBuffer<DE> Extent=<ES>17:3 - 17:24<EE>
