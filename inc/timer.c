@@ -97,6 +97,9 @@ static void alarmProccess(void* context) {
   } else {
     insert(&AlarmList, node, compareAlarm);
   }
+  if (AlarmList.len == 0) {
+    unregisterEventProcess(ALARM);
+  }
 }
 void setAlarm(unsigned int ms, alarmCallback callback, void* context) {
   if ((0 == ms) || (NULL == callback)) return;

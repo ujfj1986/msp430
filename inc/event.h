@@ -28,6 +28,8 @@ int initEvent();
 typedef void (*EventProcess)(void*);
 int registerEventProcess(EventType e, EventProcess proc, void* context);
 
+int unregisterEventProcess(EventType e);
+
 // raise a event and trigger core to call processEvents to dual with it.
 //void raiseEvent(EventType e);
 //process events utill there are no events.

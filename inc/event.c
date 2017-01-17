@@ -61,4 +61,11 @@ int registerEventProcess(EventType e, EventProcess proc, void* context) {
   allEvents[e].context = context;
   return 0;
 }
+
+int unregisterEventProcess(EventType e) {
+  if (NULL == allEvents[e].proc) return 0;
+  allEvents[e].proc = NULL;
+  allEvents[e].context = NULL;
+  return 0;
+}
   
