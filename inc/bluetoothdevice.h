@@ -18,10 +18,7 @@
 #ifndef _BLUETOOTHDEVICE_H_
 #define _BLUETOOTHDEVICE_H_
 
-//TODO: abstract to PIN module
-typedef char PinHandler;
-
-PinHandler createPinHandler(char m, char s) ;
+#include "pin.h"
 
 // initialize bluetooth device.
 int initBluetoothBluetoothDevice(PinHandler vcc,
