@@ -5,6 +5,7 @@
 * Date: 2017-01-20
 */
 #include <string.h>
+#include <msp430x14x.h>
 
 #include "pin.h"
 
@@ -21,7 +22,6 @@ char getPinId(PinHandler pin) {
 }
 
 typedef struct Pin {
-    PinStatus status;
     PinUpProc proc;
     void* context;
 } Pin;
@@ -37,9 +37,23 @@ typedef struct Pin {
 #define REG_IES(x) P##x##IES
 #define SET_BIT(reg, bit) reg |= (1 << bit)
 #define CLR_BIT(reg, bit) reg &= ~(1 << bit)
+#define GET_BIT(ret, bit) (char)((reg & (1 << bit)) >> bit)
 
+typedef unsigned short PinsStatus;
+#define PINS_STATUS_ALL_IN 0x0000
+#define PINS_STATUS_ALL_OUT 0x5555
+#define PINS_STATUS_ALL_SEL 0xAAAA
+static PinStatus getPinStatus(PinsStatus pins, char id) {
+    unsigned short tmp = (unsigned short)((pins & (0x0003 << (2 * id))) >> (2 * id));
+    return (PinStatus)tmp;
+}
+static void setPinStatus(PinsStatus* pins, char id, PinStatus pin) {
+    *pins &= ~(0x0003 << (2 * id)); //clear that bits.
+    unsigned short tmp = pin;
+    *pins |= (tmp << (2 * id));
+}
 typedef struct Pins {
-    PinStatus pins_status;
+    PinsStatus pins_status;
     Pin pin[PINLINES];
 } Pins;
 
@@ -57,23 +71,61 @@ int initPins() {
     return 0;
 }
 
-char getPinValue(PinHandler);
+char getPinValue(PinHandler pin) {
+    char pinsId = getPinsId(pin);
+    char pinId = getPinId(pin);
 
-char getPinsValue(char pinsId);
+    if ((0 >= pinsId || PINSCOUNT < pinsId) ||
+        (0 > pinId || PINLINES <= pinId)) return -1;
+    
+    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    if (IN != status) return -1;
+    return GET_BIT(REG_IN(pinsId), pinId);
+}
 
-int setPinValue(PinHandler, char value);
+char getPinsValue(char pinsId) {
+    if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
 
-int setPinsValue(char pinsId, char value);
+    if (PINS_STATUS_ALL_IN != pins[pinsId - 1].pins_status) return -1;
+
+    return REG_IN(pinsId); 
+}
+
+int setPinValue(PinHandler pin, char value) {
+    char pinsId = getPinsId(pin);
+    char pinId = getPinId(pin);
+
+    if ((0 >= pinsId || PINSCOUNT < pinsId) ||
+        (0 > pinId || PINLINES <= pinId)) return -1;
+    
+    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    if (OUT != status) return -1;
+    (value == 0) ? (CLR_BIT(REG_OUT(pinsId), pinId)) :
+            (SET_BIT(REG_OUT(pinsId), pinId);
+    return 0;
+}
+
+int setPinsValue(char pinsId, char value) {
+    if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
+
+    if (PINS_STATUS_ALL_OUT != pins[pinsId - 1].pins_status) return -1;
+
+    REG_OUT(pinsId) = value;
+}
 
 int configPinsStatus(char pinsId, PinStatus status) {
     if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
 
     char id  = 0;
-    P
-    pins[pinsId - 1].pins_status = status;
-    for (id = 0; id < PINLINES; id ++) {
+    
+    pins[pinsId - 1].pins_status = (status == IN) ?
+        (PINS_STATUS_ALL_IN) :
+        ((status == OUT) ?
+        (PINS_STATUS_ALL_OUT) :
+        (PINS_STATUS_ALL_SEL));
+    /*for (id = 0; id < PINLINES; id ++) {
         pins[pinsId - 1].pin[id].status = status;
-    }
+    }*/
 
     switch (status) {
         case IN:
@@ -99,7 +151,8 @@ int configPinStatus(PinHandler pin, PinStatus status) {
     if ((0 >= pinsId || PINSCOUNT < pinsId) ||
     (0 > pinId || PINLINES <= pinId)) return -1;
 
-    pins[pinsId - 1].pin[pinId].status = status;
+    //pins[pinsId - 1].pin[pinId].status = status;
+    setPinStatus(&(pins[pinsId - 1].pins_status), pinId, status);
 
     switch (status) {
         case IN:
