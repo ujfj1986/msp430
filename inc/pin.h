@@ -10,9 +10,9 @@
 #define _PIN_H_
 
 typedef enum PinStatus {
-    IN = 0,
-    OUT = 1,
-    SEL = 2,
+    PIN_IN = 0,
+    PIN_OUT = 1,
+    PIN_SEL = 2,
 } PinStatus;
 
 typedef char PinHandler;
@@ -48,10 +48,10 @@ int configPinsStatus(char pinsId, PinStatus status);
 
 int configPinStatus(PinHandler pin, PinStatus status);
 
-typedef int (*PinUpProc)(PinHandler, void*);
-int registerPinUpProc(PinHandler, PinUpProc, void*);
+typedef int (*PinProc)(PinHandler, void*);
+int registerPinProc(PinHandler, char, PinProc, void*);
 
-int unregisterPinUpProc(PinHandler);
+int unregisterPinProc(PinHandler);
 
 #pragma vector = PORT1_VECTOR
 __interrupt void PORT1_ISR(void);

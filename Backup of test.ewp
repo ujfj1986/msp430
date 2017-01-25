@@ -1887,6 +1887,9 @@
       <name>$PROJ_DIR$\inc\log.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\inc\pin.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\inc\timer.c</name>
     </file>
     <file>

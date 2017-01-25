@@ -57,15 +57,11 @@
       <Pane>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Evaluation\430\doc\infocenter\index.ENU.html</Filename>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\event.h</Filename>
           <XPos>0</XPos>
-          <YPos>28</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
+          <YPos>3</YPos>
+          <SelStart>916</SelStart>
+          <SelEnd>916</SelEnd>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -75,15 +71,6 @@
           <SelStart>416</SelStart>
           <SelEnd>416</SelEnd>
         </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\main.c</Filename>
-          <XPos>1</XPos>
-          <YPos>28</YPos>
-          <SelStart>884</SelStart>
-          <SelEnd>884</SelEnd>
-        </Tab>
-        <ActiveTab>3</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\timer.c</Filename>
@@ -96,9 +83,9 @@
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\event.c</Filename>
           <XPos>0</XPos>
-          <YPos>29</YPos>
-          <SelStart>976</SelStart>
-          <SelEnd>976</SelEnd>
+          <YPos>0</YPos>
+          <SelStart>457</SelStart>
+          <SelEnd>462</SelEnd>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -107,6 +94,47 @@
           <YPos>66</YPos>
           <SelStart>1763</SelStart>
           <SelEnd>1763</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\main.c</Filename>
+          <XPos>1</XPos>
+          <YPos>28</YPos>
+          <SelStart>1012</SelStart>
+          <SelEnd>1012</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\keypad.c</Filename>
+          <XPos>0</XPos>
+          <YPos>6</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\pin.c</Filename>
+          <XPos>0</XPos>
+          <YPos>157</YPos>
+          <SelStart>3602</SelStart>
+          <SelEnd>3602</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\pin.h</Filename>
+          <XPos>0</XPos>
+          <YPos>6</YPos>
+          <SelStart>223</SelStart>
+          <SelEnd>223</SelEnd>
+        </Tab>
+        <ActiveTab>8</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Evaluation\430\inc\msp430x14x.h</Filename>
+          <XPos>0</XPos>
+          <YPos>39</YPos>
+          <SelStart>1839</SelStart>
+          <SelEnd>1839</SelEnd>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
@@ -184,6 +212,9 @@
         <Row19>
           <Sizes/>
         </Row19>
+        <Row20>
+          <Sizes/>
+        </Row20>
       </Top>
       <Left>
         <Row0>

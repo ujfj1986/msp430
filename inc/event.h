@@ -17,9 +17,10 @@ typedef enum EventType {
   UART0READ = 0,
   UART1READ = 1,
   ALARM     = 2,
-  BLUETOOTH_CONNECT = 3,
-  BLUETOOTH_READ = 4,
-  BLUETOOTH_DISCONNECT = 5,
+  PIN_IRQ   = 3,
+  BLUETOOTH_CONNECT = 4,
+  BLUETOOTH_READ = 5,
+  BLUETOOTH_DISCONNECT = 6,
 } EventType;
 
 int initEvent();
