@@ -53,9 +53,17 @@ int configBluetoothDevicePID(char* mac);
 
 //configure bluetooth device broadcast period
 typedef enum BluetoothDeviceBroadcastPeriod {
-    
+    PERIOD_2 = 0,
+    PERIOD_5 = 1,
+    PERIOD_10 = 2,
+    PERIOD_15 = 3,
+    PERIOD_20 = 4,
+    PERIOD_25 = 5,
+    PERIOD_30 = 6,
+    PERIOD_40 = 7,
+    PERIOD_50 = 8,
 } BluetoothDeviceBroadcastPeriod;
-int configBluetoothDeviceBroadcastPeriod(int ms);
+int configBluetoothDeviceBroadcastPeriod(BluetoothDeviceBroadcastPeriod period);
 
 // wake up bluetooth device when it sleeps.
 int wakeBluetoothDevice();
@@ -69,10 +77,10 @@ int sleepBluetoothDevice();
 int writeStrThroughBluetoothDevice(char* str, int len);
 
 //register bluetooth connected event process method.
-typedef int (*BluetoothDeviceConnectedEventProcess)(void* context);
-int registerBluetoothDeviceConnectedEventProcess(BluetoothDeviceConnectedEventProcess process,
-    void* context);
-int unregisterBluetoothDeviceConnectedEventProcess();
+// typedef int (*BluetoothDeviceConnectedEventProcess)(void* context);
+// int registerBluetoothDeviceConnectedEventProcess(BluetoothDeviceConnectedEventProcess process,
+//     void* context);
+// int unregisterBluetoothDeviceConnectedEventProcess();
 
 // read data through bluetooth.
 int readStrThroughBluetoothDevice(char* str, int len);

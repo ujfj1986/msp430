@@ -115,19 +115,18 @@
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\pin.c</Filename>
           <XPos>0</XPos>
-          <YPos>157</YPos>
-          <SelStart>3602</SelStart>
-          <SelEnd>3602</SelEnd>
+          <YPos>267</YPos>
+          <SelStart>6767</SelStart>
+          <SelEnd>6767</SelEnd>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\inc\pin.h</Filename>
           <XPos>0</XPos>
-          <YPos>6</YPos>
-          <SelStart>223</SelStart>
-          <SelEnd>223</SelEnd>
+          <YPos>0</YPos>
+          <SelStart>673</SelStart>
+          <SelEnd>673</SelEnd>
         </Tab>
-        <ActiveTab>8</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 6.0 Evaluation\430\inc\msp430x14x.h</Filename>
@@ -136,6 +135,23 @@
           <SelStart>1839</SelStart>
           <SelEnd>1839</SelEnd>
         </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\bluetoothdevice.h</Filename>
+          <XPos>0</XPos>
+          <YPos>37</YPos>
+          <SelStart>1675</SelStart>
+          <SelEnd>1675</SelEnd>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\inc\bluetoothdevice.c</Filename>
+          <XPos>0</XPos>
+          <YPos>219</YPos>
+          <SelStart>6577</SelStart>
+          <SelEnd>6577</SelEnd>
+        </Tab>
+        <ActiveTab>11</ActiveTab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>
@@ -223,16 +239,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>405</Bottom>
+                <Bottom>685</Bottom>
                 <Right>198</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>200</xscreen>
                 <yscreen>200</yscreen>
-                <sizeHorzCX>156250</sizeHorzCX>
-                <sizeHorzCY>308642</sizeHorzCY>
-                <sizeVertCX>156250</sizeVertCX>
-                <sizeVertCY>628086</sizeVertCY>
+                <sizeHorzCX>104167</sizeHorzCX>
+                <sizeHorzCY>215517</sizeHorzCY>
+                <sizeVertCX>104167</sizeVertCX>
+                <sizeVertCY>740302</sizeVertCY>
               </Rect>
             </Wnd0>
           </Sizes>
@@ -251,15 +267,15 @@
                 <Top>-2</Top>
                 <Left>-2</Left>
                 <Bottom>198</Bottom>
-                <Right>1282</Right>
+                <Right>1922</Right>
                 <x>-2</x>
                 <y>-2</y>
-                <xscreen>1284</xscreen>
+                <xscreen>1924</xscreen>
                 <yscreen>200</yscreen>
-                <sizeHorzCX>1003125</sizeHorzCX>
-                <sizeHorzCY>308642</sizeHorzCY>
-                <sizeVertCX>156250</sizeVertCX>
-                <sizeVertCY>308642</sizeVertCY>
+                <sizeHorzCX>1002083</sizeHorzCX>
+                <sizeHorzCY>215517</sizeHorzCY>
+                <sizeVertCX>104167</sizeVertCX>
+                <sizeVertCY>215517</sizeVertCY>
               </Rect>
             </Wnd1>
           </Sizes>

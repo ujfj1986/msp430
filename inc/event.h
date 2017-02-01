@@ -38,7 +38,7 @@ void processEvents();
 
 #define raiseEvent(e) do{ \
   EVENTSTATUS |= (1 << e); \
-  RESUME(); \
+  if (PIN_IRQ >= e) RESUME(); \
 } while(0)
 
 #endif //_EVENT_H_

@@ -9,6 +9,8 @@
 #ifndef _PIN_H_
 #define _PIN_H_
 
+#include <msp430x14x.h>
+
 typedef enum PinStatus {
     PIN_IN = 0,
     PIN_OUT = 1,

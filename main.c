@@ -11,19 +11,22 @@
 #include "./inc/timer.h"
 #include "./inc/event.h"
 #include "./inc/log.h"
+#include "./inc/pin.h"
+#include "./inc/bluetoothdevice.h"
     
 void InitMsp430() {
-  /*ÏÂÃæÁùÐÐ³ÌÐò¹Ø±ÕËùÓÐµÄIO¿Ú*/
-    P1DIR = 0XFF;P1OUT = 0XFF;
-    P2DIR = 0XFF;P2OUT = 0XFF;
-    P3DIR = 0XFF;P3OUT = 0XFF;
-    P4DIR = 0XFF;P4OUT = 0XFF;
-    P5DIR = 0XFF;P5OUT = 0XFF;
-    P6DIR = 0XFF;P6OUT = 0XFF;
+  /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ðµï¿½IOï¿½ï¿½*/
+    // P1DIR = 0XFF;P1OUT = 0XFF;
+    // P2DIR = 0XFF;P2OUT = 0XFF;
+    // P3DIR = 0XFF;P3OUT = 0XFF;
+    // P4DIR = 0XFF;P4OUT = 0XFF;
+    // P5DIR = 0XFF;P5OUT = 0XFF;
+    // P6DIR = 0XFF;P6OUT = 0XFF;
+    initPins();
   
-    WDTCTL = WDTPW + WDTHOLD;       //¹Ø±Õ¿´ÃÅ¹·
+    WDTCTL = WDTPW + WDTHOLD;       //ï¿½Ø±Õ¿ï¿½ï¿½Å¹ï¿½
 /*
-    P6DIR |= BIT2;P6OUT |= BIT2;    //¹Ø±ÕµçÆ½×ª»»
+    P6DIR |= BIT2;P6OUT |= BIT2;    //ï¿½Ø±Õµï¿½Æ½×ªï¿½ï¿½
 
 #endif*/
 }
@@ -37,7 +40,7 @@ void readuart0(void* context) {
   //writeStrTo(UART0, buf, 10);
   log("%s\n", buf);
 }
-/****************Ö÷º¯Êý****************/
+/****************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½****************/
 void main(void)
 {
     //unsigned char buf[10] = "\0";
@@ -54,8 +57,8 @@ void main(void)
     openUart(UART0);
     //openUart(1);
  
-    _EINT();                        //Ê¹ÄÜÈ«¾ÖÖÐ¶Ï
-    //LPM3;                           //CPU½øÈëLPM3Ä£Ê½
+    _EINT();                        //Ê¹ï¿½ï¿½È«ï¿½ï¿½ï¿½Ð¶ï¿½
+    //LPM3;                           //CPUï¿½ï¿½ï¿½ï¿½LPM3Ä£Ê½
     /* read from uart1 and write to uart0*/
     while (1) {
         //_BIS_SR(LPM3_bits + GIE);

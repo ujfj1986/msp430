@@ -5,17 +5,21 @@
 * Date: 2017-1-9
 */
 
-#include "bluetooth.h"
+#include "bluetoothdevice.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "event.h"
+#include "buffer.h"
+#include "uart.h"
+#include "timer.h"
 
 typedef enum BluetoothDeviceStatus {
     UNINIT = 0,
     INIT = 1,
-    STARTED = 2,
-    CONNECTED = 3,
-    SLEEP = 4,
+    POWER_ON = 2,
+    STARTED = 3,
+    CONNECTED = 4,
 } BluetoothDeviceStatus;
 
 #define NAMELEN 16
@@ -24,34 +28,10 @@ typedef enum BluetoothDeviceStatus {
 #define DEFAULT_BAUDRATE 9600
 #define DEFAULT_PWD "000000"
 #define BLUETOOTH_UART UART1
-#define BLUETOOTH_BRTS_PIN_M 
-#define BLUETOOTH_BRTS_PIN_S
-#define BLUETOOTH_BCTS_PIN_M
-#define BLUETOOTH_BCTS_PIN_S
-#define BLUETOOTH_EN_M
-#define BLUETOOTH_EN_S
-#define BLUETOOTH_RST_M
-#define BLUETOOTH_RST_S
-#define BLUETOOTH_REST_M
-#define BLUETOOTH_REST_S
-#define BLUETOOTH_VCC_M
-#define BLUETOOTH_VCC_S
-#define BLUETOOTH_GND_M
-#define BLUETOOTH_GND_S
-
-#define SET_PIN(M, S) \
-    P#M#OUT |= (1 << S)
-
-#define CLR_PIN(M, S) \
-    P#M#OUT &= ~(1 << S)
-
-PinHandler createPinHandler(char m, char s) {
-    return (char)((m & 0x0F) << 4 | (s & 0x0F));
-}
-
-#define getM(h) (char)((h & 0xF0) >> 4)
-
-#define getS(h) (char)(h & 0x0F)
+#define CMDSTART "TTM:"
+#define TTMOK "TTM:OK\r\n"
+#define TTMDISCONNECT "TTM:DISCONNECT\r\n"
+#define TTMTIMEOUT "TTM:DISCONNECT FOR TIMEOUT\r\n"
 
 typedef struct BluetoothDevice {
     BluetoothDeviceStatus status;
@@ -67,8 +47,9 @@ typedef struct BluetoothDevice {
     PinHandler BRTS_PIN;
     PinHandler BCTS_PIN;
     int uartHandler; 
-    BluetoothDeviceConnectedEventProcess proc;
-    void* context;
+    // BluetoothDeviceConnectedEventProcess proc;
+    // void* context;
+    struct Buffer rBuffer;
 } BluetoothDevice;
 
 static BluetoothDevice device;
@@ -94,30 +75,96 @@ int initBluetoothDevice(PinHandler vcc,
     device.BCTS_PIN = bcts;
     device.uartHandler = uartId;
     device.status = INIT;
+    configPinStatus(device.VCC_PIN, PIN_OUT);
+    setPinValue(device.VCC_PIN, 0);
+    configPinStatus(device.GND_PIN, PIN_OUT);
+    setPinValue(device.GND_PIN, 0);
+    configPinStatus(device.RST_PIN, PIN_OUT);
+    setPinValue(device.RST_PIN, 0);
+    configPinStatus(device.REST_PIN, PIN_OUT);
+    setPinValue(device.REST_PIN, 0);
+    configPinStatus(device.EN_PIN, PIN_OUT);
+    setPinValue(device.EN_PIN, 0);
+    configPinStatus(device.BRTS_PIN, PIN_OUT);
+    setPinValue(device.BRTS_PIN, 0);
+    configPinStatus(device.BCTS_PIN, PIN_IN);
+    openUart(device.uartHandler);
+    initBuffer(&(device.rBuffer));
     return 0;
 }
 
+static int bctsHandler(PinHandler bcts, void* context) {
+    unsigned char buf[100] = "\0";
+    int i = 0;
+
+    int len = readStrFrom(device.uartHandler, buf, 100);
+    if (0 >= len) {
+        //sleep 500 ms to wait
+        delay_ms(500);
+        len = readStrFrom(device.uartHandler, buf, 100);
+        if (0 >= len) {
+            return -1;
+        }
+    }
+
+    if (0 == strncmp((char*)buf, CMDSTART, strlen(CMDSTART))) {
+        if (0 == strncmp((char*)buf, TTMOK, strlen(TTMOK))) {
+            //connect successfully
+            device.status = CONNECTED;
+            //raise bluetooth connected event
+            // if (NULL == device.proc) {
+            //     device.proc(device.context);
+            // }
+            raiseEvent(BLUETOOTH_CONNECT);
+            return 0;
+        }
+        if (0 == strncmp((char*)buf, TTMDISCONNECT, strlen(TTMDISCONNECT)) ||
+            0 == strncmp((char*)buf, TTMTIMEOUT, strlen(TTMTIMEOUT))) {
+            // raise bluetooth disconnected event
+            raiseEvent(BLUETOOTH_DISCONNECT);
+            device.status = STARTED;
+            return 0;
+        }
+    } else {
+        for (i = 0; i < len; i++) writeBuffer(&(device.rBuffer), buf[i]);
+        raiseEvent(BLUETOOTH_READ);
+    }
+    return 0;
+}
 //power on bluetooth device
 int powerOnBluetoothDevice() {
     if (INIT != device.status) return  -1;
 
-    char m = getM(device.VCC_PIN);
-    char s = getS(device.VCC_PIN);
+    setPinValue(device.VCC_PIN, 1); // vcc on
 
-    SET_PIN(m, s); // vcc on
-    m = getM(device.GND_PIN);
-    s = getS(device.GND_PIN);
-    CLR_PIN(m, s); // gnd off
+    setPinValue(device.GND_PIN, 0); // gnd off
 
-    // rest off
-    //rst off
-    // en off
+    setPinValue(device.REST_PIN, 1);// rest up
+    setPinValue(device.RST_PIN, 1);//rst off
+    setPinValue(device.EN_PIN, 1);// en off
+    setPinValue(device.BRTS_PIN, 1);
 
-    // TODO: register bcts process
+    //  register bcts process
+    registerPinProc(device.BCTS_PIN, 1, bctsHandler, (void*)&device);
+    device.status = POWER_ON;
+    return 0;
 }
 
 //power off bluetooth device
-int powerOffBluetoothDevice();
+int powerOffBluetoothDevice() {
+    if (INIT >= device.status) return 0;
+
+    setPinValue(device.VCC_PIN, 0);
+    setPinValue(device.REST_PIN, 0);
+    setPinValue(device.RST_PIN, 0);
+    setPinValue(device.EN_PIN, 0);
+    setPinValue(device.BRTS_PIN, 0);
+
+    // unregister bcts process
+    unregisterPinProc(device.BCTS_PIN);
+    device.status = INIT;
+    return 0;
+}
 
 //configure bluetooth device name.
 int configBluetoothDeviceName(char* name, int len);
@@ -135,27 +182,60 @@ int configBluetoothDeviceMAC(char* mac, int len);
 int configBluetoothDevicePID(char* mac);
 
 //configure bluetooth device broadcast period
-typedef enum BluetoothDeviceBroadcastPeriod {
-    
-} BluetoothDeviceBroadcastPeriod;
-int configBluetoothDeviceBroadcastPeriod(int ms);
+int configBluetoothDeviceBroadcastPeriod(BluetoothDeviceBroadcastPeriod period);
 
 // wake up bluetooth device when it sleeps.
-int wakeBluetoothDevice();
+int wakeBluetoothDevice() {
+    if (POWER_ON != device.status) return -1;
+
+    setPinValue(device.EN_PIN, 0);
+    device.status = STARTED;
+    return 0;
+}
 
 // bluetooth device sleeps when it wakes.
-int sleepBluetoothDevice();
+int sleepBluetoothDevice() {
+    if (POWER_ON >= device.status) return -1;
+
+    setPinValue(device.EN_PIN, 1);
+    device.status = POWER_ON;
+    return 0;
+}
 
 //scan and connect to other bluetooth devices.
 
 //write data through bluetooth.
-int writeStrThroughBluetoothDevice(char* str, int len);
+int writeStrThroughBluetoothDevice(char* str, int len) {
+    if (CONNECTED != device.status || NULL == str || 0 >= len) return -1;
+    int t = 0;
+
+    //down the BRTS pin.
+    setPinValue(device.BRTS_PIN, 0);
+    do {
+        t += writeStrTo(device.uartHandler, (unsigned char*)str + t, len - t);
+    } while(t < len);
+
+    setPinValue(device.BRTS_PIN, 1);
+    return t;
+}
 
 //register bluetooth connected event process method.
-typedef int (*BluetoothDeviceConnectedEventProcess)(void* context);
-int registerBluetoothDeviceConnectedEventProcess(BluetoothDeviceConnectedEventProcess process,
-    void* context);
-int unregisterBluetoothDeviceConnectedEventProcess();
+// int registerBluetoothDeviceConnectedEventProcess(BluetoothDeviceConnectedEventProcess process,
+//     void* context) {
+//         if (NULL == process || UNINIT == device.status || NULL != device.proc) return -1;
+        
+//         device.proc = process;
+//         device.context = context;
+//         return 0;
+//     }
+// int unregisterBluetoothDeviceConnectedEventProcess() {
+//     device.proc = NULL;
+//     device.context = NULL;
+//     return 0;
+// }
 
 // read data through bluetooth.
-int readStrThroughBluetoothDevice(char* str, int len);
+int readStrThroughBluetoothDevice(char* str, int len) {
+    if (CONNECTED != device.status || NULL == str || 0 >= len) return -1;
+    return readBuffer(&(device.rBuffer), (unsigned char*)str, len);
+}

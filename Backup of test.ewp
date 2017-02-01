@@ -1872,6 +1872,9 @@
   <group>
     <name>inc</name>
     <file>
+      <name>$PROJ_DIR$\inc\bluetoothdevice.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\inc\buffer.c</name>
     </file>
     <file>

@@ -333,7 +333,7 @@ int registerPinProc(PinHandler pin, char type, PinProc proc, void* context) {
     return 0;
 }
 
-int unregisterPinUpProc(PinHandler pin) {
+int unregisterPinProc(PinHandler pin) {
     char pinsId = getPinsId(pin);
     char pinId = getPinId(pin);
 
