@@ -51,13 +51,13 @@ int openUart(int num) {
     gUart[UART0].status = OPENED;
   } else { 
     P3SEL |= 0xC0; 
-    UCTL1 |= SWRST;
+    ME2 |= URXE1 + UTXE1;
+    UCTL1 |= CHAR;
     UTCTL1 |= SSEL0; 
     UBR01 = 0x03; 
     UBR11 = 0x00; 
     UMCTL1 = 0x4A; 
-    UCTL1 &= ~SWRST;
-    ME2 |= URXE1 + UTXE1; 
+    UCTL1 &= ~SWRST; 
     IE2 |= URXIE1;
     gUart[UART1].status = OPENED;
   } 

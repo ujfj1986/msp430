@@ -16,6 +16,7 @@
 #include "pm.h"
 #include <string.h>
 #include <stdio.h>
+#include "log.h"
 
 typedef struct Events {
   EventType e;
@@ -28,31 +29,47 @@ extern volatile int EVENTSTATUS = 0;
 
 int initEvent() {
   memset(&allEvents, 0, sizeof(allEvents));
-  allEvents[UART0READ].e = UART0READ;
+  /*allEvents[UART0READ].e = UART0READ;
   allEvents[UART1READ].e = UART1READ;
-  allEvents[ALARM].e = ALARM;
+  allEvents[ALARM].e = ALARM;*/
+  int i = 0;
+  for (i = 0; i < MAX_EVENT_TYPE; i++) {
+    allEvents[i].e = i;
+  }
   EVENTSTATUS = 0;
   return 0;
 }
 
 void processEvents() {
   if (0 == EVENTSTATUS) SUSPEND();
-  if (0 != (EVENTSTATUS & (1 << UART0READ))) {
-    if (NULL != allEvents[UART0READ].proc) {
-      allEvents[UART0READ].proc(allEvents[UART0READ].context);
+  do {
+    int i = 0;
+    for (i = 0; i < MAX_EVENT_TYPE; i++) {
+      if (0 != (EVENTSTATUS & (1 << i))) {
+        if (NULL != allEvents[i].proc) {
+          allEvents[i].proc(allEvents[i].context);
+        }
+        EVENTSTATUS &= ~(1 << i);
+      }
     }
-    EVENTSTATUS &= ~(1 << UART0READ);
-  } else if (0 != (EVENTSTATUS & (1 << UART1READ))) {
-    if (NULL != allEvents[UART1READ].proc) {
-      allEvents[UART0READ].proc(allEvents[UART1READ].context);
-    }
-    EVENTSTATUS &= ~(1 << UART1READ);
-  } else if (0 != (EVENTSTATUS & (1 << ALARM))) {
-    if (NULL != allEvents[ALARM].proc) {
-      allEvents[ALARM].proc(allEvents[ALARM].context);
-    }
-    EVENTSTATUS &= ~(1 << ALARM);
-  }
+  } while(0 != EVENTSTATUS);
+
+  // if (0 != (EVENTSTATUS & (1 << UART0READ))) {
+  //   if (NULL != allEvents[UART0READ].proc) {
+  //     allEvents[UART0READ].proc(allEvents[UART0READ].context);
+  //   }
+  //   EVENTSTATUS &= ~(1 << UART0READ);
+  // } else if (0 != (EVENTSTATUS & (1 << UART1READ))) {
+  //   if (NULL != allEvents[UART1READ].proc) {
+  //     allEvents[UART0READ].proc(allEvents[UART1READ].context);
+  //   }
+  //   EVENTSTATUS &= ~(1 << UART1READ);
+  // } else if (0 != (EVENTSTATUS & (1 << ALARM))) {
+  //   if (NULL != allEvents[ALARM].proc) {
+  //     allEvents[ALARM].proc(allEvents[ALARM].context);
+  //   }
+  //   EVENTSTATUS &= ~(1 << ALARM);
+  // }
 }
 
 int registerEventProcess(EventType e, EventProcess proc, void* context) {

@@ -21,7 +21,7 @@
 #include "pin.h"
 
 // initialize bluetooth device.
-int initBluetoothBluetoothDevice(PinHandler vcc,
+int initBluetoothDevice(PinHandler vcc,
     PinHandler gnd,
     PinHandler rst,
     PinHandler rest,

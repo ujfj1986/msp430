@@ -57,7 +57,7 @@ void delay_ms(unsigned int ms) {
 __interrupt void Timer_A (void)
 {  
     tick ++;
-    log("%lld\n", tick);
+    //log("%lld\n", tick);
     //wake the cpu
     //set the event flag
     if (AlarmList.len > 0) {

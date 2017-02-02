@@ -13,6 +13,7 @@
 #include "./inc/log.h"
 #include "./inc/pin.h"
 #include "./inc/bluetoothdevice.h"
+#include "./inc/bluetoothlock.h"
     
 void InitMsp430() {
   /*�������г����ر����е�IO��*/
@@ -36,7 +37,7 @@ void readuart0(void* context) {
   unsigned char buf[10] = "\0";
   readStrFrom(UART0, buf, 10);
   count ++;
-  P2OUT = ~count;
+  //P2OUT = ~count;
   //writeStrTo(UART0, buf, 10);
   log("%s\n", buf);
 }
@@ -52,6 +53,7 @@ void main(void)
     initUart();
     initEvent();
     initLog(UART0);
+    initBluetoothLock();
 
     registerEventProcess(UART0READ, readuart0, NULL);
     openUart(UART0);

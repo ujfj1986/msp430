@@ -9,6 +9,7 @@
 
 #include "pin.h"
 #include "event.h"
+#include "log.h"
 
 PinHandler createPinHandler(char pinsId, char pinId) {
     return (PinHandler)((pinsId & 0x0f) << 4 | (pinId & 0x0f));
@@ -271,6 +272,7 @@ int configPinStatus(PinHandler pin, PinStatus status) {
 }
 
 static void handleIrq(char pinsId) {
+    log("in handleIrq, %x\n", pinsId);
     char i = 0;
     char t = 0;
     char ifg = pins[pinsId - 1].irqValue;
@@ -285,8 +287,9 @@ static void handleIrq(char pinsId) {
 }
 static void pinIrqHandler(void* context) {
     (void *)context;
+    log("in pinIrqHandler, %x, %x\n", pins[0].hasIrq, pins[1].hasIrq);
 
-    if (!pins[0].hasIrq || !pins[1].hasIrq) return;
+    if (!pins[0].hasIrq && !pins[1].hasIrq) return;
 
     if (pins[0].hasIrq) {
         handleIrq(1);
@@ -306,7 +309,7 @@ int registerPinProc(PinHandler pin, char type, PinProc proc, void* context) {
     char pinsId = getPinsId(pin);
     char pinId = getPinId(pin);
 
-    if ((0 != pinsId && 1 != pinsId) ||
+    if ((1 != pinsId && 2 != pinsId) ||
         (0 > pinId || PINLINES <= pinId) ||
         (NULL == proc)) return -1;
 
@@ -337,7 +340,7 @@ int unregisterPinProc(PinHandler pin) {
     char pinsId = getPinsId(pin);
     char pinId = getPinId(pin);
 
-    if ((0 != pinsId && 1 != pinsId) ||
+    if ((1 != pinsId && 2 != pinsId) ||
         (0 > pinId || PINLINES <= pinId)) return -1;
 
     PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);

@@ -13,6 +13,7 @@
 #include "buffer.h"
 #include "uart.h"
 #include "timer.h"
+#include "log.h"
 
 typedef enum BluetoothDeviceStatus {
     UNINIT = 0,
@@ -96,12 +97,15 @@ int initBluetoothDevice(PinHandler vcc,
 static int bctsHandler(PinHandler bcts, void* context) {
     unsigned char buf[100] = "\0";
     int i = 0;
+    log("in bctsHandler\n");
 
     int len = readStrFrom(device.uartHandler, buf, 100);
+    log("read str %d, %s.\n", len, buf);
     if (0 >= len) {
         //sleep 500 ms to wait
         delay_ms(500);
         len = readStrFrom(device.uartHandler, buf, 100);
+        log("read2 str %d, %s.\n", len, buf);
         if (0 >= len) {
             return -1;
         }
@@ -134,6 +138,7 @@ static int bctsHandler(PinHandler bcts, void* context) {
 //power on bluetooth device
 int powerOnBluetoothDevice() {
     if (INIT != device.status) return  -1;
+    log("in powerOnBluetoothDevice\n");
 
     setPinValue(device.VCC_PIN, 1); // vcc on
 

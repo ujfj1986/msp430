@@ -11,6 +11,7 @@
 #define _EVENT_H_
 
 #include "pm.h"
+#include "log.h"
 
 extern volatile int EVENTSTATUS;
 typedef enum EventType {
@@ -37,6 +38,7 @@ int unregisterEventProcess(EventType e);
 void processEvents();
 
 #define raiseEvent(e) do{ \
+  log("raise event %d.\n", e); \
   EVENTSTATUS |= (1 << e); \
   if (PIN_IRQ >= e) RESUME(); \
 } while(0)
