@@ -33,7 +33,7 @@ int initEvent() {
   allEvents[UART1READ].e = UART1READ;
   allEvents[ALARM].e = ALARM;*/
   int i = 0;
-  for (i = 0; i < MAX_EVENT_TYPE; i++) {
+  for (i = 0; i < MAX_EVENT; i++) {
     allEvents[i].e = i;
   }
   EVENTSTATUS = 0;
@@ -44,7 +44,7 @@ void processEvents() {
   if (0 == EVENTSTATUS) SUSPEND();
   do {
     int i = 0;
-    for (i = 0; i < MAX_EVENT_TYPE; i++) {
+    for (i = 0; i < MAX_EVENT; i++) {
       if (0 != (EVENTSTATUS & (1 << i))) {
         if (NULL != allEvents[i].proc) {
           allEvents[i].proc(allEvents[i].context);

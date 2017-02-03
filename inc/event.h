@@ -22,6 +22,7 @@ typedef enum EventType {
   BLUETOOTH_CONNECT = 4,
   BLUETOOTH_READ = 5,
   BLUETOOTH_DISCONNECT = 6,
+  MAX_EVENT = 7,
 } EventType;
 
 int initEvent();

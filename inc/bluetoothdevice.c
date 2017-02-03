@@ -94,12 +94,53 @@ int initBluetoothDevice(PinHandler vcc,
     return 0;
 }
 
-static int bctsHandler(PinHandler bcts, void* context) {
+static void uartReadProcess(void * context) {
     unsigned char buf[100] = "\0";
     int i = 0;
-    log("in bctsHandler\n");
+    log("in uartReadProcess\n");
 
     int len = readStrFrom(device.uartHandler, buf, 100);
+    log("read str %d, %s.\n", len, buf);
+    if (0 >= len) {
+        //sleep 500 ms to wait
+        delay_ms(500);
+        len = readStrFrom(device.uartHandler, buf, 100);
+        log("read2 str %d, %s.\n", len, buf);
+        if (0 >= len) {
+            return ;
+        }
+    }
+
+    if (0 == strncmp((char*)buf, CMDSTART, strlen(CMDSTART))) {
+        if (0 == strncmp((char*)buf, TTMOK, strlen(TTMOK))) {
+            //connect successfully
+            device.status = CONNECTED;
+            //raise bluetooth connected event
+            // if (NULL == device.proc) {
+            //     device.proc(device.context);
+            // }
+            raiseEvent(BLUETOOTH_CONNECT);
+            return ;
+        }
+        if (0 == strncmp((char*)buf, TTMDISCONNECT, strlen(TTMDISCONNECT)) ||
+            0 == strncmp((char*)buf, TTMTIMEOUT, strlen(TTMTIMEOUT))) {
+            // raise bluetooth disconnected event
+            raiseEvent(BLUETOOTH_DISCONNECT);
+            device.status = STARTED;
+            return ;
+        }
+    } else {
+        for (i = 0; i < len; i++) writeBuffer(&(device.rBuffer), buf[i]);
+        raiseEvent(BLUETOOTH_READ);
+    }
+}
+static int bctsHandler(PinHandler bcts, void* context) {
+    //unsigned char buf[100] = "\0";
+    //int i = 0;
+    log("in bctsHandler\n");
+
+    // don't do anything
+    /*int len = readStrFrom(device.uartHandler, buf, 100);
     log("read str %d, %s.\n", len, buf);
     if (0 >= len) {
         //sleep 500 ms to wait
@@ -132,7 +173,7 @@ static int bctsHandler(PinHandler bcts, void* context) {
     } else {
         for (i = 0; i < len; i++) writeBuffer(&(device.rBuffer), buf[i]);
         raiseEvent(BLUETOOTH_READ);
-    }
+    }*/
     return 0;
 }
 //power on bluetooth device
@@ -151,6 +192,9 @@ int powerOnBluetoothDevice() {
 
     //  register bcts process
     registerPinProc(device.BCTS_PIN, 1, bctsHandler, (void*)&device);
+    // register uart read process
+    registerEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ),
+        uartReadProcess, NULL);
     device.status = POWER_ON;
     return 0;
 }
@@ -167,6 +211,7 @@ int powerOffBluetoothDevice() {
 
     // unregister bcts process
     unregisterPinProc(device.BCTS_PIN);
+    unregisterEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ));
     device.status = INIT;
     return 0;
 }

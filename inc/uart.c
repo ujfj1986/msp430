@@ -12,6 +12,7 @@
 #include "timer.h"
 #include "pm.h"
 #include "event.h"
+#include "pin.h"
 
 struct Uart {
   int index;
@@ -39,7 +40,9 @@ int openUart(int num) {
   if (num != 0 && num != 1) return -1;
   if (OPENED == gUart[num].status) return 0;
   if (num == 0) { 
-    P3SEL |= 0x30;
+    //P3SEL |= 0x30;
+    configPinStatus(createPinHandler(3, 4), PIN_SEL);
+    configPinStatus(createPinHandler(3, 5), PIN_SEL);
     ME1 |= URXE0 + UTXE0;
     UCTL0 |= CHAR; 
     UTCTL0 |= SSEL0; 
@@ -50,7 +53,9 @@ int openUart(int num) {
     IE1 |= URXIE0;
     gUart[UART0].status = OPENED;
   } else { 
-    P3SEL |= 0xC0; 
+    //P3SEL |= 0xC0; 
+    configPinStatus(createPinHandler(3, 6), PIN_SEL);
+    configPinStatus(createPinHandler(3, 7), PIN_SEL);
     ME2 |= URXE1 + UTXE1;
     UCTL1 |= CHAR;
     UTCTL1 |= SSEL0; 

@@ -1952,6 +1952,12 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\inc\bluetoothdevice.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\bluetoothlock.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\inc\buffer.c</name>
   </file>
   <file>
@@ -1965,6 +1971,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\inc\pin.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\inc\timer.c</name>
