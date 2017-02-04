@@ -98,18 +98,27 @@ static void uartReadProcess(void * context) {
     unsigned char buf[100] = "\0";
     int i = 0;
     log("in uartReadProcess\n");
+    int len = 0;
+    int tmp_len = 0;
 
-    int len = readStrFrom(device.uartHandler, buf, 100);
-    log("read str %d, %s.\n", len, buf);
-    if (0 >= len) {
-        //sleep 500 ms to wait
-        delay_ms(500);
-        len = readStrFrom(device.uartHandler, buf, 100);
-        log("read2 str %d, %s.\n", len, buf);
-        if (0 >= len) {
-            return ;
-        }
-    }
+    do {
+        tmp_len = readStrFrom(device.uartHandler, buf + len, 100 - len);
+        if (0 != tmp_len) len += tmp_len;
+        else break;
+        log("read str %d, %x, %x, %s.\n", tmp_len, buf[0], buf[1], buf);
+    } while ('\0' != buf[len - 1]);
+    // int len = readStrFrom(device.uartHandler, buf, 100);
+    // log("read str %d, %s.\n", len, buf);
+    // if ('\0' != buf[len - 1]) {
+    //     //sleep 500 ms to wait
+    //     delay_ms(500);
+    //     len = readStrFrom(device.uartHandler, buf, 100);
+    //     log("read2 str %d, %s.\n", len, buf);
+    //     if (0 >= len) {
+    //         return ;
+    //     }
+    // }
+    if ('\0' != buf[len - 1]) return;
 
     if (0 == strncmp((char*)buf, CMDSTART, strlen(CMDSTART))) {
         if (0 == strncmp((char*)buf, TTMOK, strlen(TTMOK))) {
@@ -133,6 +142,8 @@ static void uartReadProcess(void * context) {
         for (i = 0; i < len; i++) writeBuffer(&(device.rBuffer), buf[i]);
         raiseEvent(BLUETOOTH_READ);
     }
+    len = 0;
+    memset(buf, 0, sizeof(buf));
 }
 static int bctsHandler(PinHandler bcts, void* context) {
     //unsigned char buf[100] = "\0";
@@ -191,7 +202,7 @@ int powerOnBluetoothDevice() {
     setPinValue(device.BRTS_PIN, 1);
 
     //  register bcts process
-    registerPinProc(device.BCTS_PIN, 1, bctsHandler, (void*)&device);
+    //registerPinProc(device.BCTS_PIN, 1, bctsHandler, (void*)&device);
     // register uart read process
     registerEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ),
         uartReadProcess, NULL);
@@ -210,7 +221,7 @@ int powerOffBluetoothDevice() {
     setPinValue(device.BRTS_PIN, 0);
 
     // unregister bcts process
-    unregisterPinProc(device.BCTS_PIN);
+    //unregisterPinProc(device.BCTS_PIN);
     unregisterEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ));
     device.status = INIT;
     return 0;

@@ -158,8 +158,8 @@ int initPins() {
     memset(&pins, 0, sizeof(pins));
 
     for (id = 0; id < PINSCOUNT; id ++) {
-        configPinsStatus(id, OUT);
-        setPinsValue(id, 0xFF);
+        configPinsStatus(id + 1, PIN_OUT);
+        setPinsValue(id + 1, 0xFF);
     }
 
     return 0;

@@ -13,6 +13,7 @@
 #include "pm.h"
 #include "event.h"
 #include "pin.h"
+#include "log.h"
 
 struct Uart {
   int index;
@@ -73,23 +74,34 @@ int openUart(int num) {
 #pragma vector = UART1RX_VECTOR
 __interrupt void Uart1_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART1].rBuffer);
-  unsigned char tmp = U1RXBUF;
-  writeBuffer(pBuffer, tmp);
-  //_BIC_SR_IRQ(LPM3_bits);
-  //RESUME();
+  unsigned char tmp = 0x00;
+  do {
+    tmp = U1RXBUF;
+    IFG2 &= ~URXIFG1;
+    writeBuffer(pBuffer, tmp);
+  } while( 0 != (IFG2 & URXIFG1));
+
   //trigger uart1 rx event
   raiseEvent(UART1READ);
+  //IFG2 &= ~URXIFG1;
 }
 
 #pragma vector = UART0RX_VECTOR
 __interrupt void Uart0_Rx(void) {
   struct Buffer *pBuffer = &(gUart[UART0].rBuffer);
-  unsigned char tmp = U0RXBUF;
-  writeBuffer(pBuffer, tmp);
- //_BIC_SR_IRQ(LPM3_bits);
-  //RESUME();
+  unsigned char tmp = 0x00;
+
+  do {
+    tmp = U0RXBUF;
+    IFG1 &= ~URXIFG0;
+    writeBuffer(pBuffer, tmp);
+    //log("%c", tmp);
+    //__delay_cycles(5);
+  } while ( 0 != (IFG1 & URXIFG0));
+
   //trigger uart0 rx event
   raiseEvent(UART0READ);
+  // IFG1 &= ~URXIFG0;
 }
 
 int readByteFrom(int num, unsigned char* pVal) {

@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=1221758755
+Checksum=1020499025
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -52,9 +52,11 @@ Category=_ 0
 LoggingEnabled=_ 0
 LogFile=_ ""
 [Aliases]
-A0=_ "E:\workspace\msp430\autolife\inc\uart.c" "F:\workspace\test_for_msp430\inc\uart.c"
-Count=1
-SuppressDialog=0
+A0=_ "E:\workspace\msp430\autolife\inc\event.c" "F:\workspace\test_for_msp430\inc\event.c"
+A1=_ "E:\workspace\msp430\autolife\inc\uart.c" "F:\workspace\test_for_msp430\inc\uart.c"
+A2=_ "E:\workspace\msp430\autolife\main.c" "F:\workspace\test_for_msp430\main.c"
+Count=3
+SuppressDialog=1
 [CallStackLog]
 Enabled=0
 [DriverProfiling]

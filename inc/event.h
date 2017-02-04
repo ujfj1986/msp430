@@ -39,7 +39,6 @@ int unregisterEventProcess(EventType e);
 void processEvents();
 
 #define raiseEvent(e) do{ \
-  log("raise event %d.\n", e); \
   EVENTSTATUS |= (1 << e); \
   if (PIN_IRQ >= e) RESUME(); \
 } while(0)
