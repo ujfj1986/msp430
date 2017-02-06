@@ -214,6 +214,10 @@ int setPinsValue(char pinsId, char value) {
 int configPinsStatus(char pinsId, PinStatus status) {
     if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
     
+    if (status == PIN_IN && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_IN) return 0;
+    else if (stauts == PIN_OUT && pins[pinsId -1].pins_status == PINS_STATUS_ALL_OUT) return 0;
+    else if (status == PIN_SEL && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_SEL) return 0;
+
     pins[pinsId - 1].pins_status = (status == PIN_IN) ?
         (PINS_STATUS_ALL_IN) :
         ((status == PIN_OUT) ?
@@ -250,6 +254,7 @@ int configPinStatus(PinHandler pin, PinStatus status) {
     (0 > pinId || PINLINES <= pinId)) return -1;
 
     //pins[pinsId - 1].pin[pinId].status = status;
+    if (status == getPinStatus(pins[pinsId - 1].pins_status, pinId)) return 0;
     setPinStatus(&(pins[pinsId - 1].pins_status), pinId, status);
 
     unsigned char volatile* reg_sel = REG_SEL(pinsId);
