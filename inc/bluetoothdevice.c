@@ -21,6 +21,7 @@ typedef enum BluetoothDeviceStatus {
     POWER_ON = 2,
     STARTED = 3,
     CONNECTED = 4,
+    CONFIGING = 5,
 } BluetoothDeviceStatus;
 
 #define NAMELEN 16
@@ -31,6 +32,7 @@ typedef enum BluetoothDeviceStatus {
 #define BLUETOOTH_UART UART1
 #define CMDSTART "TTM:"
 #define TTMOK "TTM:OK\r\n"
+#define TTMERROR "TTM:ERR\r\n"
 #define TTMDISCONNECT "TTM:DISCONNECT\r\n"
 #define TTMTIMEOUT "TTM:DISCONNECT FOR TIMEOUT\r\n"
 
@@ -99,37 +101,22 @@ static void uartReadProcess(void * context) {
     int i = 0;
     log("in uartReadProcess\n");
     int len = 0;
-    int tmp_len = 0;
 
-    do {
-        tmp_len = readStrFrom(device.uartHandler, buf + len, 100 - len);
-        if (0 != tmp_len) len += tmp_len;
-        else break;
-        log("read str %d, %x, %x, %s.\n", tmp_len, buf[0], buf[1], buf);
-    } while ('\0' != buf[len - 1]);
-    // int len = readStrFrom(device.uartHandler, buf, 100);
-    // log("read str %d, %s.\n", len, buf);
-    // if ('\0' != buf[len - 1]) {
-    //     //sleep 500 ms to wait
-    //     delay_ms(500);
-    //     len = readStrFrom(device.uartHandler, buf, 100);
-    //     log("read2 str %d, %s.\n", len, buf);
-    //     if (0 >= len) {
-    //         return ;
-    //     }
-    // }
-    if ('\0' != buf[len - 1]) return;
+    len = readStrFrom(device.uartHandler, buf, 100);
+    log("read str %d, %x, %x, %s.\n", len, buf[0], buf[1], buf);
 
     if (0 == strncmp((char*)buf, CMDSTART, strlen(CMDSTART))) {
         if (0 == strncmp((char*)buf, TTMOK, strlen(TTMOK))) {
-            //connect successfully
-            device.status = CONNECTED;
-            //raise bluetooth connected event
-            // if (NULL == device.proc) {
-            //     device.proc(device.context);
-            // }
-            raiseEvent(BLUETOOTH_CONNECT);
-            return ;
+            if (STARTED == device.status) {
+                //connect successfully
+                device.status = CONNECTED;
+                //raise bluetooth connected event
+                raiseEvent(BLUETOOTH_CONNECT);
+                return ;
+            } else if (CONFIGING == device.status) {
+                // config success.
+            }
+
         }
         if (0 == strncmp((char*)buf, TTMDISCONNECT, strlen(TTMDISCONNECT)) ||
             0 == strncmp((char*)buf, TTMTIMEOUT, strlen(TTMTIMEOUT))) {
@@ -142,8 +129,6 @@ static void uartReadProcess(void * context) {
         for (i = 0; i < len; i++) writeBuffer(&(device.rBuffer), buf[i]);
         raiseEvent(BLUETOOTH_READ);
     }
-    len = 0;
-    memset(buf, 0, sizeof(buf));
 }
 static int bctsHandler(PinHandler bcts, void* context) {
     //unsigned char buf[100] = "\0";
@@ -271,6 +256,7 @@ int writeStrThroughBluetoothDevice(char* str, int len) {
     int t = 0;
 
     //down the BRTS pin.
+    while(1 != getPinValue(device.BCTS_PIN));
     setPinValue(device.BRTS_PIN, 0);
     do {
         t += writeStrTo(device.uartHandler, (unsigned char*)str + t, len - t);

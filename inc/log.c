@@ -33,7 +33,6 @@ int log(const char* format, ...) {
   va_start(args, format);
   len = vsprintf((char*)logBuffer, format, args);
   logBuffer[len] = '\0';
-  P2OUT = ~len;
   
   if (0 != len) {
     writeStrTo(logUartNum, logBuffer, len+1);

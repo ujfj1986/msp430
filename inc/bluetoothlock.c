@@ -40,6 +40,7 @@ static int writeConfig() {
 static void bluetoothConnectProcess(void* context) {
     // TODO: dule with bluetooth device connect event.
     log("in bluetoothConnectProcess\n");
+    writeStrThroughBluetoothDevice("send", 4);
 }
 
 static void bluetoothDisconnectProcess(void* context) {
@@ -50,6 +51,9 @@ static void bluetoothDisconnectProcess(void* context) {
 static void bluetoothReadProcess(void* context) {
     // TODO: dule with bluetooth device read event.
     log("in bluetoothReadProcess\n");
+    char buf[100] = "\0";
+    int len = readStrThroughBluetoothDevice(buf, 100);
+    log("read from bluetooth: %d %s\n", len, buf);
 }
 
 static int resetPinProcess(PinHandler pin, void* context) {
