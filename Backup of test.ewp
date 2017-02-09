@@ -1903,6 +1903,9 @@
     </file>
   </group>
   <file>
+    <name>$PROJ_DIR$\inc\i2c.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\main.c</name>
   </file>
 </project>

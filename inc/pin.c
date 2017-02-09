@@ -310,7 +310,7 @@ static void pinIrqHandler(void* context) {
 
 }
 
-int registerPinProc(PinHandler pin, char type, PinProc proc, void* context) {
+int registerPinProc(PinHandler pin, PinIrqType type, PinProc proc, void* context) {
     char pinsId = getPinsId(pin);
     char pinId = getPinId(pin);
 
@@ -330,7 +330,7 @@ int registerPinProc(PinHandler pin, char type, PinProc proc, void* context) {
     unsigned char volatile* reg_ies = REG_IES(pinsId);
     unsigned char volatile* reg_ifg = REG_IFG(pinsId);
     unsigned char volatile* reg_ie = REG_IE(pinsId);
-    (0 == type) ?
+    (IRQ_UP == type) ?
         (CLR_BIT(*reg_ies, pinId)) :
         (SET_BIT(*reg_ies, pinId));
     CLR_BIT(*reg_ifg, pinId);

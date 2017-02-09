@@ -1,9 +1,29 @@
+/*
+* keypad.h - define the keypad module.
+*
+* Keypad module is the module that control the TSM12 keypad module.
+* MSP430 uses i2c to connect with TSM12 module. There is another pin
+* which can raise an interrupt to notify MSP430 that TSM module has
+* input data.
+*
+* Author: Shan Jiejing
+* Date: 2017-02-09
+*/
+
 #ifndef _KEYPAD_H_
 #define _KEYPAD_H_
-void Init_Keypad(void);
-void Check_Key(void);
-void delay();
-void Key_Event(void);
-unsigned char key_val;          //存放键值
-unsigned char key_Flag;         //按键是否已放开：1--是，0--否
+#include "pin.h"
+int initKeypad(PinHandler vcc,
+    PinHandler gnd,
+    PinHandler irq,
+    PinHandler en,
+    PinHandler scl,
+    PinHandler sda,
+    PinHandler bg, // background led
+    PinHandler led); // led
+
+typedef void (*KeyProcess)(char key, void* context);
+int registerKeyProcess(KeyProcess proc, void* context);
+int unregisterKeyProcess();
+
 #endif //_KEYPAD_H_
