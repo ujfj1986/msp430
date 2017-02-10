@@ -1,105 +1,118 @@
+/*
+* keypad.c - implement the keypad module.
+*
+* Author: Shan Jiejing
+* Date: 2017-02-09
+*/
 #include  <msp430x14x.h>
-//#include "keypad.h"
+#include "keypad.h"
+#include <string.h>
+#include "i2c.h"
 
-#if 0
-typedef unsigned char uchar;
-typedef unsigned int  uint;
+typedef struct Keypad {
+    PinHandler vcc;
+    PinHandler gnd;
+    PinHandler irq;
+    PinHandler en;
+    PinHandler scl;
+    PinHandler sda;
+    PinHandler bg;
+    PinHandler led;
+    KeyProcess proc;
+    void* context;
+} Keypad;
 
-/***************ȫ�ֱ���***************/
-uchar key_Pressed;      //�����Ƿ񱻰���:1--�ǣ�0--��
-extern uchar key_val;          //���ż�ֵ
-extern uchar key_Flag;         //�����Ƿ��ѷſ���1--�ǣ�0--��
-//���ü����߼���ֵ������������ֵ��ӳ��
-uchar key_Map[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+static Keypad gKey;
 
-/*******************************************
-�������ƣ�Init_Keypad
-��    �ܣ���ʼ��ɨ�����̵�IO�˿�
-��    ������
-����ֵ  ����
-********************************************/
-void Init_Keypad(void)
-{     
-    P1DIR = 0xf0;       //P1.0~P1.3����Ϊ����״̬, P1.4~P1.7����Ϊ����״̬
-    P1OUT |= 0xf0;      // P1.4~P1.7�����ߵ�ƽ
-    key_Flag = 0;       
-    key_Pressed = 0;   
-    key_val = 0;
+#define KEYPAD_I2C_ADDR 0xD0
+#define KEYPAD_I2C_REG_OUTPUT1 0x10
+#define KEYPAD_I2C_REG_OUTPUT2 0x11
+#define KEYPAD_I2C_REG_OUTPUT3 0x12
+
+static void powerOnKeypad() {
+    setPinValue(gKey.vcc, 1);
+    setPinValue(gKey.gnd, 0);
+    setPinValue(gKey.en, 1);
 }
-/*********************************************
-* Check_Key(),���鰴����ȷ�ϼ�ֵ
-*********************************************/
-/*******************************************
-�������ƣ�Check_Key
-��    �ܣ�ɨ�����̵�IO�˿ڣ����ü�ֵ
-��    ������
-����ֵ  ����
-********************************************/
-void Check_Key(void)
-{
-    uchar row ,col,tmp1,tmp2;
+
+static void powerOffKeypad() {
+    setPinValue(gKey.vcc, 0);
+}
+
+static int keypadIrqHandler(PinHandler irq, void* context) {
+    //dual with keypad irq event
+    char output[3] = "\0";
+    int ret = 0;
+    int i = 0;
+    int j = 0;
+
+    setPinValue(gKey.en, 0);
+    //TODO: verify the registers of output.
+    ret = i2cRead(KEYPAD_I2C_ADDR, KEYPAD_I2C_REG_OUTPUT1, &output[0]);
+    if (ret) goto error;
+    ret = i2cRead(KEYPAD_I2C_ADDR, KEYPAD_I2C_REG_OUTPUT2, &output[1]);
+    if (ret) goto error;
+    ret = i2cRead(KEYPAD_I2C_ADDR, KEYPAD_I2C_REG_OUTPUT3, &output[2]);
+    if (ret) goto error;
     
-    tmp1 = 0x80;
-    for(row = 0;row < 4;row++)              //��ɨ��
-    {
-        P1OUT = 0xf0;                      //P1.4~P1.7����ȫ1
-        P1OUT -= tmp1;                      //P1.4~p1.7������λ����һ��Ϊ0
-        tmp1 >>=1;                              
-        if ((P1IN & 0x0f) < 0x0f)           //�Ƿ�P1IN��P1.0~P1.3����һλΪ0
-        {                       
-            tmp2 = 0x01;                         // tmp2���ڼ�������һλΪ0  
-            for(col = 0;col < 4;col++)              // �м��� 
-            {          
-                if((P1IN & tmp2) == 0x00)           // �Ƿ��Ǹ���,����0Ϊ��
-                {          
-                    key_val = key_Map[row * 4 + col];  // ��ȡ��ֵ
-                    return;                         // �˳�ѭ��
-                }
-                tmp2 <<= 1;                        // tmp2����1λ 
-            }
+    for (i = 0; i < 3; i++) {
+        if (0 == output[i]) continue;
+        for (j = 0; j < 4; j++) {
+            if (0 != (output[i] & (0x11 << (2*j)))) break;
         }
-    }      
-}
-/*******************************************
-�������ƣ�delay
-��    �ܣ���ʱԼ15ms��������������
-��    ������
-����ֵ  ����
-********************************************/
-void delay()
-{
-    uint tmp;
-     
-    for(tmp = 12000;tmp > 0;tmp--);
-}
-/*******************************************
-�������ƣ�Key_Event
-��    �ܣ����ⰴ��������ȡ��ֵ
-��    ������
-����ֵ  ����
-********************************************/
-void Key_Event(void)
-{     
-    uchar tmp;
-     
-    P1OUT &= 0x00;              // ����P1OUTȫΪ0���ȴ���������
-    tmp = P1IN;                 // ��ȡ p1IN
-    if ((key_Pressed == 0x00)&&((tmp & 0x0f) < 0x0f)) //�����м�����
-    {                     
-        key_Pressed = 1;        // �����а������£�����key_Pressed��ʶ
-        delay();                //��������
-        Check_Key();            // ����check_Key(),��ȡ��ֵ 
-    }     
-    else if ((key_Pressed == 1)&&((tmp & 0x0f) == 0x0f)) //���������Ѿ��ͷ�
-    {                     
-        key_Pressed = 0;        // ����key_Pressed��ʶ
-        key_Flag    = 1;        // ����key_Flag��ʶ
+        break;
     }
-    else 
-    {
-        _NOP();
-    }     
+    if (3 == i) goto error;
+    //mapping the output to the key.
+    //TODO: call the call back function to dual with the key event.
+    return 0;
+error:
+    setPinValue(gKey.en, 1);
+    return ret;
 }
 
-#endif //0
+int initKeypad(PinHandler vcc,
+    PinHandler gnd,
+    PinHandler irq,
+    PinHandler en,
+    PinHandler scl,
+    PinHandler sda,
+    PinHandler bg, // background led
+    PinHandler led) {
+    memset(&gKey, 0, sizeof(gKey));
+
+    gKey.vcc = vcc;
+    gKey.gnd = gnd;
+    gKey.irq = irq;
+    gKey.en = en;
+    gKey.scl = scl;
+    gKey.sda = sda;
+    gKey.bg = bg;
+    gKey.led = led;
+
+    configPinStatus(gKey.vcc, PIN_OUT);
+    configPinStatus(gKey.gnd, PIN_OUT);
+    configPinStatus(gKey.en, PIN_OUT);
+    initI2c(gKey.scl, gKey.sda);
+    configPinStatus(gKey.bg, PIN_OUT);
+    configPinStatus(gKey.led, PIN_OUT);
+    configPinStatus(gKey.irq, PIN_IN);
+    registerPinProcess(gKey.irq, IRQ_UP, keypadIrqHandler, NULL);
+
+    powerOnKeypad();
+    return 0;
+}
+
+int registerKeyProcess(KeyProcess proc, void* context) {
+    if (NULL == proc || gKey.vcc == 0 || gKey.proc != NULL) return -1;
+    gKey.proc = proc;
+    gKey.context = context;
+    return 0;
+}
+int unregisterKeyProcess() {
+    gKey.proc = NULL;
+    gKey.context = NULL;
+    return 0;
+}
+
 

@@ -51,7 +51,11 @@ int configPinsStatus(char pinsId, PinStatus status);
 int configPinStatus(PinHandler pin, PinStatus status);
 
 typedef int (*PinProc)(PinHandler, void*);
-int registerPinProc(PinHandler, char, PinProc, void*);
+typedef enum PinIrqType {
+    IRQ_UP = 0,
+    IRQ_DOWN = 1,
+} PinIrqType;
+int registerPinProc(PinHandler, PinIrqType, PinProc, void*);
 
 int unregisterPinProc(PinHandler);
 
