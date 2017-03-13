@@ -62,7 +62,22 @@ int insert(List* list, ListNode* node, compareNode comp) {
   }
   return 0;
 }
-        
+
+ListNode* removeNode(List* list, ListNode* node) {
+  if (NULL == list || NULL == node || 0 == list->len) return NULL;
+  ListNode* p = list->head;
+  ListNode* q = list->head;
+
+  do {
+    if (p == node) break;
+    q = p;
+    p = p->next;
+  } while(p != NULL);
+  if (NULL == p) return NULL;
+  q->next = p->next;
+  list->len --;
+  return p;
+}
     
 //add node to the list end.
 int addNode(List* list, ListNode* node) {

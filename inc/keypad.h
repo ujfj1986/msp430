@@ -22,7 +22,7 @@ int initKeypad(PinHandler vcc,
     PinHandler bg, // background led
     PinHandler led); // led
 
-typedef void (*KeyProcess)(char key, void* context);
+typedef void (*KeyProcess)(char* key, void* context);
 int registerKeyProcess(KeyProcess proc, void* context);
 int unregisterKeyProcess();
 

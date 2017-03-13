@@ -1884,6 +1884,9 @@
       <name>$PROJ_DIR$\inc\event.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\inc\i2c.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\inc\keypad.c</name>
     </file>
     <file>
@@ -1902,9 +1905,6 @@
       <name>$PROJ_DIR$\inc\uart.c</name>
     </file>
   </group>
-  <file>
-    <name>$PROJ_DIR$\inc\i2c.c</name>
-  </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
   </file>

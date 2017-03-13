@@ -8,6 +8,10 @@
 #include "keypad.h"
 #include <string.h>
 #include "i2c.h"
+#include "timer.h"
+
+#define KEY_LEN 4
+static int KEY_TIME_OUT = 10*1000; //1s
 
 typedef struct Keypad {
     PinHandler vcc;
@@ -18,11 +22,32 @@ typedef struct Keypad {
     PinHandler sda;
     PinHandler bg;
     PinHandler led;
+    char key[KEY_LEN];
+    char keyCount;
+    void* timeoutAlarm;
     KeyProcess proc;
     void* context;
 } Keypad;
 
 static Keypad gKey;
+typedef struct KeyMappingTable {
+    char channel;
+    char value;
+} KeyMappingTable;
+static KeyMappingTable gTable[] = {
+    {1, '*'},
+    {2, '7'},
+    {3, '4'},
+    {4, '1'},
+    {5, '2'},
+    {6, '5'},
+    {7, '3'},
+    {8, '6'},
+    {9, '9'},
+    {10, '#'},
+    {11, '0'},
+    {12, '8'},
+};
 
 #define KEYPAD_I2C_ADDR 0xD0
 #define KEYPAD_I2C_REG_OUTPUT1 0x10
@@ -39,12 +64,30 @@ static void powerOffKeypad() {
     setPinValue(gKey.vcc, 0);
 }
 
+static char mappingKey(char* buf) {
+    int i = 0;
+    int j = 0;
+
+    for (i = 0; i < 3; i++) {
+        if (0 == buf[i]) continue;
+        for (j = 0; j < 4; j++) {
+            if (0 != (buf[i] & (0x11 << (2 * j)))) break;
+        }
+    }
+    if (i == 3) return -1;
+
+    return gTable[i*4 + j].value;
+}
+
+static void keyInputTimeout(void* context) {
+    gKey.keyCount = 0;
+}
+
 static int keypadIrqHandler(PinHandler irq, void* context) {
     //dual with keypad irq event
     char output[3] = "\0";
     int ret = 0;
-    int i = 0;
-    int j = 0;
+    char v = 0;
 
     setPinValue(gKey.en, 0);
     //TODO: verify the registers of output.
@@ -54,18 +97,23 @@ static int keypadIrqHandler(PinHandler irq, void* context) {
     if (ret) goto error;
     ret = i2cRead(KEYPAD_I2C_ADDR, KEYPAD_I2C_REG_OUTPUT3, &output[2]);
     if (ret) goto error;
-    
-    for (i = 0; i < 3; i++) {
-        if (0 == output[i]) continue;
-        for (j = 0; j < 4; j++) {
-            if (0 != (output[i] & (0x11 << (2*j)))) break;
-        }
-        break;
-    }
-    if (3 == i) goto error;
+
     //mapping the output to the key.
+    v = mappingKey(output);
+    if (-1 == v) goto error;
     //TODO: call the call back function to dual with the key event.
-    return 0;
+    gKey.key[gKey.keyCount++] = v;
+    if (gKey.keyCount == KEY_LEN) {
+        gKey.proc(gKey.key, gKey.context);
+        gKey.keyCount = 0;
+        // remove input timeout alarm.
+        removeAlarm(gKey.timeoutAlarm);
+    } else {
+        if (NULL != gKey.timeoutAlarm) removeAlarm(gKey.timeoutAlarm);
+        gKey.timeoutAlarm = setAlarm(KEY_TIME_OUT, keyInputTimeout, NULL);
+    }
+
+    //return 0;
 error:
     setPinValue(gKey.en, 1);
     return ret;

@@ -94,6 +94,7 @@ static void alarmProccess(void* context) {
   Alarm* tmp = (Alarm*) node;
   if (tmp->alarmTime <= tick) {
     tmp->callback(tmp->context);
+    free(tmp);
   } else {
     insert(&AlarmList, node, compareAlarm);
   }
@@ -101,11 +102,11 @@ static void alarmProccess(void* context) {
     unregisterEventProcess(ALARM);
   }
 }
-void setAlarm(unsigned int ms, alarmCallback callback, void* context) {
-  if ((0 == ms) || (NULL == callback)) return;
+void* setAlarm(unsigned int ms, alarmCallback callback, void* context) {
+  if ((0 == ms) || (NULL == callback)) return NULL;
 
   Alarm* tmp = (Alarm*) malloc(sizeof(Alarm));
-  if (NULL == tmp) return ;
+  if (NULL == tmp) return NULL;
   memset(tmp, 0, sizeof(Alarm));
 
   tmp->alarmTime = getCurrentTime() + (ms / TIME_TICK);
@@ -116,4 +117,11 @@ void setAlarm(unsigned int ms, alarmCallback callback, void* context) {
     //register Alarm event.
     registerEventProcess(ALARM, alarmProccess, &AlarmList);
   }
+  return tmp;
+}
+
+void removeAlarm(void* handler) {
+  if (NULL == handler) return;
+  ListNode* p = removeNode(&AlarmList, (ListNode*)handler);
+  if (NULL != p) free((Alarm*)p);
 }

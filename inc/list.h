@@ -23,6 +23,7 @@ int deleteList(List* list);
 
 typedef int (*compareNode)(ListNode* , ListNode*);
 int insert(List* list, ListNode* node, compareNode comp);
+ListNode* removeNode(List* list, ListNode* node);
 
 int addNode(List* list, ListNode* node);
 ListNode* delNode(List* list);

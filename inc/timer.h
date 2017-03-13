@@ -14,6 +14,7 @@ void delay_ms(unsigned int ms);
 __interrupt void Timer_A (void);
 /* TODO - impletment Alarm function.*/
 typedef void (*alarmCallback)(void *context);
-void setAlarm(unsigned int ms, alarmCallback callback, void* context);
+void* setAlarm(unsigned int ms, alarmCallback callback, void* context);
+void removeAlarm(void* handler);
 
 #endif
