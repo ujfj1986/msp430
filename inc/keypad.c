@@ -9,8 +9,8 @@
 #include <string.h>
 #include "i2c.h"
 #include "timer.h"
+#include "config.h"
 
-#define KEY_LEN 4
 static int KEY_TIME_OUT = 10*1000; //1s
 
 typedef struct Keypad {

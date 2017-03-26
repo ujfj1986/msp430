@@ -11,19 +11,11 @@
 #include "event.h"
 #include "log.h"
 #include "uart.h"
+#include "config.h"
+#include "store.h"
 
 #include <stdio.h>
 
-#define KEY_LEN 6
-#define MAC_LEN 6
-#define MAX_MAC_NUM 5
-
-typedef struct LockConfig {
-    char isFirstBoot;
-    unsigned char key[KEY_LEN];
-    unsigned char bluetoothPin[KEY_LEN];
-    unsigned char macs[MAX_MAC_NUM][MAC_LEN];
-} LockConfig;
 
 static LockConfig config;
 
