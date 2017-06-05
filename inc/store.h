@@ -13,8 +13,8 @@
 
 #include "config.h"
 int initStore();
-int readConfig(LockConfig* config);
-int writeConfig(LockConfig* config);
+int readStore(int offset, char* buf, int len);
+int writeStore(int offset, char* buf, int len);
 
 
 #endif //_STORE_H_

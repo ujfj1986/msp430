@@ -46,6 +46,8 @@ void main(void)
 {
     //unsigned char buf[10] = "\0";
     //unsigned char count = 0;
+    // load config
+    //init global
     InitMsp430();
     initTimer();
     

@@ -21,5 +21,7 @@ typedef struct LockConfig {
     unsigned char macs[MAX_MAC_NUM][MAC_LEN];
 } LockConfig;
 
+int loadConfig(LockConfig* config);
+int updateConfig(LockConfig* config);
 
 #endif //_CONFIG_H_

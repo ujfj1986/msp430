@@ -1881,6 +1881,9 @@
       <name>$PROJ_DIR$\inc\buffer.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\inc\config.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\inc\event.c</name>
     </file>
     <file>
@@ -1897,6 +1900,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\inc\pin.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\store.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\inc\timer.c</name>
