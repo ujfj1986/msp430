@@ -16,19 +16,6 @@
 
 #include <stdio.h>
 
-
-static LockConfig config;
-
-static int loadConfig() {
-    // TODO: load config from flash
-    return 0;
-}
-
-static int writeConfig() {
-    // TODO: write config to flash
-    return 0;
-}
-
 static void bluetoothConnectProcess(void* context) {
     // TODO: dule with bluetooth device connect event.
     log("in bluetoothConnectProcess\n");
@@ -54,7 +41,7 @@ static int resetPinProcess(PinHandler pin, void* context) {
 }
 
 int initBluetoothLock() {
-    loadConfig();
+//    loadConfig();
 
     //config reset pin.
 

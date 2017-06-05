@@ -122,6 +122,10 @@
       <name>$PROJ_DIR$\inc\bluetoothlock.c</name>
       <outputs>
         <tool>
+          <name>ICC430</name>
+          <file> 64</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
           <file> 61</file>
         </tool>
@@ -389,10 +393,6 @@
       <name>$PROJ_DIR$\inc\config.c</name>
       <outputs>
         <tool>
-          <name>ICC430</name>
-          <file> 72</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
           <file> 76</file>
         </tool>
@@ -400,17 +400,21 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 74 78</file>
+          <file> 24 25 26 27 44 28 30 31 29 32 74 78</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 74 78</file>
+          <file> 24 25 26 27 28 30 31 29 32 74 78</file>
         </tool>
       </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\inc\store.c</name>
       <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 66</file>
+        </tool>
         <tool>
           <name>BICOMP</name>
           <file> 71</file>
@@ -419,7 +423,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 34 36 78 74</file>
+          <file> 24 25 26 27 44 28 30 31 29 32 33 34 36 78 74</file>
         </tool>
         <tool>
           <name>BICOMP</name>
