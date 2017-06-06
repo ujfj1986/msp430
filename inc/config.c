@@ -19,5 +19,5 @@ int loadConfig(LockConfig* config) {
 int updateConfig(LockConfig* config) {
     if (NULL == config) return -1;
 
-    return writeStor(0, (char*)config, sizeof(LockConfig));
+    return writeStore(0, (char*)config, sizeof(LockConfig));
 }

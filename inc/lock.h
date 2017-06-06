@@ -13,16 +13,22 @@
 int initLock(LockConfig* config);
 
 typedef enum LockStatus {
-    LOCK = 0;
-    UNLOCK = 1;
+    STATUS_LOCK = 0,
+    STATUS_UNLOCK = 1,
 } LockStatus;
-LockStatue getLockStatus();
+LockStatus getLockStatus();
 
 typedef enum LockMode {
     NORMAL = 0,
     CONFIG_MODE = 1,
 } LockMode;
-bool isConfigMode();
+char isConfigMode();
+
+typedef struct Lock {
+    LockConfig config;
+    LockStatus status;
+    LockMode mode;
+} Lock;
 
 LockConfig* getLockConfig();
 

@@ -10,25 +10,28 @@
 
 #include "lock.h"
 
-typedef struct Lock {
-    LockConfig config;
-    LockStatus status;
-    LockMode mode;
-} Lock;
 
 static Lock gLock;
-static LockConfig gDefaultConfig = {};//TODO
+static LockConfig gDefaultConfig ;
 
 int initLock(LockConfig* config) {
-    if (NULL == config) return -1;
-
+    memset(&gDefaultConfig, 0, sizeof(gDefaultConfig));
+    gDefaultConfig.isFirstBoot = 1;
+    memcpy(gDefaultConfig.key, "123456", 6);
+    memcpy(gDefaultConfig.bluetoothPin, "123456", 6);
+    memcpy(gDefaultConfig.btName, "autolife", 8);
+    
     memset(&gLock, 0, sizeof(gLock));
-    gLock.config = *config;
-    gLock.status = LOCK;
-    if (0 != gLock.config.isFirstBoot) gLock.mode = NORMAL;
-    else gLock.mode = CONFIG_MODE;
+    if (NULL == config || 0 != config->isFirstBoot) gLock.config = gDefaultConfig;
+    else gLock.config = *config;
+    gLock.status = STATUS_LOCK;
+    if (0 != gLock.config.isFirstBoot) gLock.mode = CONFIG_MODE;
+    else gLock.mode = NORMAL;
+    gLock.config.isFirstBoot = 0;
+    updateConfig(&gLock.config);
 
     //TODO:init bluetooth
+    initBluetoothLock(&gLock);
     //init keypad
     // init motor
     // init beep
@@ -44,7 +47,7 @@ LockConfig* getLockConfig() {
     return &(gLock.config);
 }
 
-bool isConfigMode() {
+char isConfigMode() {
     return (CONFIG_MODE == gLock.mode);
 }
 

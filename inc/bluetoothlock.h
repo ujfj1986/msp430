@@ -12,6 +12,8 @@
 #ifndef _BLUETOOTHLOCK_H_
 #define _BLUETOOTHLOCK_H_
 
-int initBluetoothLock();
+#include "lock.h"
+
+int initBluetoothLock(Lock* lock);
 
 #endif //_BLUETOOTHLOCK_H_

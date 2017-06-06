@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2119309312</fileChecksum>
+  <fileChecksum>4155755329</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -85,6 +85,10 @@
       <file>$PROJ_DIR$\Debug\Obj\config.pbi</file>
       <file>$PROJ_DIR$\inc\keypad.h</file>
       <file>$PROJ_DIR$\inc\store.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\lock.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\lock.r43</file>
+      <file>$PROJ_DIR$\inc\lock.c</file>
+      <file>$PROJ_DIR$\inc\lock.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
@@ -133,11 +137,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 59 58 33 34 36 60 41 39 48 38 74 78 24 25 26 27 44 28 30 31 29 32</file>
+          <file> 59 82 74 58 33 34 36 60 41 39 48 38 78 24 25 26 27 44 28 30 31 29 32</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 58 33 34 36 60 41 39 48 38 74 78 24 25 26 27 28 30 31 29 32</file>
+          <file> 59 82 74 58 33 34 36 60 41 39 48 38 78 24 25 26 27 28 30 31 29 32</file>
         </tool>
       </inputs>
     </file>
@@ -340,11 +344,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 34 36 24 25 26 27 44 28 30 31 29 32 37 38 40 41 39 48 58 60 59</file>
+          <file> 33 34 36 24 25 26 27 44 28 30 31 29 32 37 38 40 41 39 48 58 60 59 82 74</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 34 36 24 25 26 27 28 30 31 29 32 37 38 40 41 39 48 58 60 59</file>
+          <file> 33 34 36 24 25 26 27 28 30 31 29 32 37 38 40 41 39 48 58 60 59 82 74</file>
         </tool>
       </inputs>
     </file>
@@ -353,7 +357,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 62 61 16 76 42 67 57 50 52 20 12 71 13 18</file>
+          <file> 62 61 16 76 42 67 57 50 79 52 20 12 71 13 18</file>
         </tool>
       </inputs>
     </file>
@@ -362,7 +366,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 46 47 63 64 19 23 73 56 51 54 22 11 21 17 45</file>
+          <file> 46 47 63 64 19 72 23 73 56 51 80 54 22 11 66 21 17 45</file>
         </tool>
       </inputs>
     </file>
@@ -392,6 +396,10 @@
     <file>
       <name>$PROJ_DIR$\inc\config.c</name>
       <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 72</file>
+        </tool>
         <tool>
           <name>BICOMP</name>
           <file> 76</file>
@@ -423,11 +431,34 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 24 25 26 27 44 28 30 31 29 32 33 34 36 78 74</file>
+          <file> 24 25 26 27 44 28 30 31 29 32 33 34 36 78</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 24 25 26 27 28 30 31 29 32 33 34 36 78 74</file>
+          <file> 24 25 26 27 28 30 31 29 32 33 34 36 78</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\inc\lock.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 80</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 24 25 26 27 44 28 30 31 29 32 43 82 74</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 25 26 27 28 30 31 29 32 43 82 74</file>
         </tool>
       </inputs>
     </file>

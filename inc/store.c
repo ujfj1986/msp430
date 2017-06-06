@@ -48,7 +48,7 @@ int writeStore(int offset, char* buf, int len) {
     unsigned char* p = (unsigned char* )STORE_ADDR;
     int i = 0;
 
-    if (0 != readConfig(0, SEG_BUF, SEG_SIZE)) return -1;
+    if (0 != readStore(0, SEG_BUF, SEG_SIZE)) return -1;
     for (i = 0; i < len; i++) {
         *(SEG_BUF + offset + i) = *(buf + i);
     }

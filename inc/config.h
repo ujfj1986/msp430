@@ -12,13 +12,20 @@
 
 #define KEY_LEN 6
 #define MAC_LEN 6
-#define MAX_MAC_NUM 5
+#define MAX_CIPHER_NUM 5
+#define BTNAME_LEN 16
+
+typedef struct Cipher {
+    unsigned char mac[MAC_LEN];
+    unsigned char pwd[KEY_LEN];
+} Cipher;
 
 typedef struct LockConfig {
     char isFirstBoot;
     unsigned char key[KEY_LEN];
+    char btName[BTNAME_LEN];
     unsigned char bluetoothPin[KEY_LEN];
-    unsigned char macs[MAX_MAC_NUM][MAC_LEN];
+    Cipher ciphers[MAX_CIPHER_NUM];
 } LockConfig;
 
 int loadConfig(LockConfig* config);

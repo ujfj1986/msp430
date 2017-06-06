@@ -11,7 +11,6 @@
 
 #define _STORE_H_
 
-#include "config.h"
 int initStore();
 int readStore(int offset, char* buf, int len);
 int writeStore(int offset, char* buf, int len);
