@@ -10,10 +10,10 @@
 
 #define _CONFIG_H_
 
-#define KEY_LEN 6
-#define MAC_LEN 6
+#define KEY_LEN (6+1)
+#define MAC_LEN 18
 #define MAX_CIPHER_NUM 5
-#define BTNAME_LEN 16
+#define BTNAME_LEN (16+1)
 
 typedef struct Cipher {
     unsigned char mac[MAC_LEN];

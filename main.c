@@ -14,6 +14,8 @@
 #include "./inc/pin.h"
 #include "./inc/bluetoothdevice.h"
 #include "./inc/bluetoothlock.h"
+#include "./inc/config.h"
+#include "./inc/lock.h"
     
 void InitMsp430() {
   /*�������г����ر����е�IO��*/
@@ -26,6 +28,11 @@ void InitMsp430() {
     initPins();
   
     WDTCTL = WDTPW + WDTHOLD;       //�رտ��Ź�
+    initTimer();
+    //init uart0&uart1
+    initUart();
+    initEvent();
+    initLog(UART0);
 /*
     P6DIR |= BIT2;P6OUT |= BIT2;    //�رյ�ƽת��
 
@@ -44,19 +51,13 @@ void readuart0(void* context) {
 /****************������****************/
 void main(void)
 {
-    //unsigned char buf[10] = "\0";
-    //unsigned char count = 0;
-    // load config
-    //init global
     InitMsp430();
-    initTimer();
+    // load config
+    LockConfig config;
+    loadConfig(&config);
+    //init global
+    initLock(&config);
     
-    //init uart0&uart1
-    initUart();
-    initEvent();
-    initLog(UART0);
-    initBluetoothLock();
-
     registerEventProcess(UART0READ, readuart0, NULL);
     openUart(UART0);
     //openUart(1);

@@ -33,28 +33,92 @@ static BTLock gBTLock;
 static void bluetoothConnectProcess(void* context) {
     // TODO: dule with bluetooth device connect event.
     log("in bluetoothConnectProcess\n");
-    writeStrThroughBluetoothDevice("send", 4);
+    writeStrThroughBluetoothDevice("AUTH", 4);
 }
 
 static void bluetoothDisconnectProcess(void* context) {
     // TODO: dule with bluetooth device disconnect event.
     log("in bluetoothDisconnectProcess\n");
 }
-
+static int findEnd() {
+    int i = 0;
+    for(i = 0; i < gBTLock.offset; i++) {
+        if (gBTLock.packageBuf[i] == '$') return (i + 1);
+    }
+    return 0;
+}
 static int parse() {
-    //TODO: parse command from package buffer and return command length.
+    //parse command from package buffer and return command length.
     //if return -1, this means the command just receive a part.
     //if return -2, this means the package buffer doesn't contain any command, clear it.
     //Commands:
     //  "AUTH XX:XX:XX:XX:XX:XX YYYYYY$":        XX is mac address; YYYYYY is cipher.
     //  "OPEN$":                                 open this lock.
     //  "CONFIG XX:XX:XX:XX:XX:XX YYYYYYY$":     configuration this bt device's cipher.
-    return 0;
+    //  "ADD XX:XX:XX:XX:XX:XX YYYYYY$":         add new bt device.
+    //  "REMOVE XX:XX:XX:XX:XX:XX$":             remove bt device.
+    if (gBTLock.offset < 5) return -1;
+    int end = 0;
+    if (0 == memcmp(gBTLock.packageBuf, "AUTH", 4)) {
+        end = findEnd(); 
+        if (!end) goto part_message;
+        else if (30 !=  end) {
+            goto error_message;
+        } else {
+            return end;
+        }
+    }
+    if (0 == memcmp(gBTLock.packageBuf, "OPEN$", 5)) {
+        return 5;
+    }
+    if (0 == memcmp(gBTLock.packageBuf, "CONFIG", 6)) {
+        end = findEnd();
+        if (!end) goto part_message;
+        else if (32 != end) {
+            goto error_message;
+        } else {
+            return end;
+        }
+    }
+    end = findEnd();
+    if (!end) return -1;
+error_message:
+    memcpy(gBTLock.packageBuf, gBTLock.packageBuf + end, gBTLock.offset - end);
+    gBTLock.offset -= end;
+    return -2;
+part_message:
+    return -1;
 }
 
 static int processCommands(int len) {
     //TODO: process commands. parameter is command len.
     //command is in package buffer.
+    char mac[MAC_LEN] = "\0";
+    char cipher[KEY_LEN] = "\0";
+    int i = 0;
+
+    if (gBTLock.status == UNAUTH) {
+        if (30 != len) {
+            log("receive %s message on unauth status.\n", ((5 == len) ? "Open" : "Config"));
+            writeStrThroughBluetoothDevice("AUTH", 4);
+
+            return -1;
+        }
+
+        memcpy(mac, gBTLock.packageBuf + 5, MAC_LEN - 1);
+        memcpy(cipher, gBTLock.packageBuf + 23, KEY_LEN - 1);
+        
+        for (i = 0; i < MAX_CIPHER_NUM; i++) {
+            if ((0 == memcmp(mac, gBTLock.config->ciphers[i].mac, MAC_LEN)) &&
+            (0 == memcpy(cipher, gBTLock.config->ciphers[i].cipher, KEY_LEN))) {
+                gBTLock.status = AUTH;
+                break;
+            }
+        }
+        return 0;
+    }
+
+
     return 0;
 }
 static void bluetoothReadProcess(void* context) {
@@ -63,19 +127,21 @@ static void bluetoothReadProcess(void* context) {
         PACKAGE_BUF_SIZE - gBTLock.offset);
     log("read from bluetooth: %d %s\n", len, gBTLock.packageBuf + gBTLock.offset);
     gBTLock.offset += len;
-    int ret = parse();
-    if (0 >= ret) {
-        if (-1 == ret) {
-            log("this command just receive a part.\n");
-        } else if(-2 == ret) {
-            log("The package buffer doesn\'t contain any commands.\n");
-            memset(gBTLock.packageBuf, 0, gBTLock.offset);
-            gBTLock.offset = 0;
+    int ret = 0;
+    while (1) {
+        int ret = parse();
+        if (0 >= ret) {
+            if (-1 == ret) {
+                log("this command just receive a part.\n");
+                break;
+            } else if(-2 == ret) {
+                log("The package buffer doesn\'t contain any commands.\n");
+                continue;
+            }
+            return ;
         }
-        log("parse error.\n");
-        return ;
+        processCommands(ret);
     }
-    processCommands(ret);
 }
 
 static int resetPinProcess(PinHandler pin, void* context) {
