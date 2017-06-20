@@ -47,6 +47,25 @@ static int findEnd() {
     }
     return 0;
 }
+typedef struct BT_CMD_T {
+    char* cmd_start;
+    int cmd_start_len;
+    int cmd_len;
+    int (*process)(struct BT_CMD_T* cmd);
+} BT_CMD_T;
+int processAuthCmd(BT_CMD_T* cmd);
+int processAddCmd(BT_CMD_T* cmd);
+int processOpenCmd(BT_CMD_T* cmd);
+int processConfigCmd(BT_CMD_T* cmd);
+int processRemoveCmd(BT_CMD_T* cmd);
+static BT_CMD_T gBtCommands = {
+    {"AUTH", 4, 30, processAuthCmd},
+    {"OPEN$", 5, 5, processOpenCmd},
+    {"CONFIG", 6, 32, processConfigCmd},
+    {"ADD", 3, 29, processAddCmd},
+    {"REMOVE", 6, 25, processRemoveCmd},
+    {NULL, 0, 0, NULL},
+};
 static int parse() {
     //parse command from package buffer and return command length.
     //if return -1, this means the command just receive a part.
@@ -59,7 +78,19 @@ static int parse() {
     //  "REMOVE XX:XX:XX:XX:XX:XX$":             remove bt device.
     if (gBTLock.offset < 5) return -1;
     int end = 0;
-    if (0 == memcmp(gBTLock.packageBuf, "AUTH", 4)) {
+    BT_CMD_T* p = NULL;
+    for (p = gBtCommands; (p != NULL && p->cmd_start != NULL); p++) {
+        if (0 == memcmp(gBTLock.packageBuf, p->cmd_start, p->cmd_start_len)) {
+            end = findEnd();
+            if (!end) goto part_message;
+            else if (p->cmd_len != end) {
+                goto error_message;
+            } else {
+                return end;
+            }
+        }
+    }
+    /*if (0 == memcmp(gBTLock.packageBuf, "AUTH", 4)) {
         end = findEnd(); 
         if (!end) goto part_message;
         else if (30 !=  end) {
@@ -80,6 +111,11 @@ static int parse() {
             return end;
         }
     }
+    if (0 == memcmp(gBTLock.packageBuf, "ADD", 3)) {
+        end = findEnd();
+        if (!end) goto part_message;
+        else if ()
+    }*/
     end = findEnd();
     if (!end) return -1;
 error_message:
