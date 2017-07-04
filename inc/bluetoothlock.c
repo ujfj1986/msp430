@@ -15,6 +15,7 @@
 #include "store.h"
 
 #include <stdio.h>
+#include <string.h>
 
 typedef enum BTLockStatus {
     UNAUTH = 0,
@@ -58,7 +59,7 @@ int processAddCmd(BT_CMD_T* cmd);
 int processOpenCmd(BT_CMD_T* cmd);
 int processConfigCmd(BT_CMD_T* cmd);
 int processRemoveCmd(BT_CMD_T* cmd);
-static BT_CMD_T gBtCommands = {
+static BT_CMD_T gBtCommands[] = {
     {"AUTH", 4, 30, processAuthCmd},
     {"OPEN$", 5, 5, processOpenCmd},
     {"CONFIG", 6, 32, processConfigCmd},
@@ -129,8 +130,8 @@ part_message:
 static int processCommands(int len) {
     //TODO: process commands. parameter is command len.
     //command is in package buffer.
-    char mac[MAC_LEN] = "\0";
-    char cipher[KEY_LEN] = "\0";
+    char* mac = NULL;
+    char* cipher = NULL;
     int i = 0;
 
     if (gBTLock.status == UNAUTH) {
@@ -141,12 +142,12 @@ static int processCommands(int len) {
             return -1;
         }
 
-        memcpy(mac, gBTLock.packageBuf + 5, MAC_LEN - 1);
-        memcpy(cipher, gBTLock.packageBuf + 23, KEY_LEN - 1);
+        mac = gBTLock.packageBuf + 5;
+        cipher = gBTLock.packageBuf + 23;
         
         for (i = 0; i < MAX_CIPHER_NUM; i++) {
             if ((0 == memcmp(mac, gBTLock.config->ciphers[i].mac, MAC_LEN)) &&
-            (0 == memcpy(cipher, gBTLock.config->ciphers[i].cipher, KEY_LEN))) {
+            (0 == memcpy(cipher, gBTLock.config->ciphers[i].pwd, KEY_LEN))) {
                 gBTLock.status = AUTH;
                 break;
             }
@@ -165,7 +166,7 @@ static void bluetoothReadProcess(void* context) {
     gBTLock.offset += len;
     int ret = 0;
     while (1) {
-        int ret = parse();
+        ret = parse();
         if (0 >= ret) {
             if (-1 == ret) {
                 log("this command just receive a part.\n");

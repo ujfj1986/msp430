@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include "lock.h"
+#include "bluetoothlock.h"
 
 
 static Lock gLock;
