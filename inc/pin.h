@@ -19,11 +19,14 @@ typedef enum PinStatus {
 
 typedef char PinHandler;
 
-PinHandler createPinHandler(char pinsId, char pinId) ;
+//PinHandler createPinHandler(char pinsId, char pinId) ;
+#define createPinHandler(pinsId, pinId) (PinHandler)((pinsId & 0x0f) << 4 | (pinId & 0x0f))
 
-char getPinsId(PinHandler);
+//char getPinsId(PinHandler);
+#define getPinsId(p) (char) (((p) & 0xf0) >> 4)
 
-char getPinId(PinHandler);
+//char getPinId(PinHandler);
+#define getPinId(p) (char) ((p) & 0x0f)
 
 int initPins();
 

@@ -54,11 +54,11 @@ typedef struct BT_CMD_T {
     int cmd_len;
     int (*process)(struct BT_CMD_T* cmd);
 } BT_CMD_T;
-int processAuthCmd(BT_CMD_T* cmd);
-int processAddCmd(BT_CMD_T* cmd);
-int processOpenCmd(BT_CMD_T* cmd);
-int processConfigCmd(BT_CMD_T* cmd);
-int processRemoveCmd(BT_CMD_T* cmd);
+int processAuthCmd(BT_CMD_T* cmd) {}
+int processAddCmd(BT_CMD_T* cmd) {}
+int processOpenCmd(BT_CMD_T* cmd){}
+int processConfigCmd(BT_CMD_T* cmd) {}
+int processRemoveCmd(BT_CMD_T* cmd) {}
 static BT_CMD_T gBtCommands[] = {
     {"AUTH", 4, 30, processAuthCmd},
     {"OPEN$", 5, 5, processOpenCmd},

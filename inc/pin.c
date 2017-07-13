@@ -11,7 +11,7 @@
 #include "event.h"
 #include "log.h"
 
-PinHandler createPinHandler(char pinsId, char pinId) {
+/*PinHandler createPinHandler(char pinsId, char pinId) {
     return (PinHandler)((pinsId & 0x0f) << 4 | (pinId & 0x0f));
 }
 
@@ -21,13 +21,13 @@ char getPinsId(PinHandler pin) {
 
 char getPinId(PinHandler pin) {
     return (char) (pin & 0x0f);
-}
+}*/
 
-typedef struct Pin {
-    char irqType;
-    PinProc proc;
-    void* context;
-} Pin;
+typedef struct PinIrqContext {
+    char irqValue;
+    PinProc proc[8];
+    //void* context;
+} PinIrqContext;
 
 #define PINLINES 8
 #define PINSCOUNT 6
@@ -131,7 +131,7 @@ unsigned char volatile* REG_IES(char x) {
 #define CLR_BIT(reg, bit) reg &= ~(1 << bit)
 #define GET_BIT(reg, bit) (char)(((reg) & (1 << bit)) >> bit)
 
-typedef unsigned short PinsStatus;
+/*typedef unsigned short PinsStatus;
 #define PINS_STATUS_ALL_IN 0x0000
 #define PINS_STATUS_ALL_OUT 0x5555
 #define PINS_STATUS_ALL_SEL 0xAAAA
@@ -151,11 +151,13 @@ typedef struct Pins {
     Pin pin[PINLINES];
 } Pins;
 
-static Pins pins[PINSCOUNT];
+static Pins pins[PINSCOUNT];*/
 
+static PinIrqContext gPinIrqContext[2];
 int initPins() {
     char id = 0;
-    memset(&pins, 0, sizeof(pins));
+    //memset(&pins, 0, sizeof(pins));
+    memset(gPinIrqContext, 0, sizeof(gPinIrqContext));
 
     for (id = 0; id < PINSCOUNT; id ++) {
         configPinsStatus(id + 1, PIN_OUT);
@@ -172,17 +174,18 @@ char getPinValue(PinHandler pin) {
     if ((0 >= pinsId || PINSCOUNT < pinsId) ||
         (0 > pinId || PINLINES <= pinId)) return -1;
     
-    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
-    if (PIN_IN != status) return -1;
+    /*PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    if (PIN_IN != status) return -1;*/
 
     unsigned char const volatile* reg = REG_IN(pinsId);
     return GET_BIT(*reg, pinId);
+    //return GET_BIT(PIN_REG_IN(pinsId), pinId);
 }
 
 char getPinsValue(char pinsId) {
     if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
 
-    if (PINS_STATUS_ALL_IN != pins[pinsId - 1].pins_status) return -1;
+    //if (PINS_STATUS_ALL_IN != pins[pinsId - 1].pins_status) return -1;
 
     return *(REG_IN(pinsId)); 
 }
@@ -194,8 +197,8 @@ int setPinValue(PinHandler pin, char value) {
     if ((0 >= pinsId || PINSCOUNT < pinsId) ||
         (0 > pinId || PINLINES <= pinId)) return -1;
     
-    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
-    if (PIN_OUT != status) return -1;
+    /*PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    if (PIN_OUT != status) return -1;*/
     unsigned char volatile* reg = REG_OUT(pinsId);
     (value == 0) ? (CLR_BIT(*reg, pinId)) :
             (SET_BIT(*reg, pinId));
@@ -205,7 +208,7 @@ int setPinValue(PinHandler pin, char value) {
 int setPinsValue(char pinsId, char value) {
     if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
 
-    if (PINS_STATUS_ALL_OUT != pins[pinsId - 1].pins_status) return -1;
+    //if (PINS_STATUS_ALL_OUT != pins[pinsId - 1].pins_status) return -1;
 
     *(REG_OUT(pinsId)) = value;
     return 0;
@@ -214,11 +217,11 @@ int setPinsValue(char pinsId, char value) {
 int configPinsStatus(char pinsId, PinStatus status) {
     if (0 >= pinsId || PINSCOUNT < pinsId) return -1;
     
-    if (status == PIN_IN && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_IN) return 0;
+    /*if (status == PIN_IN && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_IN) return 0;
     else if (status == PIN_OUT && pins[pinsId -1].pins_status == PINS_STATUS_ALL_OUT) return 0;
-    else if (status == PIN_SEL && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_SEL) return 0;
+    else if (status == PIN_SEL && pins[pinsId - 1].pins_status == PINS_STATUS_ALL_SEL) return 0;*/
 
-    pins[pinsId - 1].pins_status = (status == PIN_IN) ?
+    /*pins[pinsId - 1].pins_status = (status == PIN_IN) ?
         (PINS_STATUS_ALL_IN) :
         ((status == PIN_OUT) ?
         (PINS_STATUS_ALL_OUT) :
@@ -254,8 +257,8 @@ int configPinStatus(PinHandler pin, PinStatus status) {
     (0 > pinId || PINLINES <= pinId)) return -1;
 
     //pins[pinsId - 1].pin[pinId].status = status;
-    if (status == getPinStatus(pins[pinsId - 1].pins_status, pinId)) return 0;
-    setPinStatus(&(pins[pinsId - 1].pins_status), pinId, status);
+    /*if (status == getPinStatus(pins[pinsId - 1].pins_status, pinId)) return 0;
+    setPinStatus(&(pins[pinsId - 1].pins_status), pinId, status);*/
 
     unsigned char volatile* reg_sel = REG_SEL(pinsId);
     unsigned char volatile* reg_dir = REG_DIR(pinsId);
@@ -280,35 +283,36 @@ static void handleIrq(char pinsId) {
     log("in handleIrq, %x\n", pinsId);
     char i = 0;
     char t = 0;
-    char ifg = pins[pinsId - 1].irqValue;
-    Pins *p = &(pins[pinsId - 1]);
+    char ifg = gPinIrqContext[pinsId - 1].irqValue;
+    PinIrqContext *p = &(gPinIrqContext[pinsId - 1]);
 
     for (i = 0; i < PINLINES; i++) {
         t = ((ifg & (1 << i)) >> i);
         if (0 != t) {
-            p->pin[i].proc(createPinHandler(pinsId, i), p->pin[i].context);
+            p->proc[i](createPinHandler(pinsId, i), NULL);
         } 
     }
 }
 static void pinIrqHandler(void* context) {
     (void *)context;
-    log("in pinIrqHandler, %x, %x\n", pins[0].hasIrq, pins[1].hasIrq);
+    log("in pinIrqHandler, %x, %x\n", gPinIrqContext[0].irqValue, gPinIrqContext[1].irqValue);
 
-    if (!pins[0].hasIrq && !pins[1].hasIrq) return;
+    if (!gPinIrqContext[0].irqValue && !gPinIrqContext[1].irqValue) return;
 
-    if (pins[0].hasIrq) {
+    if (gPinIrqContext[0].irqValue) {
         handleIrq(1);
-        pins[0].hasIrq = 0;
-        pins[0].irqValue = 0;
+        //gPinIrqContext[0].irq = 0;
+        gPinIrqContext[0].irqValue = 0;
     }
 
-    if (pins[1].hasIrq) {
+    if (gPinIrqContext[1].irqValue) {
         handleIrq(2);
-        pins[1].hasIrq = 0;
-        pins[1].irqValue = 0;
+        //gPinIrqContext[1].hasIrq = 0;
+        gPinIrqContext[1].irqValue = 0;
     }
 
 }
+
 
 int registerPinProc(PinHandler pin, PinIrqType type, PinProc proc, void* context) {
     char pinsId = getPinsId(pin);
@@ -318,15 +322,16 @@ int registerPinProc(PinHandler pin, PinIrqType type, PinProc proc, void* context
         (0 > pinId || PINLINES <= pinId) ||
         (NULL == proc)) return -1;
 
-    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    /*PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
     if (PIN_IN != status) return -1;
     Pin* p = &(pins[pinsId - 1].pin[pinId]);
-    if (NULL != p->proc) return -1;
+    if (NULL != p->proc) return -1;*/
 
     //pins[pinsId - 1].hasIrq = 1;
-    p->irqType = type;
-    p->proc = proc;
-    p->context = context;
+    PinIrqContext* p = &gPinIrqContext[pinsId -1];
+    //p->irqType = type;
+    p->proc[pinId] = proc;
+    //p->context = context;
     unsigned char volatile* reg_ies = REG_IES(pinsId);
     unsigned char volatile* reg_ifg = REG_IFG(pinsId);
     unsigned char volatile* reg_ie = REG_IE(pinsId);
@@ -348,15 +353,16 @@ int unregisterPinProc(PinHandler pin) {
     if ((1 != pinsId && 2 != pinsId) ||
         (0 > pinId || PINLINES <= pinId)) return -1;
 
-    PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
+    /*PinStatus status = getPinStatus(pins[pinsId - 1].pins_status, pinId);
     if (PIN_IN != status) return -1;
     Pin* p = &(pins[pinsId - 1].pin[pinId]);
-    if (NULL == p->proc) return 0;
+    if (NULL == p->proc) return 0;*/
 
     //pins[pinsId - 1].hasIrq = 1;
-    p->irqType = 0;
-    p->proc = NULL;
-    p->context = NULL;
+    PinIrqContext* p = &gPinIrqContext[pinsId];
+    //p->irqValue = 0;
+    p->proc[pinId] = NULL;
+    //p->context = NULL;
     unsigned char volatile* reg_ies = REG_IES(pinsId);
     unsigned char volatile* reg_ifg = REG_IFG(pinsId);
     unsigned char volatile* reg_ie = REG_IE(pinsId);
@@ -374,8 +380,8 @@ __interrupt void PORT1_ISR(void) {
     char tmpIfg = P1IFG;
     char tmpIn = P1IN;
 
-    pins[0].hasIrq = 1;
-    pins[0].irqValue = tmpIfg;
+    //gPinIrqContext[0].hasIrq = 1;
+    gPinIrqContext[0].irqValue = tmpIfg;
     P1IFG = 0;
     raiseEvent(PIN_IRQ);
 }
@@ -385,8 +391,8 @@ __interrupt void PORT2_ISR(void) {
     char tmpIfg = P2IFG;
     char tmpIn = P2IN;
 
-    pins[1].hasIrq = 1;
-    pins[1].irqValue = tmpIfg;
+    //gPinIrqContext[1].hasIrq = 1;
+    gPinIrqContext[1].irqValue = tmpIfg;
     P2IFG = 0;
     raiseEvent(PIN_IRQ);
 }

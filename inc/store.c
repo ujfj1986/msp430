@@ -44,6 +44,8 @@ int writeStore(int offset, char* buf, int len) {
     FCTL1 = FWKEY + ERASE;
     FCTL3 = FWKEY;
     *p = 0;
+    p = (unsigned char*) (STORE_ADDR + 0x100);
+    *p = 0;
     FCTL1 = FWKEY + WRT;
     for(i = 0; i < len; i ++) {
         *(p + i) = buf[i];
