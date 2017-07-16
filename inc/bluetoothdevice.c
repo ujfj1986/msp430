@@ -14,6 +14,7 @@
 #include "uart.h"
 #include "timer.h"
 #include "log.h"
+#include "pin_interface.h"
 
 typedef enum BluetoothDeviceStatus {
     UNINIT = 0,
@@ -42,14 +43,14 @@ typedef struct BluetoothDevice {
     int connectPeriod;
     char pwd[PWDLEN];
     char mac[MACLEN];
-    PinHandler VCC_PIN;
+    /*PinHandler VCC_PIN;
     PinHandler GND_PIN;
     PinHandler RST_PIN;
     PinHandler REST_PIN;
     PinHandler EN_PIN;
     PinHandler BRTS_PIN;
     PinHandler BCTS_PIN;
-    int uartHandler; 
+    int uartHandler; */
     // BluetoothDeviceConnectedEventProcess proc;
     // void* context;
     struct Buffer rBuffer;
@@ -69,29 +70,29 @@ int initBluetoothDevice(PinHandler vcc,
     
     memset(&device, 0, sizeof(device));
 
-    device.VCC_PIN = vcc;
+    /*device.VCC_PIN = vcc;
     device.GND_PIN = gnd;
     device.RST_PIN = rst;
     device.REST_PIN = rest;
     device.EN_PIN = en;
     device.BRTS_PIN = brts;
     device.BCTS_PIN = bcts;
-    device.uartHandler = uartId;
+    device.uartHandler = uartId;*/
     device.status = INIT;
-    configPinStatus(device.VCC_PIN, PIN_OUT);
-    setPinValue(device.VCC_PIN, 0);
-    configPinStatus(device.GND_PIN, PIN_OUT);
-    setPinValue(device.GND_PIN, 0);
-    configPinStatus(device.RST_PIN, PIN_OUT);
-    setPinValue(device.RST_PIN, 0);
-    configPinStatus(device.REST_PIN, PIN_OUT);
-    setPinValue(device.REST_PIN, 0);
-    configPinStatus(device.EN_PIN, PIN_OUT);
-    setPinValue(device.EN_PIN, 0);
-    configPinStatus(device.BRTS_PIN, PIN_OUT);
-    setPinValue(device.BRTS_PIN, 0);
-    configPinStatus(device.BCTS_PIN, PIN_IN);
-    openUart(device.uartHandler);
+    configPinStatus(BT_VCC, PIN_OUT);
+    setPinValue(BT_VCC, 0);
+    configPinStatus(BT_GND, PIN_OUT);
+    setPinValue(BT_GND, 0);
+    configPinStatus(BT_RST, PIN_OUT);
+    setPinValue(BT_RST, 0);
+    configPinStatus(BT_REST, PIN_OUT);
+    setPinValue(BT_REST, 0);
+    configPinStatus(BT_EN, PIN_OUT);
+    setPinValue(BT_EN, 0);
+    configPinStatus(BT_BRTS, PIN_OUT);
+    setPinValue(BT_BRTS, 0);
+    configPinStatus(BT_BCTS, PIN_IN);
+    openUart(BT_UART);
     initBuffer(&(device.rBuffer));
     return 0;
 }
@@ -102,7 +103,7 @@ static void uartReadProcess(void * context) {
     log("in uartReadProcess\n");
     int len = 0;
 
-    len = readStrFrom(device.uartHandler, buf, 100);
+    len = readStrFrom(BT_UART, buf, 100);
     log("read str %d, %x, %x, %s.\n", len, buf[0], buf[1], buf);
 
     if (0 == strncmp((char*)buf, CMDSTART, strlen(CMDSTART))) {
@@ -177,19 +178,19 @@ int powerOnBluetoothDevice() {
     if (INIT != device.status) return  -1;
     log("in powerOnBluetoothDevice\n");
 
-    setPinValue(device.VCC_PIN, 1); // vcc on
+    setPinValue(BT_VCC, 1); // vcc on
 
-    setPinValue(device.GND_PIN, 0); // gnd off
+    setPinValue(BT_GND, 0); // gnd off
 
-    setPinValue(device.REST_PIN, 1);// rest up
-    setPinValue(device.RST_PIN, 1);//rst off
-    setPinValue(device.EN_PIN, 1);// en off
-    setPinValue(device.BRTS_PIN, 1);
+    setPinValue(BT_REST, 1);// rest up
+    setPinValue(BT_RST, 1);//rst off
+    setPinValue(BT_EN, 1);// en off
+    setPinValue(BT_BRTS, 1);
 
     //  register bcts process
     //registerPinProc(device.BCTS_PIN, 1, bctsHandler, (void*)&device);
     // register uart read process
-    registerEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ),
+    registerEventProcess((BT_UART == UART0 ? UART0READ : UART1READ),
         uartReadProcess, NULL);
     device.status = POWER_ON;
     return 0;
@@ -199,15 +200,15 @@ int powerOnBluetoothDevice() {
 int powerOffBluetoothDevice() {
     if (INIT >= device.status) return 0;
 
-    setPinValue(device.VCC_PIN, 0);
-    setPinValue(device.REST_PIN, 0);
-    setPinValue(device.RST_PIN, 0);
-    setPinValue(device.EN_PIN, 0);
-    setPinValue(device.BRTS_PIN, 0);
+    setPinValue(BT_VCC, 0);
+    setPinValue(BT_REST, 0);
+    setPinValue(BT_RST, 0);
+    setPinValue(BT_EN, 0);
+    setPinValue(BT_BRTS, 0);
 
     // unregister bcts process
     //unregisterPinProc(device.BCTS_PIN);
-    unregisterEventProcess((device.uartHandler == UART0 ? UART0READ : UART1READ));
+    unregisterEventProcess((BT_UART == UART0 ? UART0READ : UART1READ));
     device.status = INIT;
     return 0;
 }
@@ -234,7 +235,7 @@ int configBluetoothDeviceBroadcastPeriod(BluetoothDeviceBroadcastPeriod period);
 int wakeBluetoothDevice() {
     if (POWER_ON != device.status) return -1;
 
-    setPinValue(device.EN_PIN, 0);
+    setPinValue(BT_EN, 0);
     device.status = STARTED;
     return 0;
 }
@@ -243,7 +244,7 @@ int wakeBluetoothDevice() {
 int sleepBluetoothDevice() {
     if (POWER_ON >= device.status) return -1;
 
-    setPinValue(device.EN_PIN, 1);
+    setPinValue(BT_EN, 1);
     device.status = POWER_ON;
     return 0;
 }
@@ -256,13 +257,13 @@ int writeStrThroughBluetoothDevice(char* str, int len) {
     int t = 0;
 
     //down the BRTS pin.
-    while(1 != getPinValue(device.BCTS_PIN));
-    setPinValue(device.BRTS_PIN, 0);
+    while(1 != getPinValue(BT_BCTS));
+    setPinValue(BT_BRTS, 0);
     do {
-        t += writeStrTo(device.uartHandler, (unsigned char*)str + t, len - t);
+        t += writeStrTo(BT_UART, (unsigned char*)str + t, len - t);
     } while(t < len);
 
-    setPinValue(device.BRTS_PIN, 1);
+    setPinValue(BT_BRTS, 1);
     return t;
 }
 
