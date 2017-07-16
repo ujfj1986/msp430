@@ -8,34 +8,36 @@
 #include "i2c.h"
 #include <string.h>
 #include <msp430f149.h> 
+#include "pin_interface.h"
 
 typedef struct I2cBus {
-    PinHandler scl;
-    PinHandler sda;
+//    PinHandler scl;
+    //PinHandler sda;
     char rbuf;
 } I2cBus;
 
 static I2cBus i2c;
 
-#define SCL_UP setPinValue(i2c.scl, 1)
-#define SCL_DOWN setPinValue(i2c.scl, 0)
-#define SDA_UP setPinValue(i2c.sda, 1)
-#define SDA_DOWN setPinValue(i2c.sda, 0)
+#define SCL_UP setPinValue(I2C_SCL, 1)
+#define SCL_DOWN setPinValue(I2C_SCL, 0)
+#define SDA_UP setPinValue(I2C_SDA, 1)
+#define SDA_DOWN setPinValue(I2C_SDA, 0)
 #define I2C_DELAY(n) __delay_cycles(n)
 
 static void i2cInit() {
-    configPinStatus(i2c.scl, PIN_OUT);
-    configPinStatus(i2c.sda, PIN_OUT);
+    configPinStatus(I2C_SCL, PIN_OUT);
+    configPinStatus(I2C_SDA, PIN_OUT);
 
     SCL_UP;
     SDA_UP;
 }
 
-int initI2c(PinHandler scl, PinHandler sda) {
+//int initI2c(PinHandler scl, PinHandler sda) {
+int initI2c() {
     memset(&i2c, 0, sizeof(i2c));
 
-    i2c.scl = scl;
-    i2c.sda = sda;
+    //i2c.scl = scl;
+    //i2c.sda = sda;
 
     i2cInit();
     return 0;
@@ -50,22 +52,22 @@ static void i2cStart() {
 }
 
 static void i2cStop() {
-    configPinStatus(i2c.sda, PIN_OUT);
+    configPinStatus(I2C_SDA, PIN_OUT);
     SCL_UP;
     I2C_DELAY(5);
     SDA_UP;
 }
 
 static char testSDA() {
-    configPinStatus(i2c.sda, PIN_IN);
-    return getPinValue(i2c.sda);
+    configPinStatus(I2C_SDA, PIN_IN);
+    return getPinValue(I2C_SDA);
 }
 
 //write char return ack, don't send start&stop signal
 static char i2cWriteChar(char v) {
     int i = 7;
     char ack = 0x00;
-    configPinStatus(i2c.sda, PIN_OUT);
+    configPinStatus(I2C_SDA, PIN_OUT);
     for (i = 7; i >= 0; i --) {
         SCL_DOWN;
         I2C_DELAY(5);
@@ -88,7 +90,7 @@ static char i2cWriteChar(char v) {
 }
 
 static void writeACK() {
-    configPinStatus(i2c.sda, PIN_OUT);
+    configPinStatus(I2C_SDA, PIN_OUT);
     SDA_UP;
 }
 //read char return char, don't send start&stop signal
@@ -97,13 +99,13 @@ static char i2cReadChar() {
     char v = 0x00;
     char t = 0x00;
 
-    configPinStatus(i2c.sda, PIN_IN);
+    configPinStatus(I2C_SDA, PIN_IN);
     for (i = 7; i >= 0; i --) {
         SCL_DOWN;
         I2C_DELAY(10);
         SCL_UP;
         I2C_DELAY(5);
-        t = getPinValue(i2c.sda);
+        t = getPinValue(I2C_SDA);
         v |= (t << i);
         I2C_DELAY(5);
     }

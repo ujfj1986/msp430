@@ -10,18 +10,19 @@
 #include "i2c.h"
 #include "timer.h"
 #include "config.h"
+#include "pin_interface.h"
 
 static int KEY_TIME_OUT = 10*1000; //1s
 
 typedef struct Keypad {
-    PinHandler vcc;
+/*   PinHandler vcc;
     PinHandler gnd;
     PinHandler irq;
     PinHandler en;
     PinHandler scl;
     PinHandler sda;
     PinHandler bg;
-    PinHandler led;
+    PinHandler led;*/
     char key[KEY_LEN];
     char keyCount;
     void* timeoutAlarm;
@@ -55,13 +56,13 @@ static KeyMappingTable gTable[] = {
 #define KEYPAD_I2C_REG_OUTPUT3 0x12
 
 static void powerOnKeypad() {
-    setPinValue(gKey.vcc, 1);
-    setPinValue(gKey.gnd, 0);
-    setPinValue(gKey.en, 1);
+    setPinValue(KEY_PAD_VCC, 1);
+    setPinValue(KEY_PAD_GND, 0);
+    setPinValue(KEY_PAD_EN, 1);
 }
 
 static void powerOffKeypad() {
-    setPinValue(gKey.vcc, 0);
+    setPinValue(KEY_PAD_VCC, 0);
 }
 
 static char mappingKey(char* buf) {
@@ -89,7 +90,7 @@ static int keypadIrqHandler(PinHandler irq, void* context) {
     int ret = 0;
     char v = 0;
 
-    setPinValue(gKey.en, 0);
+    setPinValue(KEY_PAD_EN, 0);
     //TODO: verify the registers of output.
     ret = i2cRead(KEYPAD_I2C_ADDR, KEYPAD_I2C_REG_OUTPUT1, &output[0]);
     if (ret) goto error;
@@ -115,44 +116,46 @@ static int keypadIrqHandler(PinHandler irq, void* context) {
 
     //return 0;
 error:
-    setPinValue(gKey.en, 1);
+    setPinValue(KEY_PAD_EN, 1);
     return ret;
 }
 
-int initKeypad(PinHandler vcc,
+/*int initKeypad(PinHandler vcc,
     PinHandler gnd,
     PinHandler irq,
     PinHandler en,
     PinHandler scl,
     PinHandler sda,
     PinHandler bg, // background led
-    PinHandler led) {
+    PinHandler led) {*/
+int initKeypad() {
     memset(&gKey, 0, sizeof(gKey));
 
-    gKey.vcc = vcc;
+    /*gKey.vcc = vcc;
     gKey.gnd = gnd;
     gKey.irq = irq;
     gKey.en = en;
     gKey.scl = scl;
     gKey.sda = sda;
     gKey.bg = bg;
-    gKey.led = led;
+    gKey.led = led;*/
 
-    configPinStatus(gKey.vcc, PIN_OUT);
-    configPinStatus(gKey.gnd, PIN_OUT);
-    configPinStatus(gKey.en, PIN_OUT);
-    initI2c(gKey.scl, gKey.sda);
-    configPinStatus(gKey.bg, PIN_OUT);
-    configPinStatus(gKey.led, PIN_OUT);
-    configPinStatus(gKey.irq, PIN_IN);
-    registerPinProcess(gKey.irq, IRQ_UP, keypadIrqHandler, NULL);
+    configPinStatus(KEY_PAD_VCC, PIN_OUT);
+    configPinStatus(KEY_PAD_GND, PIN_OUT);
+    configPinStatus(KEY_PAD_EN, PIN_OUT);
+    //initI2c(gKey.scl, gKey.sda);
+    initI2c();
+    configPinStatus(KEY_PAD_BG, PIN_OUT);
+    configPinStatus(KEY_PAD_LED, PIN_OUT);
+    configPinStatus(KEY_PAD_IRQ, PIN_IN);
+    registerPinProcess(KEY_PAD_IRQ, IRQ_UP, keypadIrqHandler, NULL);
 
     powerOnKeypad();
     return 0;
 }
 
 int registerKeyProcess(KeyProcess proc, void* context) {
-    if (NULL == proc || gKey.vcc == 0 || gKey.proc != NULL) return -1;
+    if (NULL == proc || KEY_PAD_VCC == 0 || gKey.proc != NULL) return -1;
     gKey.proc = proc;
     gKey.context = context;
     return 0;

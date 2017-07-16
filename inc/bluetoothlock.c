@@ -192,14 +192,15 @@ int initBluetoothLock(Lock* lock) {
     gBTLock.status = UNAUTH;
 
     //config bluetooth device.
-    initBluetoothDevice(createPinHandler(6,0), //vcc
+    /*initBluetoothDevice(createPinHandler(6,0), //vcc
         createPinHandler(6, 6), //gnd
         createPinHandler(6, 1), //rst
         createPinHandler(6, 2), //rest
         createPinHandler(6, 3), //en
         createPinHandler(6, 4), //brts
         createPinHandler(2, 0), //bcts
-        UART1);
+        UART1);*/
+    initBluetoothDevice();
     powerOnBluetoothDevice();
     wakeBluetoothDevice();
 

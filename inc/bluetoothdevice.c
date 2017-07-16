@@ -58,14 +58,15 @@ typedef struct BluetoothDevice {
 
 static BluetoothDevice device;
 
-int initBluetoothDevice(PinHandler vcc,
+/*int initBluetoothDevice(PinHandler vcc,
     PinHandler gnd,
     PinHandler rst,
     PinHandler rest,
     PinHandler en,
     PinHandler brts,
     PinHandler bcts,
-    int uartId) {
+    int uartId) {*/
+int initBluetoothDevice() {
     if (device.status != UNINIT) return 0;
     
     memset(&device, 0, sizeof(device));

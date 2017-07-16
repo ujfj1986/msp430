@@ -10,29 +10,29 @@
 #include "pin.h"
 #include "uart.h"
 
-const PinHandler UART0_TX = createPinHandler(3, 4);
-const PinHandler UART0_RX = createPinHandler(3, 5);
-const PinHandler UART1_TX = createPinHandler(3, 6);
-const PinHandler UART1_RX = createPinHandler(3, 7);
+extern const PinHandler UART0_TX ;
+extern const PinHandler UART0_RX ;
+extern const PinHandler UART1_TX ;
+extern const PinHandler UART1_RX ;
 
-const PinHandler I2C_SCL = createPinHandler(0, 0);
-const PinHandler I2C_SDA = createPinHandler(0, 0);
+extern const PinHandler I2C_SCL ;
+extern const PinHandler I2C_SDA ;
 
-const PinHandler KEY_PAD_VCC = createPinHandler(0, 0);
-const PinHandler KEY_PAD_GND = createPinHandler(0, 0);
-const PinHandler KEY_PAD_IRQ = createPinHandler(0, 0);
-const PinHandler KEY_PAD_EN = createPinHandler(0, 0);
-const PinHandler KEY_PAD_BG = createPinHandler(0, 0);
-const PinHandler KEY_PAD_LED = createPinHandler(0, 0);
+extern const PinHandler KEY_PAD_VCC ;
+extern const PinHandler KEY_PAD_GND ;
+extern const PinHandler KEY_PAD_IRQ ;
+extern const PinHandler KEY_PAD_EN ;
+extern const PinHandler KEY_PAD_BG ;
+extern const PinHandler KEY_PAD_LED ;
 
 // bluetooth
-const PinHandler BT_VCC = createPinHandler(6, 0);
-const PinHandler BT_GND = createPinHandler(6, 6);
-const PinHandler BT_RST = createPinHandler(6, 1);
-const PinHandler BT_REST = createPinHandler(6, 2);
-const PinHandler BT_EN = createPinHandler(6, 3);
-const PinHandler BT_BRTS = createPinHandler(6, 4);
-const PinHandler BT_BCTS = createPinHandler(2, 0);
-const int BT_UART = UART1;
+extern const PinHandler BT_VCC ;
+extern const PinHandler BT_GND ;
+extern const PinHandler BT_RST ;
+extern const PinHandler BT_REST ;
+extern const PinHandler BT_EN ;
+extern const PinHandler BT_BRTS ;
+extern const PinHandler BT_BCTS ;
+extern const int BT_UART ;
 
 #endif //_PIN_INTERFACE_H_

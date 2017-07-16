@@ -21,15 +21,15 @@
 #include "pin.h"
 
 // initialize bluetooth device.
-int initBluetoothDevice(PinHandler vcc,
+/*int initBluetoothDevice(PinHandler vcc,
     PinHandler gnd,
     PinHandler rst,
     PinHandler rest,
     PinHandler en,
     PinHandler brts,
     PinHandler bcts,
-    int uartId);
-
+    int uartId);*/
+int initBluetoothDevice();
 //power on bluetooth device
 int powerOnBluetoothDevice();
 

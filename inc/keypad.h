@@ -13,14 +13,15 @@
 #ifndef _KEYPAD_H_
 #define _KEYPAD_H_
 #include "pin.h"
-int initKeypad(PinHandler vcc,
+/*int initKeypad(PinHandler vcc,
     PinHandler gnd,
     PinHandler irq,
     PinHandler en,
     PinHandler scl,
     PinHandler sda,
     PinHandler bg, // background led
-    PinHandler led); // led
+    PinHandler led); // led*/
+int initKeypad();
 
 typedef void (*KeyProcess)(char* key, void* context);
 int registerKeyProcess(KeyProcess proc, void* context);
