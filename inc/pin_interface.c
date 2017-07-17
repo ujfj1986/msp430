@@ -31,3 +31,5 @@ extern const PinHandler BT_EN = createPinHandler(6, 3);
 extern const PinHandler BT_BRTS = createPinHandler(6, 4);
 extern const PinHandler BT_BCTS = createPinHandler(2, 0);
 extern const int BT_UART = UART1;
+
+extern const int LOG_UART = UART0;

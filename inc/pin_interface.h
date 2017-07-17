@@ -35,4 +35,6 @@ extern const PinHandler BT_BRTS ;
 extern const PinHandler BT_BCTS ;
 extern const int BT_UART ;
 
+extern const int LOG_UART;
+
 #endif //_PIN_INTERFACE_H_

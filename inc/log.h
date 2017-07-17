@@ -12,7 +12,7 @@
 #ifndef _LOG_H_
 #define _LOG_H_
 
-int initLog(int uartnu);
+int initLog();
 
 int log(const char* format, ...);
 

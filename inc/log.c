@@ -10,21 +10,22 @@
 
 #include "log.h"
 #include "uart.h"
+#include "pin_interface.h"
 
-#define LOG_BUFFER_SIZE 1000
-static int logUartNum = -1;
+#define LOG_BUFFER_SIZE 100
+//static int logUartNum = -1;
 static unsigned char logBuffer[LOG_BUFFER_SIZE] = "\0";
 
-int initLog(int uartNum) {
-  if ( -1 != logUartNum) return -1;
+int initLog() {
+  /*if ( -1 != logUartNum) return -1;
   if (UART0 != uartNum && UART1 != uartNum) return -1;
-  logUartNum = uartNum;
-  openUart(logUartNum);
+  logUartNum = uartNum;*/
+  openUart(LOG_UART);
   return 0;
 }
 
 int log(const char* format, ...) {
-  if (-1 == logUartNum) return -1;
+  //if (-1 == logUartNum) return -1;
   if (NULL == format) return -1;
   
   va_list args;
@@ -35,7 +36,7 @@ int log(const char* format, ...) {
   logBuffer[len] = '\0';
   
   if (0 != len) {
-    writeStrTo(logUartNum, logBuffer, len+1);
+    writeStrTo(LOG_UART, logBuffer, len+1);
   }
   va_end(args);
   logBuffer[0] = '\0';
