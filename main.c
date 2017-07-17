@@ -32,7 +32,7 @@ void InitMsp430() {
     //init uart0&uart1
     initUart();
     initEvent();
-    initLog(UART0);
+    initLog();
 /*
     P6DIR |= BIT2;P6OUT |= BIT2;    //�رյ�ƽת��
 

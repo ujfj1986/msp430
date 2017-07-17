@@ -34,6 +34,7 @@ int initLock(LockConfig* config) {
     //TODO:init bluetooth
     initBluetoothLock(&gLock);
     //init keypad
+    initKeypadLock()
     // init motor
     // init beep
     // register reset pin process
