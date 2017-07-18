@@ -11,6 +11,7 @@
 #include "timer.h"
 #include "config.h"
 #include "pin_interface.h"
+#include "pin.h"
 
 static int KEY_TIME_OUT = 10*1000; //1s
 
@@ -148,7 +149,7 @@ int initKeypad() {
     configPinStatus(KEY_PAD_BG, PIN_OUT);
     configPinStatus(KEY_PAD_LED, PIN_OUT);
     configPinStatus(KEY_PAD_IRQ, PIN_IN);
-    registerPinProcess(KEY_PAD_IRQ, IRQ_UP, keypadIrqHandler, NULL);
+    registerPinProc(KEY_PAD_IRQ, IRQ_UP, keypadIrqHandler, NULL);
 
     powerOnKeypad();
     return 0;

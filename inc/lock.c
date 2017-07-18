@@ -10,6 +10,7 @@
 
 #include "lock.h"
 #include "bluetoothlock.h"
+#include "keypadlock.h"
 
 
 static Lock gLock;
@@ -34,7 +35,7 @@ int initLock(LockConfig* config) {
     //TODO:init bluetooth
     initBluetoothLock(&gLock);
     //init keypad
-    initKeypadLock()
+    initKeypadLock();
     // init motor
     // init beep
     // register reset pin process

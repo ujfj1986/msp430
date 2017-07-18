@@ -16,7 +16,13 @@ void keypadProc(char* key, void* context) {
     log("input key: %s\n", key);
 
     LockConfig* config = getLockConfig();
-    if (0 == memcmp(key, config->key, KEY_LEN)) {
+    if (isConfigMode()) {
+        memcpy(config->key, key, KEY_LEN - 1);
+        updateConfig(config);
+        return ;
+    }
+
+    if (0 == memcmp(key, config->key, KEY_LEN - 1)) {
         unlock();
     }
 }
@@ -24,4 +30,5 @@ void keypadProc(char* key, void* context) {
 int initKeypadLock() {
     initKeypad();
     registerKeyProcess(keypadProc, NULL);
+    return 0;
 }
